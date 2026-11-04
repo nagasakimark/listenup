@@ -1,0 +1,50 @@
+name: 曲を追加・更新 (Process songs)
+
+on:
+  push:
+    branches: [main]
+    paths: ['songs.txt', 'songs/src/**']
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'YouTubeのURL (空なら songs.txt の まだ処理していない曲だけ処理)'
+        required: false
+      force:
+        description: '処理ずみの曲もやり直す'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: process-songs
+  cancel-in-progress: false
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: URLを songs.txt に追加
+        if: ${{ inputs.url != '' }}
+        env:
+          URL: ${{ inputs.url }}
+        run: printf '\n%s\n' "$URL" >> songs.txt
+      - name: 曲を処理
+        env:
+          FORCE: ${{ inputs.force }}
+        run: |
+          if [ "$FORCE" = "true" ]; then node tools/process-songs.mjs --force; else node tools/process-songs.mjs; fi
+      - name: 結果をコミット
+        run: |
+          git config user.name "listenup-bot"
+          git config user.email "listenup-bot@users.noreply.github.com"
+          git add -A songs songs.txt
+          if git diff --cached --quiet; then echo "変更なし"; exit 0; fi
+          git commit -m "曲を更新 (自動)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push

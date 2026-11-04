@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#14123a">
+<title>Listen Up! 英語ソング・ブランクチャレンジ</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<main id="app">
+
+  <!-- 1. レベルえらび -->
+  <section class="screen" id="s-level">
+    <div class="title">
+      <div class="logo">🎧 Listen&nbsp;Up!</div>
+      <p class="sub">英語の うたを きいて、ぬけている ことばを うめよう！</p>
+    </div>
+    <p class="ask">あなたの 学年を えらんでね</p>
+    <div class="levels" id="levels"></div>
+    <p class="foot">New Horizon Elementary 5・6（2024） / New Horizon 1・2・3（2025）の ことばから でます</p>
+  </section>
+
+  <!-- 2. 曲えらび -->
+  <section class="screen" id="s-songs">
+    <header class="bar">
+      <button class="chip lvl" id="btn-level" title="学年を かえる"></button>
+      <h2>きょくを えらぼう</h2>
+      <span class="spacer"></span>
+      <button class="chip" id="btn-prev" aria-label="まえ">◀</button>
+      <span class="pager" id="pager"></span>
+      <button class="chip" id="btn-next" aria-label="つぎ">▶</button>
+    </header>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden>
+      <p>まだ きょくが ありません。</p>
+      <p class="small">先生へ: <code>songs.txt</code> に YouTube のリンクを書くと、自動で きょくが ふえます。</p>
+      <button class="big" id="btn-demo">デモきょくで あそぶ</button>
+    </div>
+  </section>
+
+  <!-- 3. あそびかた設定 -->
+  <section class="screen" id="s-setup">
+    <header class="bar">
+      <button class="chip" id="btn-setup-back">◀ もどる</button>
+      <span class="spacer"></span>
+      <button class="chip lvl" id="btn-level2"></button>
+    </header>
+    <div class="setup">
+      <div class="setup-song">
+        <img id="setup-img" alt="">
+        <div><h2 id="setup-title"></h2><p id="setup-artist"></p><p class="small" id="setup-count"></p></div>
+      </div>
+      <div class="opts">
+        <div class="opt-row"><span>むずかしさ</span><div class="seg" id="seg-diff"></div></div>
+        <div class="opt-row"><span>こたえかた</span><div class="seg" id="seg-mode"></div></div>
+      </div>
+      <button class="big go" id="btn-start">▶ スタート！</button>
+      <p class="small hint">ことばが でたら 曲が とまるよ。 なんど でも きき なおせるよ。</p>
+    </div>
+  </section>
+
+  <!-- 4. プレイ -->
+  <section class="screen" id="s-play">
+    <header class="bar play-bar">
+      <button class="chip" id="btn-quit">✕ やめる</button>
+      <div class="now"><b id="p-title"></b><small id="p-artist"></small></div>
+      <span class="spacer"></span>
+      <div class="score"><small>SCORE</small><b id="p-score">0</b></div>
+      <div class="combo" id="p-combo" aria-live="polite"></div>
+    </header>
+
+    <div class="stage">
+      <div class="video" id="video-box">
+        <div id="yt"></div>
+        <div class="video-msg" id="video-msg" hidden></div>
+        <div class="tap-start" id="tap-start" hidden>▶ タップして スタート</div>
+      </div>
+      <div class="lyrics" id="lyrics"><div class="lines" id="lines"></div><div class="fade top"></div><div class="fade bot"></div></div>
+    </div>
+
+    <div class="progress"><i id="p-bar"></i></div>
+
+    <footer class="dock">
+      <div class="answer" id="answer"></div>
+      <div class="tools">
+        <button class="tool" id="t-replay" title="もういちど きく (Backspace)">↺<span>もう一回</span></button>
+        <button class="tool" id="t-hint" title="ヒント">💡<span>ヒント</span></button>
+        <button class="tool" id="t-skip" title="こたえを見る (Tab)">⏭<span>こたえ</span></button>
+        <button class="tool" id="t-slow" title="ゆっくり">🐢<span>ゆっくり</span></button>
+        <button class="tool" id="t-pause" title="とめる (Space)">⏸<span>とめる</span></button>
+        <button class="tool" id="t-sync" title="音と ことばの ずれ">⚙<span>ずれ</span></button>
+      </div>
+      <div class="sync-pop" id="sync-pop" hidden>
+        <span>ことばが 早すぎ／おそすぎる とき</span>
+        <button class="chip" id="sync-minus">− 0.5びょう</button>
+        <b id="sync-val">0.0</b>
+        <button class="chip" id="sync-plus">+ 0.5びょう</button>
+      </div>
+    </footer>
+    <input id="kbd" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="こたえを入力">
+  </section>
+
+  <!-- 5. けっか -->
+  <section class="screen" id="s-result">
+    <div class="result">
+      <div class="stars" id="r-stars"></div>
+      <h2 id="r-title"></h2>
+      <div class="r-stats">
+        <div><small>SCORE</small><b id="r-score"></b></div>
+        <div><small>せいかく</small><b id="r-acc"></b></div>
+        <div><small>さいこうコンボ</small><b id="r-combo"></b></div>
+      </div>
+      <div class="r-miss" id="r-miss"></div>
+      <div class="r-btns">
+        <button class="big" id="r-again">↺ もう一回</button>
+        <button class="big alt" id="r-next">♪ ほかの きょく</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ポーズ -->
+  <div class="overlay" id="pause" hidden>
+    <div class="card">
+      <h3>ひとやすみ</h3>
+      <button class="big" id="pz-resume">▶ つづける</button>
+      <button class="big alt" id="pz-quit">きょくえらびへ</button>
+    </div>
+  </div>
+</main>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

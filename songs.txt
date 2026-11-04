@@ -1,0 +1,13 @@
+# ここに YouTube のリンクを1行ずつ書くと、保存したとき自動で曲が ふえます。
+# 書きかた:   URL | アーティスト - 曲名 (あとの2つは省略OK)   /   offset=秒 (歌詞が早い・おそいとき)
+# URLのかわりに  search: アーティスト - 曲名  と書くと YouTube から さがします。
+# 先頭に # を つけた行は むし されます。
+
+https://www.youtube.com/watch?v=kPa7bsKwL-c | Lady Gaga, Bruno Mars - Die With A Smile
+https://www.youtube.com/watch?v=ekr2nIex040 | ROSÉ, Bruno Mars - APT.
+https://www.youtube.com/watch?v=QDYfEBY9NM4 | The Beatles - Let It Be
+https://www.youtube.com/watch?v=bx1Bh8ZvH84 | Oasis - Wonderwall
+https://www.youtube.com/watch?v=lp-EO5I60KA | Ed Sheeran - Thinking Out Loud
+https://www.youtube.com/watch?v=6M6samPEMnU | Backstreet Boys - Everybody (Backstreet's Back)
+search: Randy Newman - You've Got a Friend in Me
+search: Sia - Snowman

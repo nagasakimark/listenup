@@ -17,7 +17,7 @@ export class Game {
     this.score = 0; this.combo = 0; this.bestCombo = 0;
     this.state = 'loading';          // loading | playing | waiting | ended
     this.gate = true;                // 曲がほんとうに流れはじめる(広告がおわる)まで、ゲームを止めておく
-    this.gateSince = 0; this.badSince = 0;
+    this.gateSince = 0; this.badSince = 0; this.samp = [];
     this.userPaused = false; this.slow = false; this.activeLine = -1; this.replays = 0;
     this.nudge = parseFloat(localStorage.getItem('lu.sync.' + song.id) || '0') || 0;
     this.build();
@@ -157,6 +157,11 @@ export class Game {
     this.setGate(true);
     this.player.seek(Math.max(0, (this.song.lines[0]?.t || 0) + this.shift - 4));
     this.player.play();
+    if (/[?&]debug/.test(location.search)) {
+      const d = document.createElement('pre'); d.style.cssText = 'position:fixed;left:4px;bottom:4px;z-index:99;background:#000c;color:#0f0;font:11px monospace;padding:4px;margin:0;pointer-events:none;max-width:60vw';
+      document.body.appendChild(d); this.dbgEl = d;
+      this.dbg = (s) => { const p = this.player; d.textContent = `gate=${this.gate} songState=${s} state=${this.state}\nplaying=${this.isPlaying} t=${p.time().toFixed(1)} dur=${p.duration()} exp=${this.song.lrcDur || this.song.dur}\nid=${p.videoId && p.videoId()} adState=${p.adState && p.adState()}`; };
+    }
     this.loop = setInterval(() => this.tick(), 60);
     setTimeout(() => { if (!this.dead && !this.isPlaying && this.state === 'playing' && !this.userPaused) $('tap-start').hidden = false; }, 3000);
     this.focusInput();
@@ -189,40 +194,54 @@ export class Game {
   }
 
   // ---------- こうこく待ち ----------
-  /** 流れているのが「この曲」か? 広告中は長さがちがう(YouTubeに広告の公式な合図はないので、長さで見分ける) */
-  isSong() {
+  /**
+   * 広告かどうか。YouTubeに公式の合図がなく、広告中でも「曲の長さ・ID」を返すことがあるので、
+   * いちばん確かな「曲の時計が、ほんとうに現実の時間どおりに進んでいるか」を主に見る。
+   * 戻り値: true=曲が流れている / false=広告(または止まっている) / null=まだ判断できない
+   */
+  songState() {
     if (this.player.kind !== 'youtube') return true;
-    const d = this.player.duration();
-    const exp = this.song.lrcDur || this.song.dur || 0;
-    if (!(d > 0)) return false;
-    if (exp && Math.abs(d - exp) > Math.max(25, exp * 0.2)) return false;
-    const id = this.player.videoId && this.player.videoId();
-    return !id || id === this.song.yt;
+    const p = this.player;
+    if (p.adState && p.adState() === 1) return false;                       // 内部APIが広告と答えた
+    const d = p.duration(), exp = this.song.lrcDur || this.song.dur || 0;
+    if (d > 0 && exp && Math.abs(d - exp) > Math.max(25, exp * 0.2)) return false;   // 長さがぜんぜんちがう
+    const id = p.videoId && p.videoId();
+    if (id && id !== this.song.yt) return false;
+    // 時計が進んでいるか
+    const now = performance.now(), t = p.time();
+    if (!this.isPlaying) { this.samp = []; return this.gate ? false : null; }
+    this.samp.push({ t, w: now });
+    while (this.samp.length > 2 && now - this.samp[1].w >= 1100) this.samp.shift();
+    const o = this.samp[0];
+    if (now - o.w < 1000) return null;
+    const dt = t - o.t, dw = ((now - o.w) / 1000) * (this.slow ? 0.75 : 1);
+    return dt > Math.max(0.5, dw * 0.6) && dt < dw * 1.6 + 0.3;
   }
   setGate(on) {
-    this.gate = on; this.gateSince = performance.now();
+    this.gate = on; this.gateSince = performance.now(); this.samp = [];
     $('gate').hidden = !on; $('gate-force').hidden = true;
     $('video-box').classList.toggle('gated', on); $('s-play').classList.toggle('gating', on);
   }
   /** @returns {boolean} true なら、このtickではゲームを進めない */
   checkGate() {
-    const ok = this.isSong();
+    const s = this.songState();
+    if (this.dbg) this.dbg(s);
+    const running = this.state === 'playing' && !this.userPaused;
     if (this.gate) {
-      if (ok) {
+      if (s === true) {
         this.setGate(false);
         const start = Math.max(0, (this.song.lines[0]?.t || 0) + this.shift - 4);
         if (this.player.time() < start - 1) this.player.seek(start);
-        if (this.state === 'playing' && !this.userPaused) this.player.play();
         return false;
       }
       if (performance.now() - this.gateSince > 12000) $('gate-force').hidden = false;   // 見分けに失敗したときの保険
       return true;
     }
-    // ゲーム中に広告(途中広告)が入ったら、また止める
-    if (this.player.kind === 'youtube' && !ok) {
+    // ゲーム中に広告(途中広告)が入ったら、また止める。曲を止めているとき(ブランク待ち・一時停止)は調べない
+    if (this.player.kind === 'youtube' && running && s === false) {
       this.badSince = this.badSince || performance.now();
-      if (performance.now() - this.badSince > 1500) { this.badSince = 0; this.setGate(true); return true; }
-    } else this.badSince = 0;
+      if (performance.now() - this.badSince > 2500) { this.badSince = 0; this.setGate(true); return true; }
+    } else { this.badSince = 0; if (!running) this.samp = []; }
     return false;
   }
   forceStart() { if (this.gate) { this.setGate(false); if (!this.userPaused && this.state === 'playing') this.player.play(); } }
@@ -343,5 +362,5 @@ export class Game {
     this.hooks.onEnd({ score: this.score, acc: Math.round(acc * 100), bestCombo: this.bestCombo, stars, missed, total: this.total });
   }
 
-  destroy() { this.dead = true; this.state = 'ended'; clearInterval(this.loop); try { this.player?.destroy(); } catch { /* */ } freshMount($('video-box')); }
+  destroy() { this.dead = true; this.state = 'ended'; clearInterval(this.loop); this.dbgEl?.remove(); try { this.player?.destroy(); } catch { /* */ } freshMount($('video-box')); }
 }

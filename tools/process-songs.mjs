@@ -33,6 +33,15 @@ async function get(url, opts = {}) {
   } finally { clearTimeout(timer); }
 }
 
+async function getRetry(url, tries = 4) {
+  let r;
+  for (let i = 0; i < tries; i++) {
+    try { r = await get(url); if (r.status < 500 && r.status !== 429) return r; } catch (e) { if (i === tries - 1) throw e; }
+    await new Promise((res) => setTimeout(res, 1500 * (i + 1)));
+  }
+  return r;
+}
+
 // ---------- songs.txt ----------
 function parseSongsTxt(quiet = false) {
   const file = path.join(ROOT, 'songs.txt');
@@ -78,7 +87,7 @@ async function oembed(id) {
 async function watchInfo(id) {
   const r = await get('https://www.youtube.com/watch?v=' + id + '&hl=en');
   const html = await r.text();
-  const dur = Number((html.match(/"lengthSeconds":"(\d+)"/) || [])[1]) || 0;
+  const dur = Number((html.match(/"lengthSeconds":"(\d+)"/) || [])[1]) || Math.round(Number((html.match(/"approxDurationMs":"(\d+)"/) || [])[1]) / 1000) || 0;
   let tracks = [];
   const m = html.match(/"captionTracks":(\[.*?\]),"(?:audioTracks|translationLanguages)"/);
   if (m) { try { tracks = JSON.parse(m[1]); } catch { /* ignore */ } }
@@ -118,13 +127,15 @@ function parseLrc(text) {
 
 async function fromLrclib(artist, title, dur) {
   const q = new URLSearchParams({ track_name: title, artist_name: artist });
-  const r = await get('https://lrclib.net/api/search?' + q);
+  const r = await getRetry('https://lrclib.net/api/search?' + q);
   if (!r.ok) throw new Error('LRCLIB HTTP ' + r.status);
-  const list = (await r.json()).filter((x) => x.syncedLyrics);
+  let list = (await r.json()).filter((x) => x.syncedLyrics && (x.duration || 0) >= 60);
   if (!list.length) return null;
-  list.sort((a, b) => Math.abs((a.duration || 0) - dur) - Math.abs((b.duration || 0) - dur));
+  const nLines = (x) => (x.syncedLyrics.match(/^\[\d/gm) || []).length;
+  // 動画の長さがわかるときは近いもの、わからないときは行数が多い(=完全な)ものを選ぶ
+  list.sort(dur ? (a, b) => Math.abs(a.duration - dur) - Math.abs(b.duration - dur) : (a, b) => nLines(b) - nLines(a));
   const best = list[0];
-  return { lines: parseLrc(best.syncedLyrics), note: `${best.artistName} - ${best.trackName} (${Math.round(best.duration)}s)` };
+  return { lines: parseLrc(best.syncedLyrics), note: `${best.artistName} - ${best.trackName} (${Math.round(best.duration)}s)`, dur: Math.round(best.duration) };
 }
 
 async function fromCaptions(tracks) {
@@ -195,7 +206,7 @@ async function processOne(e) {
   const lines = res.lines.map((l) => ({ t: +l.t.toFixed(2), e: +l.e.toFixed(2), w: tokenizeLine(l.text) })).filter((l) => l.w.length);
   const counts = [0, 1, 2, 3, 4].map((lv) => lines.reduce((n, l) => n + l.w.filter((w) => w[3] <= lv && w[1].length >= 3 && !w[5]).length, 0));
   const words = lines.reduce((n, l) => n + l.w.length, 0);
-  const song = { id, yt: id, title, artist, dur: dur || Math.ceil(lines[lines.length - 1].e + 5), source, offset: e.offset, lines };
+  const song = { id, yt: id, title, artist, dur: dur || res.dur || Math.ceil(lines[lines.length - 1].e + 5), lrcDur: res.dur || 0, source, offset: e.offset, lines };
   fs.writeFileSync(out, JSON.stringify(song));
   log(`   ✅ 保存 ${out.replace(ROOT + '/', '')}  総語数${words}  ブランク候補(小5/小6/中1/中2/中3)=${counts.join('/')}`);
 }

@@ -173,7 +173,8 @@ export class Game {
     const b = this.cursor;
     if (this.state === 'waiting' && b) idx = b.li;
     this.setActiveLine(Math.max(idx, 0));
-    $('p-bar').style.width = Math.min(100, (this.player.time() / (this.song.dur || 1)) * 100) + '%';
+    const d = (this.player.duration && this.player.duration()) || this.song.dur || 1;
+    $('p-bar').style.width = Math.min(100, (this.player.time() / d) * 100) + '%';
     if (this.isPlaying && !$('tap-start').hidden) $('tap-start').hidden = true;
     if (this.state === 'playing' && b && t >= b.time + b.extra) {
       this.player.pause(); this.state = 'waiting';

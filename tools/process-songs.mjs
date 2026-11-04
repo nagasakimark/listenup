@@ -24,6 +24,7 @@ const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Geck
 
 const log = (...a) => console.log(...a);
 const errors = [];
+const resolved = new Map();   // search: の行 → 見つけた動画ID(あとで songs.txt をURLに書きかえる)
 
 async function get(url, opts = {}) {
   const ctl = new AbortController();
@@ -165,6 +166,7 @@ async function processOne(e) {
     const ids = await searchYouTube(e.search);
     if (!ids.length) throw new Error('YouTube検索で見つかりません。URLを直接書いてください');
     id = ids[0];
+    resolved.set(e.raw, id);
     log(`   → ${id} (候補: ${ids.join(', ')})`);
   }
   const out = path.join(SONGS, id + '.json');
@@ -235,6 +237,16 @@ for (const e of entries) {
   try { await processOne(e); } catch (err) { errors.push(`${e.raw}\n     → ${err.message}`); log('   ❌ ' + err.message); }
 }
 rebuildIndex();
+// 検索で見つけた曲は URL に書きかえて固定する(あとで検索結果が変わっても同じ動画のまま)
+if (resolved.size) {
+  const file = path.join(ROOT, 'songs.txt');
+  const out = fs.readFileSync(file, 'utf8').split('\n').map((l) => {
+    const raw = l.replace(/\s+#.*$/, '').trim();
+    const e = entries.find((x) => x.raw === raw && resolved.has(raw));
+    return e && fs.existsSync(path.join(SONGS, resolved.get(raw) + '.json')) ? `https://www.youtube.com/watch?v=${resolved.get(raw)} | ${e.expect}` : l;
+  });
+  fs.writeFileSync(file, out.join('\n'));
+}
 if (errors.length) {
   log('\n⚠️  うまくいかなかった曲:\n' + errors.map((x) => ' - ' + x).join('\n'));
   fs.writeFileSync(path.join(SONGS, 'REPORT.txt'), errors.join('\n') + '\n');

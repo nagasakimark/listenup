@@ -134,6 +134,7 @@ function bind() {
 
   $('answer').onclick = (e) => { const b = e.target.closest('.choice'); if (b) S.game?.choose(b.dataset.w); else S.game?.focusInput(); };
   $('lyrics').onclick = () => S.game?.focusInput();
+  $('gate-force').onclick = () => S.game?.forceStart();
   $('t-replay').onclick = () => S.game?.replay();
   $('t-hint').onclick = () => S.game?.hint();
   $('t-skip').onclick = () => S.game?.skip();

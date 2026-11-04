@@ -180,3 +180,13 @@ code { background: rgba(255,255,255,.12); padding: .1em .4em; border-radius: .4e
 }
 @media (max-height: 520px) { .logo { font-size: calc(var(--u) * 6); } .foot, .sub { display: none; } }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* ---------- こうこく待ち(曲がほんとうに始まるまでゲームを止める) ---------- */
+.gate { position: absolute; inset: 0; z-index: 4; display: grid; place-items: center; text-align: center; background: rgba(18,16,46,.88); border-radius: 1em; font-size: calc(var(--u) * 2.4); padding: 1em; }
+.gate p { margin: .3em 0; }
+.gate-ico { font-size: 2.4em; }
+.gate-sub { font-size: .75em; color: var(--dim); line-height: 1.6; }
+.gate .chip { margin-top: .8em; }
+.video.gated #yt, .video.gated iframe { pointer-events: auto; }
+.video.gated { outline: .2em solid var(--accent); }
+#s-play.gating .dock .tools, #s-play.gating .dock .answer { opacity: .35; pointer-events: none; }

@@ -16,6 +16,8 @@ export class Game {
     this.song = song; this.opt = opt; this.hooks = hooks;
     this.score = 0; this.combo = 0; this.bestCombo = 0;
     this.state = 'loading';          // loading | playing | waiting | ended
+    this.gate = true;                // 曲がほんとうに流れはじめる(広告がおわる)まで、ゲームを止めておく
+    this.gateSince = 0; this.badSince = 0;
     this.userPaused = false; this.slow = false; this.activeLine = -1; this.replays = 0;
     this.nudge = parseFloat(localStorage.getItem('lu.sync.' + song.id) || '0') || 0;
     this.build();
@@ -152,6 +154,7 @@ export class Game {
     } catch (e) { this.videoError(e.message); return; }
     if (this.dead) { this.player.destroy(); return; }
     this.state = 'playing';
+    this.setGate(true);
     this.player.seek(Math.max(0, (this.song.lines[0]?.t || 0) + this.shift - 4));
     this.player.play();
     this.loop = setInterval(() => this.tick(), 60);
@@ -166,6 +169,7 @@ export class Game {
 
   tick() {
     if (this.dead || !this.player || this.state === 'ended' || this.state === 'error') return;
+    if (this.checkGate()) return;
     const t = this.player.time() - this.shift;
     // 今の行
     let idx = -1;
@@ -184,10 +188,50 @@ export class Game {
     if (!b && t > lastEnd + 2.5) this.finish();
   }
 
+  // ---------- こうこく待ち ----------
+  /** 流れているのが「この曲」か? 広告中は長さがちがう(YouTubeに広告の公式な合図はないので、長さで見分ける) */
+  isSong() {
+    if (this.player.kind !== 'youtube') return true;
+    const d = this.player.duration();
+    const exp = this.song.lrcDur || this.song.dur || 0;
+    if (!(d > 0)) return false;
+    if (exp && Math.abs(d - exp) > Math.max(25, exp * 0.2)) return false;
+    const id = this.player.videoId && this.player.videoId();
+    return !id || id === this.song.yt;
+  }
+  setGate(on) {
+    this.gate = on; this.gateSince = performance.now();
+    $('gate').hidden = !on; $('gate-force').hidden = true;
+    $('video-box').classList.toggle('gated', on); $('s-play').classList.toggle('gating', on);
+  }
+  /** @returns {boolean} true なら、このtickではゲームを進めない */
+  checkGate() {
+    const ok = this.isSong();
+    if (this.gate) {
+      if (ok) {
+        this.setGate(false);
+        const start = Math.max(0, (this.song.lines[0]?.t || 0) + this.shift - 4);
+        if (this.player.time() < start - 1) this.player.seek(start);
+        if (this.state === 'playing' && !this.userPaused) this.player.play();
+        return false;
+      }
+      if (performance.now() - this.gateSince > 12000) $('gate-force').hidden = false;   // 見分けに失敗したときの保険
+      return true;
+    }
+    // ゲーム中に広告(途中広告)が入ったら、また止める
+    if (this.player.kind === 'youtube' && !ok) {
+      this.badSince = this.badSince || performance.now();
+      if (performance.now() - this.badSince > 1500) { this.badSince = 0; this.setGate(true); return true; }
+    } else this.badSince = 0;
+    return false;
+  }
+  forceStart() { if (this.gate) { this.setGate(false); if (!this.userPaused && this.state === 'playing') this.player.play(); } }
+
   // ---------- 入力 ----------
   focusInput() { if (this.opt.mode === 'type') $('kbd').focus({ preventScroll: true }); }
 
   typeChar(ch) {
+    if (this.gate) return;
     const b = this.cursor; if (!b || this.opt.mode !== 'type' || this.dead) return;
     ch = ch.toLowerCase(); if (!/^[a-z]$/.test(ch)) return;
     const exp = b.ans[b.typed.length];
@@ -196,6 +240,7 @@ export class Game {
   }
 
   wrong(b, choice) {
+    if (this.gate) return;
     b.mistakes++; this.combo = 0; this.updateHud();
     const el = $('b' + b.i);
     if (choice) { b.wrongChoices.add(choice); this.paintAnswer(); if (b.mistakes >= 2) { b.hints++; this.complete(b, 'helped'); return; } }
@@ -213,6 +258,7 @@ export class Game {
   }
 
   choose(word) {
+    if (this.gate) return;
     const b = this.cursor; if (!b || this.opt.mode !== 'choice' || this.state === 'ended') return;
     if (word === b.ans) {
       const btn = [...$('answer').querySelectorAll('.choice')].find((x) => x.dataset.w === word); if (btn) btn.classList.add('good');
@@ -223,6 +269,7 @@ export class Game {
   chooseIndex(k) { const b = this.cursor; if (b?.choices?.[k]) this.choose(b.choices[k]); }
 
   hint() {
+    if (this.gate) return;
     const b = this.cursor; if (!b) return;
     if (!b.jaShown && b.ja) { b.jaShown = true; this.paintAnswer(); return; }
     b.hints++;
@@ -230,7 +277,8 @@ export class Game {
     else { const bad = b.choices.find((c) => c !== b.ans && !b.wrongChoices.has(c)); if (bad) { b.wrongChoices.add(bad); this.paintAnswer(); } }
   }
 
-  skip() { const b = this.cursor; if (!b) return; b.typed = b.ans; this.complete(b, 'skip'); }
+  skip() {
+    if (this.gate) return; const b = this.cursor; if (!b) return; b.typed = b.ans; this.complete(b, 'skip'); }
 
   complete(b, how) {
     b.status = how === 'skip' ? 'skip' : 'ok';
@@ -259,6 +307,7 @@ export class Game {
 
   // ---------- そうさ ----------
   replay() {
+    if (this.gate) return;
     if (this.state === 'ended' || this.state === 'error') return;
     const b = this.cursor;
     const li = this.state === 'waiting' && b ? b.li : Math.max(0, this.activeLine);

@@ -44,7 +44,8 @@ export async function createYouTubePlayer(box, videoId, h) {
             pause: () => p.pauseVideo(),
             seek: (s) => p.seekTo(Math.max(0, s), true),
             rate: (r) => p.setPlaybackRate(r),
-            duration: () => p.getDuration(),
+            duration: () => { try { return p.getDuration(); } catch { return 0; } },
+            videoId: () => { try { return p.getVideoData().video_id || ''; } catch { return ''; } },
             destroy: () => { try { p.destroy(); } catch { /* */ } },
           });
         },

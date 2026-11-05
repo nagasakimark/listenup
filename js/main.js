@@ -200,3 +200,10 @@ window.__lu = S;
   if (S.level === null) show('s-level'); else goSongs();
   if (S.mode === null) S.mode = S.level !== null && S.level <= 1 ? 'choice' : 'type';
 })();
+
+// QR code buttons on the grade and song screens
+for (const id of ['btn-qr', 'btn-qr2']) {
+  const b = $(id); if (!b || !window.QRPLAY) continue;
+  b.innerHTML = QRPLAY.icon(20) + '<span>QRコード</span>';
+  b.onclick = () => QRPLAY.open();
+}

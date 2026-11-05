@@ -14,6 +14,7 @@
 
   <!-- 1. レベルえらび -->
   <section class="screen" id="s-level">
+    <button class="chip qr-btn qr-fixed" id="btn-qr" aria-label="スキャンして あそぼう"></button>
     <div class="title">
       <div class="logo">🎧 Listen&nbsp;Up!</div>
       <p class="sub">英語の うたを きいて、ぬけている ことばを うめよう！</p>
@@ -28,6 +29,7 @@
     <header class="bar">
       <button class="chip lvl" id="btn-level" title="学年を かえる"></button>
       <h2>きょくを えらぼう</h2>
+      <button class="chip qr-btn" id="btn-qr2" aria-label="スキャンして あそぼう"></button>
       <span class="spacer"></span>
       <button class="chip" id="btn-prev" aria-label="まえ">◀</button>
       <span class="pager" id="pager"></span>
@@ -148,6 +150,7 @@
   </div>
 </main>
 
+<script src="js/qr.js"></script>
 <script type="module" src="js/main.js"></script>
 </body>
 </html>

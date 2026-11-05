@@ -49,71 +49,71 @@ https://www.youtube.com/watch?v=qfseWbndlQM | Judy Kuhn - Colors of the Wind | g
 search: Anthony Gonzalez - Remember Me (Coco) | genre=アニメ・映画 | year=2017
 https://www.youtube.com/watch?v=hYbHzzWmKUs | Mandy Moore, Zachary Levi - I See the Light | genre=アニメ・映画 | year=2010
 search: Keala Settle - This Is Me | genre=アニメ・映画 | year=2017
-search: The Greatest Showman Cast - A Million Dreams | genre=アニメ・映画 | year=2017
-search: Justin Timberlake - Can't Stop the Feeling! | genre=アニメ・映画 | year=2016
+https://www.youtube.com/watch?v=pSQk-4fddDI | The Greatest Showman Cast - A Million Dreams | genre=アニメ・映画 | year=2017
+https://www.youtube.com/watch?v=ru0K8uYEZWw | Justin Timberlake - Can't Stop the Feeling! | genre=アニメ・映画 | year=2016
 search: Julie Andrews - Do-Re-Mi | genre=アニメ・映画 | year=1965
-search: Post Malone, Swae Lee - Sunflower | genre=アニメ・映画 | year=2018
-search: Bruno Mars - Count on Me | genre=ポップ | year=2010
-search: Bruno Mars - Just the Way You Are | genre=ポップ | year=2010
-search: Bruno Mars - Treasure | genre=ポップ | year=2013
-search: Katy Perry - Roar | genre=ポップ | year=2013
-search: Katy Perry - Firework | genre=ポップ | year=2010
-search: Ed Sheeran - Perfect | genre=ポップ | year=2017
-search: Ed Sheeran - Photograph | genre=ポップ | year=2014
-search: Taylor Swift - Love Story | genre=ポップ | year=2008
-search: Taylor Swift - You Belong With Me | genre=ポップ | year=2008
-search: Taylor Swift - 22 | genre=ポップ | year=2012
-search: Justin Bieber - Baby | genre=ポップ | year=2010
-search: One Direction - What Makes You Beautiful | genre=ポップ | year=2011
-search: One Direction - Story of My Life | genre=ポップ | year=2013
-search: Carly Rae Jepsen - Call Me Maybe | genre=ポップ | year=2011
+https://www.youtube.com/watch?v=ApXoWvfEYVU | Post Malone, Swae Lee - Sunflower | genre=アニメ・映画 | year=2018
+https://www.youtube.com/watch?v=6k8cpUkKK4c | Bruno Mars - Count on Me | genre=ポップ | year=2010
+https://www.youtube.com/watch?v=LjhCEhWiKXk | Bruno Mars - Just the Way You Are | genre=ポップ | year=2010
+https://www.youtube.com/watch?v=nPvuNsRccVw | Bruno Mars - Treasure | genre=ポップ | year=2013
+https://www.youtube.com/watch?v=CevxZvSJLk8 | Katy Perry - Roar | genre=ポップ | year=2013
+https://www.youtube.com/watch?v=QGJuMBdaqIw | Katy Perry - Firework | genre=ポップ | year=2010
+https://www.youtube.com/watch?v=2Vv-BfVoq4g | Ed Sheeran - Perfect | genre=ポップ | year=2017
+https://www.youtube.com/watch?v=nSDgHBxUbVQ | Ed Sheeran - Photograph | genre=ポップ | year=2014
+https://www.youtube.com/watch?v=8xg3vE8Ie_E | Taylor Swift - Love Story | genre=ポップ | year=2008
+https://www.youtube.com/watch?v=VuNIsY6JdUw | Taylor Swift - You Belong With Me | genre=ポップ | year=2008
+https://www.youtube.com/watch?v=AgFeZr5ptV8 | Taylor Swift - 22 | genre=ポップ | year=2012
+https://www.youtube.com/watch?v=kffacxfA7G4 | Justin Bieber - Baby | genre=ポップ | year=2010
+https://www.youtube.com/watch?v=QJO3ROT-A4E | One Direction - What Makes You Beautiful | genre=ポップ | year=2011
+https://www.youtube.com/watch?v=W-TE_Ys4iwM | One Direction - Story of My Life | genre=ポップ | year=2013
+https://www.youtube.com/watch?v=fWNaR-rxAic | Carly Rae Jepsen - Call Me Maybe | genre=ポップ | year=2011
 search: Dua Lipa - Levitating | genre=ポップ | year=2020
-search: Harry Styles - As It Was | genre=ポップ | year=2022
-search: Miley Cyrus - Flowers | genre=ポップ | year=2023
-search: Tones and I - Dance Monkey | genre=ポップ | year=2019
-search: Maroon 5 - Memories | genre=ポップ | year=2019
-search: Lewis Capaldi - Someone You Loved | genre=ポップ | year=2018
-search: Adele - Someone Like You | genre=ポップ | year=2011
+https://www.youtube.com/watch?v=H5v3kku4y6Q | Harry Styles - As It Was | genre=ポップ | year=2022
+https://www.youtube.com/watch?v=G7KNmW9a75Y | Miley Cyrus - Flowers | genre=ポップ | year=2023
+https://www.youtube.com/watch?v=q0hyYWKXF0Q | Tones and I - Dance Monkey | genre=ポップ | year=2019
+https://www.youtube.com/watch?v=SlPhMPnQ58k | Maroon 5 - Memories | genre=ポップ | year=2019
+https://www.youtube.com/watch?v=zABLecsR5UE | Lewis Capaldi - Someone You Loved | genre=ポップ | year=2018
+https://www.youtube.com/watch?v=hLQl3WQQoQ0 | Adele - Someone Like You | genre=ポップ | year=2011
 search: Charlie Puth, Wiz Khalifa - See You Again | genre=ポップ | year=2015
-search: Train - Hey, Soul Sister | genre=ポップ | year=2009
+https://www.youtube.com/watch?v=kVpv8-5XWOI | Train - Hey, Soul Sister | genre=ポップ | year=2009
 search: Jason Mraz - I'm Yours | genre=ポップ | year=2008
-search: Colbie Caillat - Bubbly | genre=ポップ | year=2007
-search: Owl City - Fireflies | genre=ポップ | year=2009
-search: Glass Animals - Heat Waves | genre=ポップ | year=2020
-search: Whitney Houston - I Wanna Dance with Somebody | genre=ポップ | year=1987
-search: ABBA - Dancing Queen | genre=ポップ | year=1976
-search: Carpenters - Top of the World | genre=ポップ | year=1973
-search: Michael Jackson - Heal the World | genre=ポップ | year=1991
-search: Israel Kamakawiwo'ole - Over the Rainbow | genre=ポップ | year=1993
-search: Louis Armstrong - What a Wonderful World | genre=ポップ | year=1967
-search: Ben E. King - Stand By Me | genre=ポップ | year=1961
-search: Bill Withers - Lean On Me | genre=ポップ | year=1972
-search: John Denver - Take Me Home, Country Roads | genre=ポップ | year=1971
-search: The Beatles - Yesterday | genre=ロック | year=1965
-search: The Beatles - Hey Jude | genre=ロック | year=1968
-search: The Beatles - Yellow Submarine | genre=ロック | year=1966
-search: The Beatles - Here Comes the Sun | genre=ロック | year=1969
-search: Queen - We Are the Champions | genre=ロック | year=1977
-search: Queen - We Will Rock You | genre=ロック | year=1977
-search: Coldplay - A Sky Full of Stars | genre=ロック | year=2014
-search: Coldplay - Yellow | genre=ロック | year=2000
-search: OneRepublic - Counting Stars | genre=ロック | year=2013
-search: Imagine Dragons - Thunder | genre=ロック | year=2017
-search: Imagine Dragons - Radioactive | genre=ロック | year=2012
-search: Linkin Park - In the End | genre=ロック | year=2000
-search: Avicii - Wake Me Up | genre=ダンス | year=2013
-search: Alan Walker - Faded | genre=ダンス | year=2015
-search: BTS - Butter | genre=K-POP | year=2021
-search: BTS - Permission to Dance | genre=K-POP | year=2021
-search: FIFTY FIFTY - Cupid | genre=K-POP | year=2023
-search: BLACKPINK, Selena Gomez - Ice Cream | genre=K-POP | year=2020
+https://www.youtube.com/watch?v=AWGqoCNbsvM | Colbie Caillat - Bubbly | genre=ポップ | year=2007
+https://www.youtube.com/watch?v=psuRGfAaju4 | Owl City - Fireflies | genre=ポップ | year=2009
+https://www.youtube.com/watch?v=mRD0-GxqHVo | Glass Animals - Heat Waves | genre=ポップ | year=2020
+https://www.youtube.com/watch?v=eH3giaIzONA | Whitney Houston - I Wanna Dance with Somebody | genre=ポップ | year=1987
+https://www.youtube.com/watch?v=xFrGuyw1V8s | ABBA - Dancing Queen | genre=ポップ | year=1976
+https://www.youtube.com/watch?v=Tt1MqAZ9XHw | Carpenters - Top of the World | genre=ポップ | year=1973
+https://www.youtube.com/watch?v=BWf-eARnf6U | Michael Jackson - Heal the World | genre=ポップ | year=1991
+https://www.youtube.com/watch?v=V1bFr2SWP1I | Israel Kamakawiwo'ole - Over the Rainbow | genre=ポップ | year=1993
+https://www.youtube.com/watch?v=CaCSuzR4DwM | Louis Armstrong - What a Wonderful World | genre=ポップ | year=1967
+https://www.youtube.com/watch?v=hwZNL7QVJjE | Ben E. King - Stand By Me | genre=ポップ | year=1961
+https://www.youtube.com/watch?v=fOZ-MySzAac | Bill Withers - Lean On Me | genre=ポップ | year=1972
+https://www.youtube.com/watch?v=IUmnTfsY3hI | John Denver - Take Me Home, Country Roads | genre=ポップ | year=1971
+https://www.youtube.com/watch?v=NrgmdOz227I | The Beatles - Yesterday | genre=ロック | year=1965
+https://www.youtube.com/watch?v=A_MjCqQoLLA | The Beatles - Hey Jude | genre=ロック | year=1968
+https://www.youtube.com/watch?v=m2uTFF_3MaA | The Beatles - Yellow Submarine | genre=ロック | year=1966
+https://www.youtube.com/watch?v=xUNqsfFUwhY | The Beatles - Here Comes the Sun | genre=ロック | year=1969
+https://www.youtube.com/watch?v=04854XqcfCY | Queen - We Are the Champions | genre=ロック | year=1977
+https://www.youtube.com/watch?v=-tJYN-eG1zk | Queen - We Will Rock You | genre=ロック | year=1977
+https://www.youtube.com/watch?v=VPRjCeoBqrI | Coldplay - A Sky Full of Stars | genre=ロック | year=2014
+https://www.youtube.com/watch?v=yKNxeF4KMsY | Coldplay - Yellow | genre=ロック | year=2000
+https://www.youtube.com/watch?v=hT_nvWreIhg | OneRepublic - Counting Stars | genre=ロック | year=2013
+https://www.youtube.com/watch?v=fKopy74weus | Imagine Dragons - Thunder | genre=ロック | year=2017
+https://www.youtube.com/watch?v=ktvTqknDobU | Imagine Dragons - Radioactive | genre=ロック | year=2012
+https://www.youtube.com/watch?v=eVTXPUF4Oz4 | Linkin Park - In the End | genre=ロック | year=2000
+https://www.youtube.com/watch?v=IcrbM1l_BoI | Avicii - Wake Me Up | genre=ダンス | year=2013
+https://www.youtube.com/watch?v=60ItHLz5WEA | Alan Walker - Faded | genre=ダンス | year=2015
+https://www.youtube.com/watch?v=WMweEpGlu_U | BTS - Butter | genre=K-POP | year=2021
+https://www.youtube.com/watch?v=CuklIb9d3fI | BTS - Permission to Dance | genre=K-POP | year=2021
+https://www.youtube.com/watch?v=Qc7_zRjH808 | FIFTY FIFTY - Cupid | genre=K-POP | year=2023
+https://www.youtube.com/watch?v=vRXZj0DzXIA | BLACKPINK, Selena Gomez - Ice Cream | genre=K-POP | year=2020
 search: BLACKPINK - How You Like That | genre=K-POP | year=2020
-search: TWICE - Moonlight Sunrise | genre=K-POP | year=2023
-search: LE SSERAFIM - Perfect Night | genre=K-POP | year=2023
+https://www.youtube.com/watch?v=cKlEE_EYuNM | TWICE - Moonlight Sunrise | genre=K-POP | year=2023
+https://www.youtube.com/watch?v=hLvWy2b857I | LE SSERAFIM - Perfect Night | genre=K-POP | year=2023
 search: Official髭男dism - Cry Baby | genre=J-POP | year=2021
-search: ONE OK ROCK - Wherever You Are | genre=J-POP | year=2015
-search: ONE OK ROCK - The Beginning | genre=J-POP | year=2015
+https://www.youtube.com/watch?v=qs4Q4cQxyU4 | ONE OK ROCK - Wherever You Are | genre=J-POP | year=2015
+https://www.youtube.com/watch?v=Hh9yZWeTmVM | ONE OK ROCK - The Beginning | genre=J-POP | year=2015
 search: SEKAI NO OWARI - Dragon Night | genre=J-POP | year=2014
-search: MAN WITH A MISSION - Raise Your Flag | genre=J-POP | year=2018
-search: XG - Shooting Star | genre=J-POP | year=2023
-search: XG - Tippy Toes | genre=J-POP | year=2022
+https://www.youtube.com/watch?v=G-UN6uRMBRw | MAN WITH A MISSION - Raise Your Flag | genre=J-POP | year=2018
+https://www.youtube.com/watch?v=eSgBNiMBUaQ | XG - Shooting Star | genre=J-POP | year=2023
+https://www.youtube.com/watch?v=7bONJFH9A9A | XG - Tippy Toes | genre=J-POP | year=2022

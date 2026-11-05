@@ -122,7 +122,9 @@ code { background: rgba(255,255,255,.12); padding: .1em .4em; border-radius: .4e
 
 .dock { position: relative; display: flex; align-items: center; gap: calc(var(--u) * 1.6); min-height: calc(var(--u) * 9.5); }
 .answer { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; gap: calc(var(--u) * .9); flex-wrap: wrap; }
-.ans-ja { font-size: calc(var(--u) * 2.4); font-weight: 800; color: var(--hint); }
+.answer { position: relative; }
+/* the Japanese meaning floats above the choices so the 4 buttons stay on one row */
+.ans-ja { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: calc(var(--u) * 1.3); white-space: nowrap; z-index: 2; font-size: calc(var(--u) * 2.1); font-weight: 800; color: var(--hint); background: rgba(20, 18, 58, .94); border: 2px solid var(--hint); border-radius: 9em; padding: .1em .9em; box-shadow: 0 4px 14px rgba(0,0,0,.35); }
 .ans-tip { font-size: calc(var(--u) * 1.8); color: var(--dim); }
 .choice { min-width: calc(var(--u) * 11); padding: .45em .8em; border-radius: .9em; background: var(--card); border: 2px solid var(--line); font-size: calc(var(--u) * 2.3); font-weight: 900; font-family: ui-rounded, "SF Pro Rounded", system-ui, sans-serif; display: flex; gap: .5em; align-items: center; justify-content: center; transition: transform .1s, background .15s, border-color .15s; }
 .choice kbd { font: inherit; font-size: .6em; opacity: .55; border: 1px solid currentColor; border-radius: .35em; padding: 0 .4em; }

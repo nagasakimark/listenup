@@ -195,6 +195,9 @@ export class Game {
   }
 
   videoError(msg) {
+    // the video can't play: drop the "an ad is playing" cover and the tap-to-start hint so only the error shows
+    $('gate').hidden = true; $('gate-force').hidden = true; $('tap-start').hidden = true;
+    $('video-box').classList.remove('gated'); $('s-play').classList.remove('gating');
     $('video-msg').hidden = false; $('video-msg').innerHTML = `<div>⚠️ ${esc(msg)}<br><small>✕ で もどって ほかの きょくを えらんでね</small></div>`;
     this.state = 'error';
   }
@@ -380,7 +383,7 @@ export class Game {
     localStorage.setItem('lu.sync.' + this.song.id, String(this.nudge));
     $('sync-val').textContent = this.nudge.toFixed(1);
   }
-  hidden() { if (document.hidden && this.state === 'playing') { this.player?.pause(); this.userPaused = true; $('t-pause').classList.add('on'); } }
+  hidden() { if (document.hidden && this.state === 'playing' && !this.userPaused) this.togglePause(); }   // switching tabs pauses (and the button shows ▶ つづき)
 
   // ---------- おわり ----------
   finish() {

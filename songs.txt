@@ -83,17 +83,17 @@ https://www.youtube.com/watch?v=hcmpj5HPue0 | Judy Kuhn - Colors of the Wind | g
 
 # --- アニメ映画の歌 (公式の映画ビデオがあるものだけ。search: は成功すると URL に自動で書きかわります) ---
 https://www.youtube.com/watch?v=V-zXT5bIBM0 | Kristen Bell, Agatha Lee Monn - Do You Want to Build a Snowman? | genre=アニメ・映画 | year=2013 | pin
-search: Kristen Bell, Idina Menzel - For the First Time in Forever | genre=アニメ・映画 | year=2013
+https://www.youtube.com/watch?v=CQgII5kavwY | Kristen Bell, Idina Menzel - For the First Time in Forever | genre=アニメ・映画 | year=2013
 search: Kristen Bell, Santino Fontana - Love Is an Open Door | genre=アニメ・映画 | year=2013
 search: Josh Gad - In Summer | genre=アニメ・映画 | year=2013
 search: Kristen Bell, Idina Menzel - Some Things Never Change | genre=アニメ・映画 | year=2019
 search: Encanto Cast - What Else Can I Do? | genre=アニメ・映画 | year=2021
 search: Encanto Cast - Waiting on a Miracle | genre=アニメ・映画 | year=2021
 search: Nathan Lane, Ernie Sabella, Jason Weaver - Hakuna Matata | genre=アニメ・映画 | year=1994
-search: Jason Weaver, Rowan Atkinson - I Just Can't Wait to Be King | genre=アニメ・映画 | year=1994
+https://www.youtube.com/watch?v=T5lq8ottT7s | Jason Weaver, Rowan Atkinson - I Just Can't Wait to Be King | genre=アニメ・映画 | year=1994
 search: Robin Williams - Friend Like Me | genre=アニメ・映画 | year=1992
-search: Jodi Benson - Part of Your World | genre=アニメ・映画 | year=1989
-search: Jerry Orbach - Be Our Guest | genre=アニメ・映画 | year=1991
+https://www.youtube.com/watch?v=SXKlJuO07eM | Jodi Benson - Part of Your World | genre=アニメ・映画 | year=1989
+https://www.youtube.com/watch?v=T_UTMNqva40 | Jerry Orbach - Be Our Guest | genre=アニメ・映画 | year=1991
 search: Angela Lansbury - Beauty and the Beast | genre=アニメ・映画 | year=1991
 search: Mandy Moore - When Will My Life Begin | genre=アニメ・映画 | year=2010
 search: Mandy Moore, Zachary Levi - I See the Light | genre=アニメ・映画 | year=2010
@@ -102,7 +102,7 @@ search: Scatman Crothers - Everybody Wants to Be a Cat | genre=アニメ・映�
 search: Cliff Edwards - When You Wish Upon a Star | genre=アニメ・映画 | year=1940
 search: Phil Collins - You'll Be in My Heart | genre=アニメ・映画 | year=1999
 search: Roger Bart - Go the Distance | genre=アニメ・映画 | year=1997
-search: Christina Aguilera - Reflection | genre=アニメ・映画 | year=1998
+https://www.youtube.com/watch?v=RNprQYHenNI | Christina Aguilera - Reflection | genre=アニメ・映画 | year=1998
 search: Billy Crystal, John Goodman - If I Didn't Have You | genre=アニメ・映画 | year=2001
 search: Mark Keali'i Ho'omalu - Hawaiian Roller Coaster Ride | genre=アニメ・映画 | year=2002
 search: Rascal Flatts - Life Is a Highway | genre=アニメ・映画 | year=2006

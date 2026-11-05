@@ -229,7 +229,7 @@ function calcDiff(lines) {
 }
 
 function rebuildIndex() {
-  const meta = new Map(parseSongsTxt(true).map((e) => [e.id, e]));
+  const meta = new Map(parseSongsTxt(true).map((e) => [e.id || resolved.get(e.raw), e]));
   const idx = [];
   for (const f of fs.readdirSync(SONGS)) {
     if (!f.endsWith('.json') || f === 'index.json' || f === 'demo.json') continue;

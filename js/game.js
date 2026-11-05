@@ -17,7 +17,7 @@ export class Game {
     this.score = 0; this.combo = 0; this.bestCombo = 0;
     this.state = 'loading';          // loading | playing | waiting | ended
     this.gate = true;                // 曲がほんとうに流れはじめる(広告がおわる)まで、ゲームを止めておく
-    this.gateSince = 0; this.badSince = 0; this.samp = [];
+    this.gateSince = 0; this.badSince = 0; this.samp = []; this.t0 = performance.now(); this.knownDur = 0; this.why = '';
     this.userPaused = false; this.slow = false; this.activeLine = -1; this.replays = 0;
     this.nudge = parseFloat(localStorage.getItem('lu.sync.' + song.id) || '0') || 0;
     this.build();
@@ -146,21 +146,22 @@ export class Game {
     const h = {
       onEnded: () => this.finish(),
       onError: (m) => this.videoError(m),
-      onState: (playing) => { this.isPlaying = playing; },
+      onState: (playing, raw) => { this.isPlaying = playing; this.rawState = raw; },
     };
     try {
-      if (this.song.yt) this.player = await createYouTubePlayer($('video-box'), this.song.yt, h);
+      this.startAt = Math.max(0, (this.song.lines[0]?.t || 0) + this.shift - 4);
+      if (this.song.yt) this.player = await createYouTubePlayer($('video-box'), this.song.yt, h, this.startAt);
       else { this.player = createClockPlayer($('video-box'), this.song.dur, h); $('yt').textContent = '🎵'; }
     } catch (e) { this.videoError(e.message); return; }
     if (this.dead) { this.player.destroy(); return; }
     this.state = 'playing';
     this.setGate(true);
-    this.player.seek(Math.max(0, (this.song.lines[0]?.t || 0) + this.shift - 4));
+    if (!this.song.yt) this.player.seek(this.startAt);
     this.player.play();
     if (/[?&]debug/.test(location.search)) {
       const d = document.createElement('pre'); d.style.cssText = 'position:fixed;left:4px;bottom:4px;z-index:99;background:#000c;color:#0f0;font:11px monospace;padding:4px;margin:0;pointer-events:none;max-width:60vw';
       document.body.appendChild(d); this.dbgEl = d;
-      this.dbg = (s) => { const p = this.player; d.textContent = `gate=${this.gate} songState=${s} state=${this.state}\nplaying=${this.isPlaying} t=${p.time().toFixed(1)} dur=${p.duration()} exp=${this.song.lrcDur || this.song.dur}\nid=${p.videoId && p.videoId()} adState=${p.adState && p.adState()}`; };
+      this.dbg = (s) => { const p = this.player; d.textContent = `gate=${this.gate} songState=${s} (${this.why}) state=${this.state}/${this.rawState}\nplaying=${this.isPlaying} t=${p.time().toFixed(1)} dur=${p.duration()} exp=${this.song.lrcDur || this.song.dur}\nid=${p.videoId && p.videoId()} adState=${p.adState && p.adState()} known=${this.knownDur}\n${(this.events || []).join('\n')}`; };
     }
     this.loop = setInterval(() => this.tick(), 60);
     setTimeout(() => { if (!this.dead && !this.isPlaying && this.state === 'playing' && !this.userPaused) $('tap-start').hidden = false; }, 3000);
@@ -201,22 +202,26 @@ export class Game {
    */
   songState() {
     if (this.player.kind !== 'youtube') return true;
-    const p = this.player;
-    if (p.adState && p.adState() === 1) return false;                       // 内部APIが広告と答えた
-    const d = p.duration(), exp = this.song.lrcDur || this.song.dur || 0;
-    if (d > 0 && exp && Math.abs(d - exp) > Math.max(25, exp * 0.2)) return false;   // 長さがぜんぜんちがう
+    const p = this.player, now = performance.now(), t = p.time();
+    if (p.adState && p.adState() === 1) { this.why = 'adState'; return false; }          // 内部APIが広告と答えた
     const id = p.videoId && p.videoId();
-    if (id && id !== this.song.yt) return false;
-    // 時計が進んでいるか
-    const now = performance.now(), t = p.time();
-    if (!this.isPlaying) { this.samp = []; return this.gate ? false : null; }
+    if (id && id !== this.song.yt) { this.why = 'id'; return false; }
+    const d = p.duration(), exp = this.song.lrcDur || this.song.dur || 0;
+    if (this.knownDur) { if (d > 0 && Math.abs(d - this.knownDur) > 3) { this.why = 'dur!=known'; return false; } }       // 曲が始まったときに覚えた本当の長さ
+    else if (d > 0 && exp && d <= 90 && d < exp * 0.6) { this.why = 'dur short'; return false; }                        // 広告は短い
+    // 時計が進んでいるか(ブランク待ちなどで曲を止めているときは調べない)
+    if (!this.isPlaying) { this.samp = []; this.why = 'not playing'; return this.rawState === 3 ? null : (this.gate ? false : null); }
     this.samp.push({ t, w: now });
     while (this.samp.length > 2 && now - this.samp[1].w >= 1100) this.samp.shift();
     const o = this.samp[0];
-    if (now - o.w < 1000) return null;
+    if (now - o.w < 1000) { this.why = 'measuring'; return null; }
     const dt = t - o.t, dw = ((now - o.w) / 1000) * (this.slow ? 0.75 : 1);
-    return dt > Math.max(0.5, dw * 0.6) && dt < dw * 1.6 + 0.3;
+    if (!(dt > Math.max(0.5, dw * 0.6) && dt < dw * 1.6 + 0.3)) { this.why = 'clock stopped'; return false; }
+    // 曲の頭だし位置(start)よりずっと手前なら、まだ広告の時間を見ている
+    if (this.gate && this.startAt >= 5 && t < this.startAt - 1.5) { this.why = 'before start'; return false; }
+    this.why = 'ok'; return true;
   }
+  log(m) { (this.events = this.events || []).push(((performance.now() - this.t0) / 1000).toFixed(1) + 's ' + m); this.events = this.events.slice(-6); }
   setGate(on) {
     this.gate = on; this.gateSince = performance.now(); this.samp = [];
     $('gate').hidden = !on; $('gate-force').hidden = true;
@@ -229,9 +234,8 @@ export class Game {
     const running = this.state === 'playing' && !this.userPaused;
     if (this.gate) {
       if (s === true) {
-        this.setGate(false);
-        const start = Math.max(0, (this.song.lines[0]?.t || 0) + this.shift - 4);
-        if (this.player.time() < start - 1) this.player.seek(start);
+        const d = this.player.duration(); if (d > 0) this.knownDur = d;
+        this.setGate(false); this.log('song start');
         return false;
       }
       if (performance.now() - this.gateSince > 12000) $('gate-force').hidden = false;   // 見分けに失敗したときの保険
@@ -240,7 +244,8 @@ export class Game {
     // ゲーム中に広告(途中広告)が入ったら、また止める。曲を止めているとき(ブランク待ち・一時停止)は調べない
     if (this.player.kind === 'youtube' && running && s === false) {
       this.badSince = this.badSince || performance.now();
-      if (performance.now() - this.badSince > 2500) { this.badSince = 0; this.setGate(true); return true; }
+      const adNow = this.player.adState && this.player.adState() === 1;
+      if (adNow || performance.now() - this.badSince > 3000) { this.badSince = 0; this.setGate(true); this.log('ad detected: ' + this.why); return true; }
     } else { this.badSince = 0; if (!running) this.samp = []; }
     return false;
   }

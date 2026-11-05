@@ -25,7 +25,7 @@ export function freshMount(box) {
   return d;
 }
 
-export async function createYouTubePlayer(box, videoId, h) {
+export async function createYouTubePlayer(box, videoId, h, start = 0) {
   await loadYT();
   freshMount(box);
   return new Promise((resolve, reject) => {
@@ -33,7 +33,7 @@ export async function createYouTubePlayer(box, videoId, h) {
     const p = new window.YT.Player('yt', {
       videoId,
       width: '100%', height: '100%',
-      playerVars: { controls: 0, disablekb: 1, fs: 0, rel: 0, modestbranding: 1, playsinline: 1, iv_load_policy: 3, cc_load_policy: 0, origin: location.origin },
+      playerVars: { start: Math.max(0, Math.floor(start)), controls: 0, disablekb: 1, fs: 0, rel: 0, modestbranding: 1, playsinline: 1, iv_load_policy: 3, cc_load_policy: 0, origin: location.origin },
       events: {
         onReady: () => {
           ready = true;
@@ -53,7 +53,7 @@ export async function createYouTubePlayer(box, videoId, h) {
         onStateChange: (e) => {
           const S = window.YT.PlayerState;
           if (e.data === S.ENDED) h.onEnded();
-          h.onState(e.data === S.PLAYING);
+          h.onState(e.data === S.PLAYING, e.data);
         },
         onError: (e) => {
           const msg = e.data === 101 || e.data === 150 ? 'この動画は、持ち主の設定で ここでは 再生できません。' : 'この動画を 再生できませんでした。';

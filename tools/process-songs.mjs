@@ -20,6 +20,7 @@ const SONGS = path.join(ROOT, 'songs');
 const args = process.argv.slice(2);
 const FORCE = args.includes('--force');
 const OFFLINE = args.includes('--offline');
+const VERIFY = args.includes('--verify');
 const ONLY = args.includes('--only') ? args[args.indexOf('--only') + 1] : null;
 const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
 
@@ -88,6 +89,99 @@ async function searchYouTube(q) {
   const html = await r.text();
   const ids = [...html.matchAll(/"videoId":"([A-Za-z0-9_-]{11})"/g)].map((m) => m[1]);
   return [...new Set(ids)].slice(0, 5);
+}
+
+
+// ---------- 動画えらび・かくにん ----------
+function walk(o, f) { if (o && typeof o === 'object') { f(o); for (const k of Object.keys(o)) walk(o[k], f); } }
+const toSecs = (t) => (t || '').split(':').reduce((a, x) => a * 60 + (+x || 0), 0);
+/** 検索結果ページ → [{id,title,channel,secs}] (タイトル・チャンネル・長さつき) */
+async function searchCands(q) {
+  const r = await get('https://www.youtube.com/results?search_query=' + encodeURIComponent(q));
+  const html = await r.text();
+  const i = html.indexOf('ytInitialData = ');
+  const out = [];
+  if (i >= 0) {
+    const j = html.indexOf('</script>', i);
+    try {
+      const data = JSON.parse(html.slice(i + 16, j).replace(/;\s*$/, ''));
+      walk(data, (o) => {
+        if (o.videoRenderer && o.videoRenderer.videoId) {
+          const v = o.videoRenderer;
+          out.push({ id: v.videoId, title: (v.title?.runs || []).map((x) => x.text).join(''), channel: v.ownerText?.runs?.[0]?.text || '', secs: toSecs(v.lengthText?.simpleText) });
+        }
+      });
+    } catch { /* ignore */ }
+  }
+  return out.filter((c, k) => out.findIndex((d) => d.id === c.id) === k);
+}
+const BAD_TITLE = /\b(live|performance|performs?|performed|cover|karaoke|reaction|react|instrumental|remix|slowed|sped|nightcore|8d|medley|scene|clip|behind|tutorial|piano|stage|concert|tour|mashup|extended|hour|loop|trailer|interview|making|rehearsal|acoustic|lesson|choreograph\w*|fancam|shorts|premiere|awards?|oscars?|grammys?|snl|episode|full movie|multilingual|languages|reprise|lyrics?|lyric video|sing[- ]?along|ver\.|version)\b/i;
+const words = (t) => (t || '').toLowerCase().replace(/\(.*?\)|\[.*?\]/g, ' ').split(/[^a-z0-9']+/).filter((w) => w.length > 2);
+/** 動画の点数。ことわる(null)・OKなら点数(大きいほどよい)。lrcDur=歌詞データの曲の長さ */
+function scoreCand(c, expect, lrcDur) {
+  const [a0, ...t0] = (expect || '').split(' - ');
+  const tw = words(t0.join(' - ') || a0), aw = words(a0);
+  const hay = (c.title + ' ' + c.channel).toLowerCase();
+  if (tw.length && tw.filter((w) => hay.includes(w)).length < Math.ceil(tw.length / 2)) return null;
+  if (aw.length && !aw.some((w) => hay.includes(w)) && !/vevo|official|disney|records|music|topic/i.test(c.channel)) return null;
+  if (BAD_TITLE.test(c.title)) return null;                       // ライブ・歌詞つき・カバー・ひとの動画など
+  if (!c.secs) return null;
+  let sc = 0;
+  if (lrcDur) { const d = Math.abs(c.secs - lrcDur); if (d > 4) return null; sc += d <= 1 ? 60 : d <= 2 ? 50 : 30; }
+  if (/official (music )?video|\(official\)|official$/i.test(c.title)) sc += 30;
+  else if (/official audio|visuali[sz]er/i.test(c.title)) sc += 15;
+  if (/vevo|disney|records|official/i.test(c.channel)) sc += 15;
+  if (/- topic$/i.test(c.channel)) sc += 10;
+  return sc;
+}
+async function lrcDuration(artist, title) {
+  try {
+    const q = new URLSearchParams({ track_name: title, artist_name: artist });
+    const r = await getRetry('https://lrclib.net/api/search?' + q);
+    const list = (await r.json()).filter((x) => x.syncedLyrics && (x.duration || 0) >= 60);
+    const nLines = (x) => (x.syncedLyrics.match(/^\[\d/gm) || []).length;
+    list.sort((a, b) => nLines(b) - nLines(a));
+    return list[0] ? Math.round(list[0].duration) : 0;
+  } catch { return 0; }
+}
+async function bestVideo(expect, lrcDur) {
+  const [a0, ...t0] = expect.split(' - ');
+  const qs = [`${a0} ${t0.join(' - ')} official video`, `${a0} ${t0.join(' - ')}`];
+  let all = [];
+  for (const q of qs) { try { all = all.concat(await searchCands(q)); } catch { /* ignore */ } await new Promise((r) => setTimeout(r, 1200)); }
+  const scored = all.map((c) => ({ c, sc: scoreCand(c, expect, lrcDur) })).filter((x) => x.sc !== null).sort((a, b) => b.sc - a.sc);
+  return scored.length ? scored[0].c : null;
+}
+/** いまの曲すべての動画をかくにんして、ダメなものは えらびなおす。結果は songs/VIDEOS.txt */
+async function verifyAll() {
+  const file = path.join(ROOT, 'songs.txt');
+  let txt = fs.readFileSync(file, 'utf8');
+  const rep = [];
+  for (const e of parseSongsTxt(true)) {
+    if (!e.id || !e.expect) continue;
+    const jf = path.join(SONGS, e.id + '.json');
+    if (!fs.existsSync(jf)) continue;
+    const sj = JSON.parse(fs.readFileSync(jf, 'utf8'));
+    const [a0, ...t0] = e.expect.split(' - ');
+    const ld = sj.lrcDur || await lrcDuration(a0, t0.join(' - '));
+    let cands = [];
+    try { cands = await searchCands(`${a0} ${t0.join(' - ')} official video`); } catch { /* ignore */ }
+    let me = cands.find((c) => c.id === e.id);
+    if (!me) { try { me = (await searchCands(e.id)).find((c) => c.id === e.id); } catch { /* ignore */ } }
+    const desc = me ? `「${me.title}」/${me.channel}/${me.secs}s` : '(動画情報なし)';
+    const ok = me && scoreCand(me, e.expect, ld) !== null;
+    if (ok) { rep.push(`OK     ${e.expect}  ${desc}  歌詞${ld}s`); sj.vdur = me.secs; sj.lrcDur = ld || sj.lrcDur; sj.dur = me.secs; fs.writeFileSync(jf, JSON.stringify(sj)); continue; }
+    await new Promise((r) => setTimeout(r, 1200));
+    const b = await bestVideo(e.expect, ld);
+    if (b && b.id !== e.id) {
+      rep.push(`FIXED  ${e.expect}  ${desc} → 「${b.title}」/${b.channel}/${b.secs}s  歌詞${ld}s`);
+      txt = txt.split(e.id).join(b.id);
+      fs.rmSync(jf);
+    } else rep.push(`BAD    ${e.expect}  ${desc}  歌詞${ld}s  ← 使える動画が見つからない`);
+  }
+  fs.writeFileSync(file, txt);
+  fs.writeFileSync(path.join(SONGS, 'VIDEOS.txt'), '# 動画のかくにん結果 (OK=タイトル・長さが合う / FIXED=えらびなおした / BAD=見つからない)\n' + rep.join('\n') + '\n');
+  log('\n' + rep.join('\n'));
 }
 
 async function oembed(id) {
@@ -176,11 +270,13 @@ async function processOne(e) {
   let id = e.id;
   if (!id) {
     log(`🔎 検索: ${e.search}`);
-    const ids = await searchYouTube(e.search);
-    if (!ids.length) throw new Error('YouTube検索で見つかりません。URLを直接書いてください');
-    id = ids[0];
+    const [sa, ...st] = e.search.split(' - ');
+    const ld = await lrcDuration(sa, st.join(' - '));
+    const b = await bestVideo(e.search, ld);
+    if (!b) throw new Error(`曲の長さ(${ld || '?'}秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください`);
+    id = b.id; e._secs = b.secs;
     resolved.set(e.raw, id);
-    log(`   → ${id} (候補: ${ids.join(', ')})`);
+    log(`   → ${id} 「${b.title}」/${b.channel}/${b.secs}s (歌詞${ld}s)`);
   }
   const out = path.join(SONGS, id + '.json');
   if (fs.existsSync(out) && !FORCE && !ONLY) { log(`⏭  ${id} 処理ずみ`); return; }
@@ -197,6 +293,7 @@ async function processOne(e) {
   } catch (err) {
     if (!OFFLINE) throw err;
   }
+  if (!dur && e._secs) dur = e._secs;
   const { artist, title } = cleanMeta(meta.title, meta.author, e.expect);
   if (e.expect && meta.title) {
     const hay = (meta.title + ' ' + meta.author).toLowerCase();
@@ -270,6 +367,7 @@ function rebuildIndex() {
 
 // ---------- main ----------
 fs.mkdirSync(path.join(SONGS, 'src'), { recursive: true });
+if (VERIFY) await verifyAll();
 let entries = parseSongsTxt();
 if (ONLY) entries = entries.filter((e) => e.id === ONLY);
 for (const e of entries) {

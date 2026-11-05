@@ -42,10 +42,6 @@ Idina Menzel, AURORA - Into the Unknown
 Encanto Cast - We Don't Talk About Bruno
    falling×1 die×1 dead×1
 
-Dwayne Johnson - You're Welcome
-   【要注意】おさけ/くすり/性的/暴力/にくしみ 暴力:killed×1
-   high×1 buried×1 skin×1
-
 Brad Kane, Lea Salonga - A Whole New World
    crystal×1 shooting×1
 
@@ -66,13 +62,6 @@ Mandy Moore, Zachary Levi - I See the Light
 
 The Greatest Showman Cast - A Million Dreams
    crazy×4 lie×3 bed×3 dark×1
-
-Justin Timberlake - Can't Stop the Feeling!
-   【要注意】おさけ/くすり/性的/暴力/にくしみ 暴力:blood×3
-   body×8 nobody×3 high×1 break×1
-
-Post Malone, Swae Lee - Sunflower
-   alone×2 fightin×1 scared×1
 
 Bruno Mars - Count on Me
    dark×1 fall×1 cry×1

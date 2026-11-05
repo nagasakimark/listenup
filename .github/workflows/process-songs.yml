@@ -9,6 +9,10 @@ on:
       url:
         description: 'YouTubeのURL (空なら songs.txt の まだ処理していない曲だけ処理)'
         required: false
+      verify:
+        description: '全部の曲の動画をかくにんして、ダメなものは えらびなおす'
+        type: boolean
+        default: false
       force:
         description: '処理ずみの曲もやり直す'
         type: boolean
@@ -37,8 +41,12 @@ jobs:
       - name: 曲を処理
         env:
           FORCE: ${{ inputs.force }}
+          VERIFY: ${{ inputs.verify }}
         run: |
-          if [ "$FORCE" = "true" ]; then node tools/process-songs.mjs --force; else node tools/process-songs.mjs; fi
+          ARGS=""
+          if [ "$FORCE" = "true" ]; then ARGS="$ARGS --force"; fi
+          if [ "$VERIFY" = "true" ]; then ARGS="$ARGS --verify"; fi
+          node tools/process-songs.mjs $ARGS
       - name: 結果をコミット
         run: |
           git config user.name "listenup-bot"

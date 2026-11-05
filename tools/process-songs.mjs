@@ -26,6 +26,7 @@ const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Geck
 
 const log = (...a) => console.log(...a);
 const errors = [];
+const secsOf = new Map();     // 動画ID → 動画の長さ(秒) (検索結果から)
 const resolved = new Map();   // search: の行 → 見つけた動画ID(あとで songs.txt をURLに書きかえる)
 
 async function get(url, opts = {}) {
@@ -124,8 +125,11 @@ function scoreCand(c, expect, lrcDur) {
   const hay = (c.title + ' ' + c.channel).toLowerCase();
   if (tw.length && tw.filter((w) => hay.includes(w)).length < Math.ceil(tw.length / 2)) return null;
   // 公式っぽいチャンネルだけ(ほかのひとの再アップロード・ファン動画は、きえたり ずれたりするので使わない)
-  const ch = c.channel.toLowerCase();
-  const chOK = aw.some((w) => ch.includes(w)) || /disney|hybe|labels?\b|records|recordings|music group|entertainment|sony|warner|universal|atlantic|columbia|interscope|republic|capitol|smtown|jyp|\byg\b|studios|pictures|netflix|mountain apple|- topic$/i.test(c.channel);
+  const norm = (t) => (t || '').toLowerCase().replace(/[^a-z0-9ぁ-んァ-ヶ一-龠]/g, '');
+  const ch = norm(c.channel);
+  const artists = a0.split(/,|&|\bfeat\.?\b|\bx\b|\band\b/i).map(norm).filter((x) => x.length > 2);
+  const isFan = /fan|playlist|lyrics?|hits|bestof|clips|tvshow|reupload|channel$/.test(ch);
+  const chOK = !isFan && (artists.some((x) => ch.startsWith(x) || ch.startsWith(x.replace(/^the/, ''))) || /^(disney|hybe|netflix$|sonypicturesanimation|ygentertainment|smtown|jype|atlanticrecords|columbiarecords|republicrecords|interscope|capitolrecords|warnerrecords|universalmusic|mountainapple|avicii)/.test(ch) || (/topic$/.test(ch) && artists.some((x) => ch.includes(x))));
   if (!chOK) return null;
   // 「アーティスト - 曲名」の形のタイトルは、アーティストが合っていること(別のひとのカバーをさける)
   const pre = (c.title.split(/\s[-–]\s/)[0] || '');
@@ -133,7 +137,8 @@ function scoreCand(c, expect, lrcDur) {
   if (BAD_TITLE.test(c.title)) return null;                       // ライブ・歌詞つき・カバー・ひとの動画など
   if (!c.secs) return null;
   let sc = 0;
-  if (lrcDur) { const d = Math.abs(c.secs - lrcDur); if (d > 4) return null; sc += d <= 1 ? 60 : d <= 2 ? 50 : 30; }
+  const lds = [].concat(lrcDur || []).filter(Boolean);
+  if (lds.length) { const d = Math.min(...lds.map((x) => Math.abs(c.secs - x))); if (d > 3) return null; sc += d <= 1 ? 60 : d <= 2 ? 50 : 30; }
   if (/official (music )?video|\(official\)|official$/i.test(c.title)) sc += 30;
   else if (/official audio|visuali[sz]er/i.test(c.title)) sc += 15;
   if (/vevo|disney|records|official/i.test(c.channel)) sc += 15;
@@ -146,9 +151,9 @@ async function lrcDuration(artist, title) {
     const r = await getRetry('https://lrclib.net/api/search?' + q);
     const list = (await r.json()).filter((x) => x.syncedLyrics && (x.duration || 0) >= 60);
     const nLines = (x) => (x.syncedLyrics.match(/^\[\d/gm) || []).length;
-    list.sort((a, b) => nLines(b) - nLines(a));
-    return list[0] ? Math.round(list[0].duration) : 0;
-  } catch { return 0; }
+    const mx = Math.max(0, ...list.map(nLines));
+    return [...new Set(list.filter((x) => nLines(x) >= mx * 0.7).map((x) => Math.round(x.duration)))];
+  } catch { return []; }
 }
 async function bestVideo(expect, lrcDur) {
   const [a0, ...t0] = expect.split(' - ');
@@ -169,21 +174,25 @@ async function verifyAll() {
     if (!fs.existsSync(jf)) continue;
     const sj = JSON.parse(fs.readFileSync(jf, 'utf8'));
     const [a0, ...t0] = e.expect.split(' - ');
-    const ld = sj.lrcDur || await lrcDuration(a0, t0.join(' - '));
+    const ld = await lrcDuration(a0, t0.join(' - '));
     let cands = [];
     try { cands = await searchCands(`${a0} ${t0.join(' - ')} official video`); } catch { /* ignore */ }
     let me = cands.find((c) => c.id === e.id);
     if (!me) { try { me = (await searchCands(e.id)).find((c) => c.id === e.id); } catch { /* ignore */ } }
     const desc = me ? `「${me.title}」/${me.channel}/${me.secs}s` : '(動画情報なし)';
     const ok = me && scoreCand(me, e.expect, ld) !== null;
-    if (ok) { rep.push(`OK     ${e.expect}  ${desc}  歌詞${ld}s`); sj.vdur = me.secs; sj.lrcDur = ld || sj.lrcDur; sj.dur = me.secs; fs.writeFileSync(jf, JSON.stringify(sj)); continue; }
+    if (ok) { rep.push(`OK     ${e.expect}  ${desc}  歌詞${ld.join('/')}s`); sj.vdur = me.secs; sj.dur = me.secs; fs.writeFileSync(jf, JSON.stringify(sj)); continue; }
     await new Promise((r) => setTimeout(r, 1200));
     const b = await bestVideo(e.expect, ld);
     if (b && b.id !== e.id) {
-      rep.push(`FIXED  ${e.expect}  ${desc} → 「${b.title}」/${b.channel}/${b.secs}s  歌詞${ld}s`);
-      txt = txt.split(e.id).join(b.id);
+      rep.push(`FIXED  ${e.expect}  ${desc} → 「${b.title}」/${b.channel}/${b.secs}s  歌詞${ld.join('/')}s`);
+      txt = txt.split(e.id).join(b.id); secsOf.set(b.id, b.secs);
       fs.rmSync(jf);
-    } else rep.push(`BAD    ${e.expect}  ${desc}  歌詞${ld}s  ← 使える動画が見つからない`);
+    } else {
+      rep.push(`BAD    ${e.expect}  ${desc}  歌詞${ld.join('/')}s  ← 公式で長さの合う動画が見つからないので外した`);
+      txt = txt.split('\n').map((l) => (l.includes(e.id) && !l.startsWith('#') ? '# 動画なし(外した): ' + l : l)).join('\n');
+      fs.rmSync(jf);
+    }
   }
   fs.writeFileSync(file, txt);
   fs.writeFileSync(path.join(SONGS, 'VIDEOS.txt'), '# 動画のかくにん結果 (OK=タイトル・長さが合う / FIXED=えらびなおした / BAD=見つからない)\n' + rep.join('\n') + '\n');
@@ -279,10 +288,10 @@ async function processOne(e) {
     const [sa, ...st] = e.search.split(' - ');
     const ld = await lrcDuration(sa, st.join(' - '));
     const b = await bestVideo(e.search, ld);
-    if (!b) throw new Error(`曲の長さ(${ld || '?'}秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください`);
+    if (!b) throw new Error(`曲の長さ(${ld.join('/') || '?'}秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください`);
     id = b.id; e._secs = b.secs;
     resolved.set(e.raw, id);
-    log(`   → ${id} 「${b.title}」/${b.channel}/${b.secs}s (歌詞${ld}s)`);
+    log(`   → ${id} 「${b.title}」/${b.channel}/${b.secs}s (歌詞${ld.join('/')}s)`);
   }
   const out = path.join(SONGS, id + '.json');
   if (fs.existsSync(out) && !FORCE && !ONLY) { log(`⏭  ${id} 処理ずみ`); return; }
@@ -299,7 +308,7 @@ async function processOne(e) {
   } catch (err) {
     if (!OFFLINE) throw err;
   }
-  if (!dur && e._secs) dur = e._secs;
+  if (!dur) dur = e._secs || secsOf.get(id) || 0;
   const { artist, title } = cleanMeta(meta.title, meta.author, e.expect);
   if (e.expect && meta.title) {
     const hay = (meta.title + ' ' + meta.author).toLowerCase();

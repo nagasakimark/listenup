@@ -6,6 +6,9 @@ Lady Gaga, Bruno Mars - Die With A Smile
 The Beatles - Let It Be
    darkness×1
 
+Ed Sheeran - Thinking Out Loud
+   fall×4 kiss×3 touch×1
+
 Randy Newman - You've Got a Friend in Me
    bed×1 die×1
 
@@ -120,6 +123,9 @@ Israel Kamakawiwo'ole - Over the Rainbow
 Louis Armstrong - What a Wonderful World
    dark×1 cry×1
 
+Ben E. King - Stand By Me
+   cry×2 dark×1 fall×1 tear×1
+
 Bill Withers - Lean On Me
    pain×1 sorrow×1
 
@@ -170,9 +176,3 @@ ONE OK ROCK - Wherever You Are
 
 ONE OK ROCK - The Beginning
    crazy×2 fight×2 pain×2
-
-Ed Sheeran - Thinking Out Loud
-   fall×4 kiss×3 touch×1
-
-Ben E. King - Stand By Me
-   cry×2 dark×1 fall×1 tear×1

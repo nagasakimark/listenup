@@ -17,12 +17,12 @@ https://www.youtube.com/watch?v=YVVTZgwYwVo | Idina Menzel - Let It Go | genre=�
 https://www.youtube.com/watch?v=c6rP-YP4c5I | Shakira - Try Everything | genre=アニメ・映画 | year=2016
 https://www.youtube.com/watch?v=gdZLi9oWNZg | BTS - Dynamite | genre=K-POP | year=2020
 https://www.youtube.com/watch?v=ArmDp-zijuc | NewJeans - Super Shy | genre=K-POP | year=2023
-search: Pharrell Williams - Happy | genre=ポップ | year=2013
+# 公式で長さの合う動画が見つからず外した: Pharrell Williams - Happy | genre=ポップ | year=2013
 https://www.youtube.com/watch?v=aAkMkVFwAoo | Mariah Carey - All I Want for Christmas Is You | genre=ポップ | year=1994
-search: Creepy Nuts - Bling-Bang-Bang-Born | genre=J-POP | year=2024
+# 公式で長さの合う動画が見つからず外した: Creepy Nuts - Bling-Bang-Bang-Born | genre=J-POP | year=2024
 
 # --- 追加 (2回め): 学校・テレビ・ネットでなじみのある曲。悪いことばを含む曲は自動でことわられます ---
-search: Kristen Bell, Agatha Lee Monn - Do You Want to Build a Snowman? | genre=アニメ・映画 | year=2013
+# 公式で長さの合う動画が見つからず外した: Kristen Bell, Agatha Lee Monn - Do You Want to Build a Snowman? | genre=アニメ・映画 | year=2013
 https://www.youtube.com/watch?v=gIOyB9ZXn8s | Idina Menzel, AURORA - Into the Unknown | genre=アニメ・映画 | year=2019
 https://www.youtube.com/watch?v=o01l3sotf1Q | Encanto Cast - We Don't Talk About Bruno | genre=アニメ・映画 | year=2021
 https://www.youtube.com/watch?v=cPAbx5kgCJo | Auli'i Cravalho - How Far I'll Go | genre=アニメ・映画 | year=2016
@@ -31,9 +31,9 @@ https://www.youtube.com/watch?v=GC_mV1IpjWA | Samuel E. Wright - Under the Sea |
 https://www.youtube.com/watch?v=GibiNy4d4gc | Carmen Twillie, Lebo M. - Circle of Life | genre=アニメ・映画 | year=1994
 https://www.youtube.com/watch?v=whM1ce_NnUg | Elton John - Can You Feel the Love Tonight | genre=アニメ・映画 | year=1994
 https://www.youtube.com/watch?v=hcmpj5HPue0 | Judy Kuhn - Colors of the Wind | genre=アニメ・映画 | year=1995
-search: Mandy Moore, Zachary Levi - I See the Light | genre=アニメ・映画 | year=2010
+# 公式で長さの合う動画が見つからず外した: Mandy Moore, Zachary Levi - I See the Light | genre=アニメ・映画 | year=2010
 https://www.youtube.com/watch?v=pSQk-4fddDI | The Greatest Showman Cast - A Million Dreams | genre=アニメ・映画 | year=2017
-search: Bruno Mars - Count on Me | genre=ポップ | year=2010
+# 公式で長さの合う動画が見つからず外した: Bruno Mars - Count on Me | genre=ポップ | year=2010
 https://www.youtube.com/watch?v=CevxZvSJLk8 | Katy Perry - Roar | genre=ポップ | year=2013
 https://www.youtube.com/watch?v=QGJuMBdaqIw | Katy Perry - Firework | genre=ポップ | year=2010
 https://www.youtube.com/watch?v=2Vv-BfVoq4g | Ed Sheeran - Perfect | genre=ポップ | year=2017
@@ -45,7 +45,7 @@ https://www.youtube.com/watch?v=kffacxfA7G4 | Justin Bieber - Baby | genre=ポ�
 https://www.youtube.com/watch?v=UlANZSYZ2Js | One Direction - What Makes You Beautiful | genre=ポップ | year=2011
 https://www.youtube.com/watch?v=R2h6KIpBums | One Direction - Story of My Life | genre=ポップ | year=2013
 https://www.youtube.com/watch?v=KsXvSpMdlFo | Carly Rae Jepsen - Call Me Maybe | genre=ポップ | year=2011
-search: Miley Cyrus - Flowers | genre=ポップ | year=2023
+# 公式で長さの合う動画が見つからず外した: Miley Cyrus - Flowers | genre=ポップ | year=2023
 https://www.youtube.com/watch?v=q0hyYWKXF0Q | Tones and I - Dance Monkey | genre=ポップ | year=2019
 https://www.youtube.com/watch?v=zABLecsR5UE | Lewis Capaldi - Someone You Loved | genre=ポップ | year=2018
 https://www.youtube.com/watch?v=hLQl3WQQoQ0 | Adele - Someone Like You | genre=ポップ | year=2011
@@ -68,7 +68,7 @@ https://www.youtube.com/watch?v=xUNqsfFUwhY | The Beatles - Here Comes the Sun |
 https://www.youtube.com/watch?v=EHLC4fVb0UQ | Queen - We Are the Champions | genre=ロック | year=1977
 https://www.youtube.com/watch?v=W9kVVVMAcrQ | Coldplay - A Sky Full of Stars | genre=ロック | year=2014
 https://www.youtube.com/watch?v=yKNxeF4KMsY | Coldplay - Yellow | genre=ロック | year=2000
-https://www.youtube.com/watch?v=4AqjqOqNrjw | Imagine Dragons - Thunder | genre=ロック | year=2017
+# 歌詞に「gun」があるため外した: https://www.youtube.com/watch?v=4AqjqOqNrjw | Imagine Dragons - Thunder | genre=ロック | year=2017
 https://www.youtube.com/watch?v=ktvTqknDobU | Imagine Dragons - Radioactive | genre=ロック | year=2012
 https://www.youtube.com/watch?v=gB9P0kpc1O4 | Linkin Park - In the End | genre=ロック | year=2000
 https://www.youtube.com/watch?v=b6xuxwwBwqo | Avicii - Wake Me Up | genre=ダンス | year=2013
@@ -80,5 +80,5 @@ https://www.youtube.com/watch?v=vRXZj0DzXIA | BLACKPINK, Selena Gomez - Ice Crea
 https://www.youtube.com/watch?v=hLvWy2b857I | LE SSERAFIM - Perfect Night | genre=K-POP | year=2023
 https://www.youtube.com/watch?v=qs4Q4cQxyU4 | ONE OK ROCK - Wherever You Are | genre=J-POP | year=2015
 https://www.youtube.com/watch?v=Hh9yZWeTmVM | ONE OK ROCK - The Beginning | genre=J-POP | year=2015
-search: XG - Shooting Star | genre=J-POP | year=2023
-search: XG - Tippy Toes | genre=J-POP | year=2022
+# 公式で長さの合う動画が見つからず外した: XG - Shooting Star | genre=J-POP | year=2023
+# 公式で長さの合う動画が見つからず外した: XG - Tippy Toes | genre=J-POP | year=2022

@@ -12,24 +12,24 @@
     '#qrplay .qru{font:700 13px/1.2 system-ui,sans-serif;color:#6d7694;word-break:break-all}' +
     '#qrplay button{font:inherit;font-size:20px;font-weight:900;color:#fff;background:linear-gradient(#5fd36a,#2fa83c);border:4px solid #1d2a55;border-radius:16px;box-shadow:0 5px 0 #1d2a55;padding:6px 30px;cursor:pointer}' +
     '#qrplay button:active{transform:translateY(4px);box-shadow:0 1px 0 #1d2a55}';
-  var el = null;
+  var el = null, openedAt = 0;
   function build() {
     var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
     el = document.createElement('div'); el.id = 'qrplay'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', 'スキャンして あそぼう');
     el.innerHTML = '<div class="qrc"><h2>スキャンして <span>あそぼう！</span></h2><div class="qri">' + SVG + '</div><div class="qru"></div><button type="button">とじる</button></div>';
     el.querySelector('.qru').textContent = URL;
-    el.addEventListener('click', function (e) { if (e.target === el || e.target.tagName === 'BUTTON') close(); });
+    el.addEventListener('click', function (e) { if (Date.now() - openedAt < 700) return; /* the tap that opened it also sends a click to whatever appears under the finger */ if (e.target === el || e.target.tagName === 'BUTTON') close(); });
     el.addEventListener('pointerdown', function (e) { e.stopPropagation(); });
     document.body.appendChild(el);
     // while the window is open, keys belong to it (the game must not move, draw or type underneath)
     window.addEventListener('keydown', function (e) {
       if (!isOpen()) return;
       e.stopImmediatePropagation(); e.preventDefault();
-      if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') close();
+      if (Date.now() - openedAt > 300 && (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ')) close();
     }, true);
   }
   function isOpen() { return !!el && el.classList.contains('on'); }
-  function open() { if (!el) build(); el.classList.add('on'); var b = el.querySelector('button'); setTimeout(function () { b.focus(); }, 30); }
+  function open() { if (!el) build(); openedAt = Date.now(); el.classList.add('on'); var b = el.querySelector('button'); setTimeout(function () { b.focus(); }, 30); }
   function close() { if (el) el.classList.remove('on'); }
   window.QRPLAY = { open: open, close: close, isOpen: isOpen, url: URL };
   // a little QR icon for buttons: QRPLAY.icon(size, color)

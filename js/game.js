@@ -5,7 +5,8 @@ import { createYouTubePlayer, createClockPlayer, freshMount } from './player.js'
 import { burst } from './fx.js';
 
 const $ = (id) => document.getElementById(id);
-const FRAC = { easy: 0.25, normal: 0.5, hard: 1 };
+const FRAC = { easy: 0.4, normal: 0.6, hard: 1 };
+const GAP = { easy: 9, normal: 6 };   // ブランクどうしの最小のあき(秒)
 const FALLBACK = ['love', 'friend', 'happy', 'dream', 'music', 'light', 'night', 'time', 'heart', 'smile', 'world', 'sing'];
 const esc = (s) => s.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
 const shuffle = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -34,14 +35,33 @@ export class Game {
       const ok = t[3] <= level && /^[A-Za-z]{3,}$/.test(t[1]) && (diff === 'hard' || !t[5]);
       if (ok) pool.push([li, ti]);
     }));
-    const want = Math.min(pool.length, Math.max(4, Math.round(pool.length * FRAC[diff])));
-    const perLine = diff === 'hard' ? 99 : 2, perWord = diff === 'hard' ? 99 : 2;
-    const cLine = {}, cWord = {}, picked = [];
-    for (const [li, ti] of shuffle(pool.slice())) {
-      if (picked.length >= want) break;
-      const w = this.lines[li].tok[ti][1].toLowerCase();
-      if ((cLine[li] || 0) >= perLine || (cWord[w] || 0) >= perWord) continue;
-      cLine[li] = (cLine[li] || 0) + 1; cWord[w] = (cWord[w] || 0) + 1; picked.push([li, ti]);
+    const want = Math.min(pool.length, Math.max(diff === 'easy' ? 7 : 5, Math.round(pool.length * FRAC[diff])));
+    const perWord = diff === 'hard' ? 99 : 2;
+    let picked = [];
+    if (diff === 'hard') {
+      // むずかしい: ぜんぶ ブランク(間かくなし)
+      const cLine = {}, cWord = {};
+      for (const [li, ti] of shuffle(pool.slice())) {
+        if (picked.length >= want) break;
+        const w = this.lines[li].tok[ti][1].toLowerCase();
+        if ((cWord[w] || 0) >= perWord) continue;
+        cLine[li] = (cLine[li] || 0) + 1; cWord[w] = (cWord[w] || 0) + 1; picked.push([li, ti]);
+      }
+    } else {
+      // かんたん/ふつう: ブランクとブランクの間に「歌を聞く時間」をあける(歌いはじめの時刻で、かんたん9秒・ふつう6秒以上)
+      const cand = pool.map(([li, ti]) => ({ li, ti, t: this.estimate(this.lines[li], ti), w: this.lines[li].tok[ti][1].toLowerCase() })).sort((x, y) => x.t - y.t);
+      for (let gap = GAP[diff]; gap >= 1; gap *= 0.7) {
+        picked = []; const cWord = {}; let last = -1e9;
+        for (;;) {
+          const ok = cand.filter((c) => c.t >= last + gap && (cWord[c.w] || 0) < perWord);
+          if (!ok.length) break;
+          const win = ok.filter((c) => c.t <= ok[0].t + gap * 0.8);       // 少し先までの候補からランダムに1つ(いつも同じ場所にならないように)
+          const c = win[(Math.random() * win.length) | 0];
+          picked.push([c.li, c.ti]); cWord[c.w] = (cWord[c.w] || 0) + 1; last = c.t;
+        }
+        if (picked.length >= Math.min(4, pool.length)) break;                // 少なすぎるときだけ間かくをせまくする
+      }
+      while (picked.length > want) picked.splice((Math.random() * picked.length) | 0, 1);   // 多すぎるときは間引く(間かくは広がるだけ)
     }
     picked.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
     this.blanks = picked.map(([li, ti], i) => {

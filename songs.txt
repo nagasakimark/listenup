@@ -12,7 +12,7 @@ https://www.youtube.com/watch?v=1MPZRcyTrcU | Randy Newman - You've Got a Friend
 # 今は使わない(アニメ映画いがい): https://www.youtube.com/watch?v=gset79KMmt0 | Sia - Snowman | genre=ポップ | year=2017
 
 # --- 日本の小中学生に人気の曲 (search: は成功すると URL に自動で書きかわります) ---
-# 動画なし(外した): https://www.youtube.com/watch?v=fPLAgY5bU1Y | HUNTR/X - Golden | genre=アニメ・映画 | year=2025
+search: HUNTR/X - Golden | genre=アニメ・映画 | year=2025
 https://www.youtube.com/watch?v=YVVTZgwYwVo | Idina Menzel - Let It Go | genre=アニメ・映画 | year=2013
 https://www.youtube.com/watch?v=c6rP-YP4c5I | Shakira - Try Everything | genre=アニメ・映画 | year=2016
 # 今は使わない(アニメ映画いがい): https://www.youtube.com/watch?v=gdZLi9oWNZg | BTS - Dynamite | genre=K-POP | year=2020
@@ -25,11 +25,11 @@ https://www.youtube.com/watch?v=c6rP-YP4c5I | Shakira - Try Everything | genre=�
 https://www.youtube.com/watch?v=gIOyB9ZXn8s | Idina Menzel, AURORA - Into the Unknown | genre=アニメ・映画 | year=2019
 https://www.youtube.com/watch?v=bvWRMAU6V-c | Encanto Cast - We Don't Talk About Bruno | genre=アニメ・映画 | year=2021
 https://www.youtube.com/watch?v=cPAbx5kgCJo | Auli'i Cravalho - How Far I'll Go | genre=アニメ・映画 | year=2016
-# 動画なし(外した): https://www.youtube.com/watch?v=xYjFxFFdyyk | Brad Kane, Lea Salonga - A Whole New World | genre=アニメ・映画 | year=1992
+search: Brad Kane, Lea Salonga - A Whole New World | genre=アニメ・映画 | year=1992
 https://www.youtube.com/watch?v=GC_mV1IpjWA | Samuel E. Wright - Under the Sea | genre=アニメ・映画 | year=1989
 https://www.youtube.com/watch?v=GibiNy4d4gc | Carmen Twillie, Lebo M. - Circle of Life | genre=アニメ・映画 | year=1994
 https://www.youtube.com/watch?v=KjgWWjkNbhU | Elton John - Can You Feel the Love Tonight | genre=アニメ・映画 | year=1994
-# 動画なし(外した): https://www.youtube.com/watch?v=hcmpj5HPue0 | Judy Kuhn - Colors of the Wind | genre=アニメ・映画 | year=1995
+search: Judy Kuhn - Colors of the Wind | genre=アニメ・映画 | year=1995
 # 今は使わない(アニメ映画いがい): https://www.youtube.com/watch?v=pSQk-4fddDI | The Greatest Showman Cast - A Million Dreams | genre=アニメ・映画 | year=2017
 # 公式で長さの合う動画が見つからず外した: Bruno Mars - Count on Me | genre=ポップ | year=2010
 # 今は使わない(アニメ映画いがい): https://www.youtube.com/watch?v=CevxZvSJLk8 | Katy Perry - Roar | genre=ポップ | year=2013

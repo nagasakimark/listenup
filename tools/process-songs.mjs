@@ -139,6 +139,9 @@ function scoreCand(c, expect, lrcDur, movie = false) {
   if (movie) {   // 映画の歌は「映画の場面の公式ビデオ」だけ(音だけ・歌詞つき・ファン動画はだめ)
     if (/audio|visuali[sz]er|topic|lyric|karaoke/i.test(c.title + ' ' + c.channel)) return null;
     if (!/official (music )?video|\(from |from ["“]|music video|m\/v/i.test(c.title)) return null;
+    const studio = /^(disneymusicvevo|disney|waltdisneyanimationstudios|waltdisney|pixar|disneyjunior|sonypicturesanimation|netflix|illuminationentertainment|illumination|dreamworksanimation|dreamworks|universalpictures|nickelodeon|paramountpictures)$/.test(ch);
+    const own = /official (music )?video/i.test(c.title) && artists.some((x) => ch.startsWith(x));
+    if (!studio && !own) return null;      // スタジオ公式か、アーティスト本人の「Official Video」だけ(歌詞つき・カラオケ・まとめチャンネルはだめ)
   }                       // ライブ・歌詞つき・カバー・ひとの動画など
   if (!c.secs) return null;
   let sc = 0;
@@ -162,7 +165,7 @@ async function lrcDuration(artist, title) {
 }
 async function bestVideo(expect, lrcDur, movie = false) {
   const [a0, ...t0] = expect.split(' - ');
-  const qs = [`${a0} ${t0.join(' - ')} official video`, ...(movie ? [`${t0.join(' - ')} from official video disney`] : []), `${a0} ${t0.join(' - ')} official audio`, `${a0} - Topic ${t0.join(' - ')}`];
+  const qs = [`${a0} ${t0.join(' - ')} official video`, ...(movie ? [`${t0.join(' - ')} DisneyMusicVEVO`, `${t0.join(' - ')} from official video`] : []), `${a0} ${t0.join(' - ')} official audio`, `${a0} - Topic ${t0.join(' - ')}`];
   let all = [];
   for (const q of qs) { try { all = all.concat(await searchCands(q)); } catch { /* ignore */ } await new Promise((r) => setTimeout(r, 1200)); }
   const scored = all.map((c) => ({ c, sc: scoreCand(c, expect, lrcDur, movie) })).filter((x) => x.sc !== null).sort((a, b) => b.sc - a.sc);
@@ -295,7 +298,7 @@ async function processOne(e) {
     const ld = await lrcDuration(sa, st.join(' - '));
     const b = await bestVideo(e.search, ld, e.genre === 'アニメ・映画');
     if (!b) throw new Error(`曲の長さ(${ld.join('/') || '?'}秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください`);
-    id = b.id; e._secs = b.secs;
+    id = b.id; e._secs = b.secs; e._searched = true;
     resolved.set(e.raw, id);
     log(`   → ${id} 「${b.title}」/${b.channel}/${b.secs}s (歌詞${ld.join('/')}s)`);
   }
@@ -317,7 +320,7 @@ async function processOne(e) {
   if (!dur) dur = e._secs || secsOf.get(id) || 0;
   if (!dur && !OFFLINE) { try { const c = (await searchCands(id)).find((x) => x.id === id); if (c) dur = c.secs; } catch { /* ignore */ } }
   const { artist, title } = cleanMeta(meta.title, meta.author, e.expect);
-  if (e.expect && meta.title && !e.pin) {
+  if (e.expect && meta.title && !e.pin && !e._searched) {
     const hay = (meta.title + ' ' + meta.author).toLowerCase();
     const want = [a0, t0.join(' - ')].join(' ').toLowerCase().split(/[^a-z0-9']+/).filter((w) => w.length > 2);
     const hit = want.filter((w) => hay.includes(w)).length;

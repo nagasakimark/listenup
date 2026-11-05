@@ -163,6 +163,12 @@ function bind() {
   $('t-sync').onclick = () => { $('sync-pop').hidden = !$('sync-pop').hidden; };
   $('sync-minus').onclick = () => S.game?.setNudge(-0.5);
   $('sync-plus').onclick = () => S.game?.setNudge(0.5);
+  $('sync-copy').onclick = () => {   // 先生用: ずれを直したら、その値を songs.txt の その曲の行に「| offset=○」として足すと、みんなに反映される
+    const g = S.game; if (!g) return;
+    const txt = `offset=${(Math.round(g.shift * 10) / 10)}`;
+    try { navigator.clipboard.writeText(txt); } catch { /* ignore */ }
+    $('sync-copy').textContent = `コピーした: ${txt}`;
+  };
   $('tap-start').onclick = () => { $('tap-start').hidden = true; S.game?.player?.play(); S.game?.focusInput(); };
 
   // キーボード

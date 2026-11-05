@@ -115,7 +115,7 @@ async function searchCands(q) {
   }
   return out.filter((c, k) => out.findIndex((d) => d.id === c.id) === k);
 }
-const BAD_TITLE = /\b(live|performance|performs?|performed|cover|karaoke|reaction|react|instrumental|remix|slowed|sped|nightcore|8d|medley|scene|clip|behind|tutorial|piano|stage|concert|tour|mashup|extended|hour|loop|trailer|interview|making|rehearsal|acoustic|lesson|choreograph\w*|fancam|shorts|premiere|awards?|oscars?|grammys?|snl|episode|full movie|multilingual|languages|reprise|lyrics?|lyric video|sing[- ]?along|ver\.|version)\b/i;
+const BAD_TITLE = /\b(live|performance|performs?|performed|cover|karaoke|reaction|react|instrumental|remix|slowed|sped|nightcore|8d|medley|scene|clip|behind|tutorial|piano|stage|concert|tour|mashup|extended|hour|loop|trailer|interview|making|rehearsal|acoustic|lesson|choreograph\w*|fancam|shorts|premiere|awards?|oscars?|grammys?|snl|episode|full movie|multilingual|languages|reprise|lyrics?|lyric video|sing[- ]?along|ver\.|version|duet|twin|sings|singing|d23|expo|toppop|wildlife|bbc|session|amv|anime|edit|soundtrack version|full video|unofficial)\b/i;
 const words = (t) => (t || '').toLowerCase().replace(/\(.*?\)|\[.*?\]/g, ' ').split(/[^a-z0-9']+/).filter((w) => w.length > 2);
 /** 動画の点数。ことわる(null)・OKなら点数(大きいほどよい)。lrcDur=歌詞データの曲の長さ */
 function scoreCand(c, expect, lrcDur) {
@@ -123,7 +123,13 @@ function scoreCand(c, expect, lrcDur) {
   const tw = words(t0.join(' - ') || a0), aw = words(a0);
   const hay = (c.title + ' ' + c.channel).toLowerCase();
   if (tw.length && tw.filter((w) => hay.includes(w)).length < Math.ceil(tw.length / 2)) return null;
-  if (aw.length && !aw.some((w) => hay.includes(w)) && !/vevo|official|disney|records|music|topic/i.test(c.channel)) return null;
+  // 公式っぽいチャンネルだけ(ほかのひとの再アップロード・ファン動画は、きえたり ずれたりするので使わない)
+  const ch = c.channel.toLowerCase();
+  const chOK = aw.some((w) => ch.includes(w)) || /disney|hybe|labels?\b|records|recordings|music group|entertainment|sony|warner|universal|atlantic|columbia|interscope|republic|capitol|smtown|jyp|\byg\b|studios|pictures|netflix|mountain apple|- topic$/i.test(c.channel);
+  if (!chOK) return null;
+  // 「アーティスト - 曲名」の形のタイトルは、アーティストが合っていること(別のひとのカバーをさける)
+  const pre = (c.title.split(/\s[-–]\s/)[0] || '');
+  if (/\s[-–]\s/.test(c.title) && !/- topic$/i.test(c.channel) && aw.length && !words(pre).some((w) => aw.includes(w)) && words(pre).length) return null;
   if (BAD_TITLE.test(c.title)) return null;                       // ライブ・歌詞つき・カバー・ひとの動画など
   if (!c.secs) return null;
   let sc = 0;
@@ -146,7 +152,7 @@ async function lrcDuration(artist, title) {
 }
 async function bestVideo(expect, lrcDur) {
   const [a0, ...t0] = expect.split(' - ');
-  const qs = [`${a0} ${t0.join(' - ')} official video`, `${a0} ${t0.join(' - ')}`];
+  const qs = [`${a0} ${t0.join(' - ')} official video`, `${a0} ${t0.join(' - ')} official audio`, `${a0} - Topic ${t0.join(' - ')}`];
   let all = [];
   for (const q of qs) { try { all = all.concat(await searchCands(q)); } catch { /* ignore */ } await new Promise((r) => setTimeout(r, 1200)); }
   const scored = all.map((c) => ({ c, sc: scoreCand(c, expect, lrcDur) })).filter((x) => x.sc !== null).sort((a, b) => b.sc - a.sc);

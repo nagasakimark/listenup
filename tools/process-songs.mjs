@@ -138,7 +138,7 @@ function scoreCand(c, expect, lrcDur) {
   if (!c.secs) return null;
   let sc = 0;
   const lds = [].concat(lrcDur || []).filter(Boolean);
-  if (lds.length) { const d = Math.min(...lds.map((x) => Math.abs(c.secs - x))); if (d > 3) return null; sc += d <= 1 ? 60 : d <= 2 ? 50 : 30; }
+  if (lds.length) { const d = Math.min(...lds.map((x) => Math.abs(c.secs - x))); const tol = /official audio|visuali[sz]er|\(audio\)|audio only|topic$/i.test(c.title + ' ' + c.channel) ? 8 : 3; if (d > tol) return null; sc += d <= 1 ? 60 : d <= 2 ? 50 : 30; }
   if (/official (music )?video|\(official\)|official$/i.test(c.title)) sc += 30;
   else if (/official audio|visuali[sz]er/i.test(c.title)) sc += 15;
   if (/vevo|disney|records|official/i.test(c.channel)) sc += 15;

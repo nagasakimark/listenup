@@ -1,18 +1,15 @@
 # 動画のかくにん結果 (OK=タイトル・長さが合う / FIXED=えらびなおした / BAD=見つからない)
 OK     Randy Newman - You've Got a Friend in Me  「Randy Newman - You've Got a Friend in Me (From "Toy Story")」/DisneyMusicVEVO/128s  歌詞128/125/126/124s
-BAD    HUNTR/X - Golden  「“Golden” KPop Demon Hunters (Soundtrack from the Netflix Film) | HUNTR/X」/Republic Records/194s  歌詞133/191/194/195/199/235/193s  ← 公式で長さの合う動画が見つからないので外した
 OK     Idina Menzel - Let It Go  「Idina Menzel - Let It Go (from Frozen) (Official Video)」/DisneyMusicVEVO/226s  歌詞225/224/243s
 OK     Shakira - Try Everything  「Shakira - Try Everything (Official Video)」/Shakira/203s  歌詞197/195/202s
 OK     Idina Menzel, AURORA - Into the Unknown  「Idina Menzel, AURORA - Into the Unknown (From "Frozen 2")」/DisneyMusicVEVO/210s  歌詞195/190/209s
-FIXED  Encanto Cast - We Don't Talk About Bruno  「We Don't Talk About Bruno (From "Encanto"/Audio Only)」/DisneyMusicVEVO/218s → 「We Don't Talk About Bruno (From "Encanto")」/DisneyMusicVEVO/222s  歌詞216/218/220/215/221/314s
+OK     Encanto Cast - We Don't Talk About Bruno  「We Don't Talk About Bruno (From "Encanto")」/DisneyMusicVEVO/222s  歌詞216/218/220/215/221/314s
 OK     Auli'i Cravalho - How Far I'll Go  「Auli'i Cravalho - How Far I'll Go (from Moana/Official Video)」/DisneyMusicVEVO/156s  歌詞163/155/159/87/165s
-BAD    Brad Kane, Lea Salonga - A Whole New World  「A Whole New World」/Lea Salonga - Topic/161s  歌詞161/270/162/159s  ← 公式で長さの合う動画が見つからないので外した
 OK     Samuel E. Wright - Under the Sea  「Samuel E. Wright - Under the Sea (from The Little Mermaid) (Official Video)」/DisneyMusicVEVO/207s  歌詞195/205/207/204/196/194/197/192/193/206s
 OK     Carmen Twillie, Lebo M. - Circle of Life  「Carmen Twillie, Lebo M. - Circle of Life (From "The Lion King")」/DisneyMusicVEVO/247s  歌詞240/239/236/247/238/242s
-FIXED  Elton John - Can You Feel the Love Tonight  「Can You Feel The Love Tonight (Remastered)」/Elton John/242s → 「Elton John - Can You Feel the Love Tonight (From "The Lion King"/Official Video)」/DisneyMusicVEVO/247s  歌詞239/241/247/245s
-BAD    Judy Kuhn - Colors of the Wind  「Colors of the Wind」/Judy Kuhn/231s  歌詞215/230/228/213/212s  ← 公式で長さの合う動画が見つからないので外した
-OK     Kristen Bell, Idina Menzel - For the First Time in Forever  「Kristen Bell, Idina Menzel - For the First Time in Forever (From "Frozen") [4K]」/Disney Songs/224s  歌詞225/223s
-OK     Jason Weaver, Rowan Atkinson - I Just Can't Wait to Be King  「I Just Can't Wait to Be King (From "The Lion King" Soundtrack)」/Jason Weaver/171s  歌詞171/169/178/172s
+OK     Elton John - Can You Feel the Love Tonight  「Elton John - Can You Feel the Love Tonight (From "The Lion King"/Official Video)」/DisneyMusicVEVO/247s  歌詞239/241/247/245s
+BAD    Kristen Bell, Idina Menzel - For the First Time in Forever  (動画情報なし)  歌詞225/223s  ← 公式で長さの合う動画が見つからないので外した
+BAD    Jason Weaver, Rowan Atkinson - I Just Can't Wait to Be King  「I Just Can't Wait to Be King (From "The Lion King" Soundtrack)」/Jason Weaver/171s  歌詞171/169/178/172s  ← 公式で長さの合う動画が見つからないので外した
 OK     Jodi Benson - Part of Your World  「Jodi Benson - Part of Your World (From "The Little Mermaid")」/DisneyMusicVEVO/189s  歌詞193/195/212/267/196/191/215s
-OK     Jerry Orbach - Be Our Guest  「Be Our Guest (from Beauty and the Beast)」/DisneySingItVideos/223s  歌詞225/224/221/223s
+BAD    Jerry Orbach - Be Our Guest  「Be Our Guest (from Beauty and the Beast)」/DisneySingItVideos/223s  歌詞225/224/221/223s  ← 公式で長さの合う動画が見つからないので外した
 OK     Christina Aguilera - Reflection  「Christina Aguilera - Reflection (2020) (From "Mulan")」/DisneyMusicVEVO/221s  歌詞216/213/214/217/221s

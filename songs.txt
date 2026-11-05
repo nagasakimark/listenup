@@ -83,17 +83,17 @@ search: Judy Kuhn - Colors of the Wind | genre=アニメ・映画 | year=1995
 
 # --- アニメ映画の歌 (公式の映画ビデオがあるものだけ。search: は成功すると URL に自動で書きかわります) ---
 https://www.youtube.com/watch?v=V-zXT5bIBM0 | Kristen Bell, Agatha Lee Monn - Do You Want to Build a Snowman? | genre=アニメ・映画 | year=2013 | pin
-https://www.youtube.com/watch?v=CQgII5kavwY | Kristen Bell, Idina Menzel - For the First Time in Forever | genre=アニメ・映画 | year=2013
+# 動画なし(外した): https://www.youtube.com/watch?v=CQgII5kavwY | Kristen Bell, Idina Menzel - For the First Time in Forever | genre=アニメ・映画 | year=2013
 search: Kristen Bell, Santino Fontana - Love Is an Open Door | genre=アニメ・映画 | year=2013
 search: Josh Gad - In Summer | genre=アニメ・映画 | year=2013
 search: Kristen Bell, Idina Menzel - Some Things Never Change | genre=アニメ・映画 | year=2019
 search: Encanto Cast - What Else Can I Do? | genre=アニメ・映画 | year=2021
 search: Encanto Cast - Waiting on a Miracle | genre=アニメ・映画 | year=2021
 search: Nathan Lane, Ernie Sabella, Jason Weaver - Hakuna Matata | genre=アニメ・映画 | year=1994
-https://www.youtube.com/watch?v=T5lq8ottT7s | Jason Weaver, Rowan Atkinson - I Just Can't Wait to Be King | genre=アニメ・映画 | year=1994
+# 動画なし(外した): https://www.youtube.com/watch?v=T5lq8ottT7s | Jason Weaver, Rowan Atkinson - I Just Can't Wait to Be King | genre=アニメ・映画 | year=1994
 search: Robin Williams - Friend Like Me | genre=アニメ・映画 | year=1992
 https://www.youtube.com/watch?v=SXKlJuO07eM | Jodi Benson - Part of Your World | genre=アニメ・映画 | year=1989
-https://www.youtube.com/watch?v=T_UTMNqva40 | Jerry Orbach - Be Our Guest | genre=アニメ・映画 | year=1991
+# 動画なし(外した): https://www.youtube.com/watch?v=T_UTMNqva40 | Jerry Orbach - Be Our Guest | genre=アニメ・映画 | year=1991
 search: Angela Lansbury - Beauty and the Beast | genre=アニメ・映画 | year=1991
 search: Mandy Moore - When Will My Life Begin | genre=アニメ・映画 | year=2010
 search: Mandy Moore, Zachary Levi - I See the Light | genre=アニメ・映画 | year=2010

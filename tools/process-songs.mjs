@@ -28,6 +28,14 @@ const errors = [];
 const resolved = new Map();   // search: の行 → 見つけた動画ID(あとで songs.txt をURLに書きかえる)
 
 async function get(url, opts = {}) {
+  for (let i = 0; ; i++) {
+    try { return await getOnce(url, opts); } catch (e) {
+      if (i >= 3) throw e;
+      await new Promise((res) => setTimeout(res, 3000 * (i + 1)));   // YouTube に ブロックされにくいよう、まって やりなおす
+    }
+  }
+}
+async function getOnce(url, opts = {}) {
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), opts.timeout || 20000);
   try {
@@ -264,6 +272,7 @@ fs.mkdirSync(path.join(SONGS, 'src'), { recursive: true });
 let entries = parseSongsTxt();
 if (ONLY) entries = entries.filter((e) => e.id === ONLY);
 for (const e of entries) {
+  if (!OFFLINE) await new Promise((res) => setTimeout(res, 2500));
   try { await processOne(e); } catch (err) { errors.push(`${e.raw}\n     → ${err.message}`); log('   ❌ ' + err.message); }
 }
 rebuildIndex();

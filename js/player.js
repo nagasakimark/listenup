@@ -28,15 +28,19 @@ export function freshMount(box) {
 export async function createYouTubePlayer(box, videoId, h, start = 0) {
   await loadYT();
   freshMount(box);
+  // 字幕(ことばの答えが見えてしまう)は いつも オフにする。YouTubeの設定で「いつも字幕」になっていてもオフにもどす
+  let p = null;
+  const killCC = () => { try { for (const m of ['captions', 'cc']) p.unloadModule(m); } catch { /* ignore */ } };
   return new Promise((resolve, reject) => {
     let ready = false;
-    const p = new window.YT.Player('yt', {
+    p = new window.YT.Player('yt', {
       videoId,
       width: '100%', height: '100%',
       playerVars: { start: Math.max(0, Math.floor(start)), controls: 0, disablekb: 1, fs: 0, rel: 0, modestbranding: 1, playsinline: 1, iv_load_policy: 3, cc_load_policy: 0, origin: location.origin },
       events: {
         onReady: () => {
           ready = true;
+          killCC();
           resolve({
             kind: 'youtube',
             time: () => (p.getCurrentTime ? p.getCurrentTime() : 0),
@@ -53,6 +57,7 @@ export async function createYouTubePlayer(box, videoId, h, start = 0) {
         onStateChange: (e) => {
           const S = window.YT.PlayerState;
           if (e.data === S.ENDED) h.onEnded();
+          if (e.data === S.PLAYING) { killCC(); setTimeout(killCC, 600); setTimeout(killCC, 2500); }
           h.onState(e.data === S.PLAYING, e.data);
         },
         onError: (e) => {

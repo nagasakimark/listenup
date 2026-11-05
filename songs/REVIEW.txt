@@ -1,19 +1,7 @@
 # 歌詞に気になることばを含む曲 (先生チェック用。自動で作られます)
 
-Lady Gaga, Bruno Mars - Die With A Smile
-   die×3 fighting×1
-
-The Beatles - Let It Be
-   darkness×1
-
-Ed Sheeran - Thinking Out Loud
-   fall×4 kiss×3 touch×1
-
 Randy Newman - You've Got a Friend in Me
    bed×1 die×1
-
-Sia - Snowman
-   cry×6 tears×3 death×2 tear×1
 
 HUNTR/X - Golden
    lies×3 break×1
@@ -23,12 +11,6 @@ Idina Menzel - Let It Go
 
 Shakira - Try Everything
    tonight×1 fight×1 falling×1 fall×1 nobody×1
-
-BTS - Dynamite
-   tonight×5 break×1
-
-Mariah Carey - All I Want for Christmas Is You
-   tonight×1
 
 Idina Menzel, AURORA - Into the Unknown
    alone×1
@@ -50,129 +32,3 @@ Elton John - Can You Feel the Love Tonight
 
 Judy Kuhn - Colors of the Wind
    paint×4 cry×2 dead×1 high×1
-
-The Greatest Showman Cast - A Million Dreams
-   crazy×4 lie×3 bed×3 dark×1
-
-Katy Perry - Roar
-   fighter×3 scared×1 breaking×1
-
-Katy Perry - Firework
-   shoot×3 buried×1 wasted×1
-
-Ed Sheeran - Perfect
-   dark×3 tonight×3 kiss×1 fighting×1
-
-Ed Sheeran - Photograph
-   hurt×4 broken×2 alone×2 bleed×2 die×1 kissed×1
-
-Taylor Swift - Love Story
-   alone×4 crying×1 dead×1 scarlet×1
-
-Taylor Swift - You Belong With Me
-   high×1 cry×1
-
-Taylor Swift - 22
-   lonely×2 breakfast×1 fall×1
-
-Justin Bieber - Baby
-   nobody×2 crazy×1 breakin×1
-
-One Direction - What Makes You Beautiful
-   nobody×4
-
-One Direction - Story of My Life
-   tonight×2 die×1 broken×1 burning×1
-
-Carly Rae Jepsen - Call Me Maybe
-   crazy×5 skin×2 kiss×1 fall×1
-
-Tones and I - Dance Monkey
-   cry×2 dead×1
-
-Lewis Capaldi - Someone You Loved
-   bleeds×4 crazy×1 pain×1 hurts×1 fall×1
-
-Adele - Someone Like You
-   hurts×6 hate×2 fight×2
-
-Colbie Caillat - Bubbly
-   falling×1 kiss×1
-
-Owl City - Fireflies
-   bed×1 fall×1 hate×1
-
-Glass Animals - Heat Waves
-   fight×1 alone×1 hurts×1 broken×1 cry×1
-
-Whitney Houston - I Wanna Dance with Somebody
-   burns×2 lonely×2
-
-ABBA - Dancing Queen
-   high×1 burning×1
-
-Carpenters - Top of the World
-   touch×1
-
-Michael Jackson - Heal the World
-   dying×7 cry×2 hurt×1 sorrow×1 lie×1 wound×1 high×1 die×1 tears×1
-
-Israel Kamakawiwo'ole - Over the Rainbow
-   high×4
-
-Louis Armstrong - What a Wonderful World
-   dark×1 cry×1
-
-Ben E. King - Stand By Me
-   cry×2 dark×1 fall×1 tear×1
-
-Bill Withers - Lean On Me
-   pain×1 sorrow×1
-
-John Denver - Take Me Home, Country Roads
-   dark×1 painted×1
-
-The Beatles - Hey Jude
-   skin×2 pain×1 fool×1 break×1
-
-The Beatles - Here Comes the Sun
-   lonely×1
-
-Queen - We Are the Champions
-   fighting×3 bed×1
-
-Coldplay - A Sky Full of Stars
-   tear×2 die×1 dark×1
-
-Coldplay - Yellow
-   skin×4 bleed×2
-
-Imagine Dragons - Radioactive
-   breaking×2 painted×1 died×1
-
-Linkin Park - In the End
-   fall×3 wasted×1
-
-Avicii - Wake Me Up
-   darkness×1
-
-BTS - Butter
-   high×3 break×2 breaking×1 fall×1 body×1 hate×1
-
-BTS - Permission to Dance
-   break×4 fall×3 tonight×3 falling×1
-
-FIFTY FIFTY - Cupid
-   fool×6 lonely×5 stupid×4 dumb×4 crying×2 kiss×2
-
-BLACKPINK, Selena Gomez - Ice Cream
-   kiss×2 touch×1 nobody×1
-
-LE SSERAFIM - Perfect Night
-   tonight×4
-
-ONE OK ROCK - Wherever You Are
-   tonight×4 cry×1
-
-ONE OK ROCK - The Beginning
-   crazy×2 fight×2 pain×2

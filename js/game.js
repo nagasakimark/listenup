@@ -66,7 +66,7 @@ export class Game {
     picked.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
     this.blanks = picked.map(([li, ti], i) => {
       const t = this.lines[li].tok[ti];
-      return { i, li, ti, ans: t[1].toLowerCase(), disp: t[1], ja: t[4] || '', time: this.estimate(this.lines[li], ti), extra: 0, typed: '', mistakes: 0, hints: 0, jaShown: diff === 'easy', wrongChoices: new Set(), status: 'pending', revealedFirst: false };
+      return { i, li, ti, ans: t[1].toLowerCase(), disp: t[1], ja: t[4] || '', time: this.lineEnd(this.lines[li]), extra: 0, typed: '', mistakes: 0, hints: 0, jaShown: diff === 'easy', wrongChoices: new Set(), status: 'pending', revealedFirst: false };
     });
     this.byPos = new Map(this.blanks.map((b) => [b.li + ':' + b.ti, b]));
     // えらぶモード用のにせの選択肢
@@ -84,6 +84,12 @@ export class Game {
     const upto = line.tok.slice(0, ti + 1).reduce((n, t) => n + len(t), 0);
     const span = Math.max(1, Math.min(line.e - line.t, total / 13));
     return line.t + span * (upto / total) - 0.05;
+  }
+
+  /** 行を「さいごまで」聞かせて止める時刻: 歌い終わりの見つもり + ゆとり0.5秒(次の行の はじまりを少しこえるところまで) */
+  lineEnd(line) {
+    const total = line.tok.reduce((n, t) => n + (t[0] + t[1] + t[2]).length + 1, 0);
+    return Math.max(line.t + 1.2, Math.min(line.t + total / 8 + 0.5, line.e + 0.2));
   }
 
   get cursor() { return this.blanks.find((b) => b.status === 'pending') || null; }

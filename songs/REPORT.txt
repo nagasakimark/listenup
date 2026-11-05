@@ -1,3 +1,9 @@
+search: HUNTR/X - Golden | genre=アニメ・映画 | year=2025
+     → 曲の長さ(133/191/194/195/199/235/193秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
+search: Brad Kane, Lea Salonga - A Whole New World | genre=アニメ・映画 | year=1992
+     → 曲の長さ(161/270/162/159秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
+search: Judy Kuhn - Colors of the Wind | genre=アニメ・映画 | year=1995
+     → 曲の長さ(215/230/228/213/212秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
 search: Kristen Bell, Santino Fontana - Love Is an Open Door | genre=アニメ・映画 | year=2013
      → 曲の長さ(125/127秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
 search: Josh Gad - In Summer | genre=アニメ・映画 | year=2013
@@ -29,7 +35,7 @@ search: Phil Collins - You'll Be in My Heart | genre=アニメ・映画 | year=1
 search: Roger Bart - Go the Distance | genre=アニメ・映画 | year=1997
      → 曲の長さ(194/189/195/193/357秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
 search: Billy Crystal, John Goodman - If I Didn't Have You | genre=アニメ・映画 | year=2001
-     → 動画タイトル「If I Didn't Have You (from Monsters, Inc.)」が指定「Billy Crystal, John Goodman - If I Didn't Have You」と違うようです。URLを確認してください
+     → 曲の長さ(218/219/223/220/196秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
 search: Mark Keali'i Ho'omalu - Hawaiian Roller Coaster Ride | genre=アニメ・映画 | year=2002
      → 曲の長さ(208秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
 search: Rascal Flatts - Life Is a Highway | genre=アニメ・映画 | year=2006

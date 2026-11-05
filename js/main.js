@@ -16,7 +16,7 @@ const store = {
   get: (k, d) => { try { const v = localStorage.getItem('lu.' + k); return v === null ? d : JSON.parse(v); } catch { return d; } },
   set: (k, v) => { try { localStorage.setItem('lu.' + k, JSON.stringify(v)); } catch { /* */ } },
 };
-const S = { level: store.get('level', null), diff: store.get('diff', 'normal'), mode: store.get('mode', null), songs: [], page: 0, song: null, game: null };
+const S = { level: store.get('level', null), diff: store.get('diff', 'normal'), mode: store.get('mode', null), songs: [], page: 0, filt: { genre: '', year: '', diff: '' }, song: null, game: null };
 
 // ---------- 画面切りかえ ----------
 function show(id) {
@@ -45,12 +45,27 @@ async function loadSongs() {
   try { const r = await fetch('songs/index.json', { cache: 'no-cache' }); S.songs = r.ok ? await r.json() : []; } catch { S.songs = []; }
   if (location.hash === '#demo') S.songs.push({ id: 'demo', yt: null, title: 'デモ曲 (おんがくなし)', artist: 'Listen Up!', dur: 62, counts: [20, 20, 20, 20, 20] });
 }
-function goSongs() { paintLevelChips(); show('s-songs'); renderGrid(); }
+function goSongs() { paintLevelChips(); paintFilters(); show('s-songs'); renderGrid(); }
 function perPage() {
   const g = $('grid'); const w = g.clientWidth || innerWidth, h = g.clientHeight || innerHeight * 0.75;
   const cols = Math.max(2, Math.min(4, Math.floor(w / 270))), rows = Math.max(1, Math.min(3, Math.floor(h / 240)));
   g.style.setProperty('--cols', cols); g.style.setProperty('--rows', rows);
   return cols * rows;
+}
+const YEARS = [['', 'ぜんぶ'], ['new', '2020〜'], ['mid', '2010〜2019'], ['old', '〜2009']];
+const DIFFL = ['', 'やさしい', 'ふつう', 'むずかしい'];
+const yearKey = (y) => !y ? '' : y >= 2020 ? 'new' : y >= 2010 ? 'mid' : 'old';
+function visibleSongs() {
+  const f = S.filt;
+  return S.songs.filter((s) => (!f.genre || s.genre === f.genre) && (!f.year || yearKey(s.year) === f.year) && (!f.diff || String(s.diff) === f.diff));
+}
+function paintFilters() {
+  const gs = [...new Set(S.songs.map((s) => s.genre).filter(Boolean))];
+  const opt = (arr, cur) => arr.map(([v, l]) => `<option value="${v}"${v === cur ? ' selected' : ''}>${l}</option>`).join('');
+  $('f-genre').innerHTML = opt([['', 'ぜんぶ'], ...gs.map((g) => [g, g])], S.filt.genre);
+  $('f-year').innerHTML = opt(YEARS, S.filt.year);
+  $('f-diff').innerHTML = opt([['', 'ぜんぶ'], ['1', 'やさしい'], ['2', 'ふつう'], ['3', 'むずかしい']], S.filt.diff);
+  $('filters').hidden = S.songs.length === 0;
 }
 function stars(id) { const b = store.get(`best.${id}.${S.level}`, null); return b ? '★'.repeat(b.stars) + '☆'.repeat(3 - b.stars) : ''; }
 function renderGrid() {
@@ -58,15 +73,18 @@ function renderGrid() {
   $('empty').hidden = !empty; $('grid').hidden = empty;
   $('btn-prev').hidden = $('btn-next').hidden = $('pager').hidden = empty;
   if (empty) return;
-  const n = perPage(), pages = Math.max(1, Math.ceil(S.songs.length / n));
+  const list = visibleSongs();
+  const any = S.filt.genre || S.filt.year || S.filt.diff;
+  $('f-reset').hidden = !any; $('f-count').textContent = `${list.length}きょく`;
+  const n = perPage(), pages = Math.max(1, Math.ceil(list.length / n));
   S.page = Math.min(S.page, pages - 1);
   $('pager').textContent = `${S.page + 1} / ${pages}`;
   $('btn-prev').disabled = S.page === 0; $('btn-next').disabled = S.page >= pages - 1;
   $('btn-prev').style.opacity = S.page === 0 ? .3 : 1; $('btn-next').style.opacity = S.page >= pages - 1 ? .3 : 1;
-  $('grid').innerHTML = S.songs.slice(S.page * n, S.page * n + n).map((s) => {
+  $('grid').innerHTML = !list.length ? '<p class="small" style="grid-column:1/-1;text-align:center;align-self:center">その じょうけんの きょくは ありません</p>' : list.slice(S.page * n, S.page * n + n).map((s) => {
     const th = s.yt ? `https://i.ytimg.com/vi/${s.yt}/mqdefault.jpg` : '';
     const c = s.counts?.[S.level] ?? 0;
-    return `<button class="card-song" data-id="${s.id}"><div class="th" style="${th ? `background-image:url(${th})` : 'background:linear-gradient(135deg,#5149c9,#14123a)'}"></div><div class="tx"><b>${s.title}</b><span>${s.artist}</span><em>${stars(s.id) || (c ? `ブランク ${c}こ〜` : 'ことばが すくない')}</em></div></button>`;
+    return `<button class="card-song" data-id="${s.id}"><div class="th" style="${th ? `background-image:url(${th})` : 'background:linear-gradient(135deg,#5149c9,#14123a)'}"><div class="tags">${s.genre ? `<i>${s.genre}</i>` : ''}${s.year ? `<i>${s.year}</i>` : ''}${s.diff ? `<i class="d${s.diff}">${DIFFL[s.diff]}</i>` : ''}</div></div><div class="tx"><b>${s.title}</b><span>${s.artist}</span><em>${stars(s.id) || (c ? `ブランク ${c}こ〜` : 'ことばが すくない')}</em></div></button>`;
   }).join('');
 }
 
@@ -120,6 +138,8 @@ function showResult(r) {
 // ---------- イベント ----------
 function bind() {
   $('btn-level').onclick = $('btn-level2').onclick = () => show('s-level');
+  for (const [id, k] of [['f-genre', 'genre'], ['f-year', 'year'], ['f-diff', 'diff']]) $(id).onchange = (e) => { S.filt[k] = e.target.value; S.page = 0; renderGrid(); };
+  $('f-reset').onclick = () => { S.filt = { genre: '', year: '', diff: '' }; S.page = 0; paintFilters(); renderGrid(); };
   $('btn-prev').onclick = () => { S.page--; renderGrid(); };
   $('btn-next').onclick = () => { S.page++; renderGrid(); };
   $('grid').onclick = (e) => { const c = e.target.closest('.card-song'); if (c) openSetup(c.dataset.id); };

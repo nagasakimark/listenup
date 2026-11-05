@@ -53,14 +53,17 @@ function parseSongsTxt(quiet = false) {
     if (!line || line.startsWith('#')) continue;
     const parts = line.split('|').map((s) => s.trim());
     const head = parts[0];
-    const e = { raw: line, offset: 0, expect: null, id: null, search: null };
+    const e = { raw: line, offset: 0, expect: null, id: null, search: null, genre: '', year: 0, extra: [] };
     const idm = head.match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([A-Za-z0-9_-]{11})/) || (/^[A-Za-z0-9_-]{11}$/.test(head) ? [0, head] : null);
     if (idm) e.id = idm[1];
     else if (/^search:/i.test(head)) e.search = head.replace(/^search:/i, '').trim();
     else { if (!quiet) errors.push(`読めない行: ${line}`); continue; }
     for (const p of parts.slice(1)) {
       const om = p.match(/^offset\s*=\s*(-?[\d.]+)$/i);
-      if (om) e.offset = parseFloat(om[1]);
+      const gm = p.match(/^genre\s*=\s*(.+)$/i), ym = p.match(/^year\s*=\s*(\d{4})$/i);
+      if (om) { e.offset = parseFloat(om[1]); e.extra.push(p); }
+      else if (gm) { e.genre = gm[1].trim(); e.extra.push(p); }
+      else if (ym) { e.year = +ym[1]; e.extra.push(p); }
       else if (p) e.expect = p;
     }
     if (e.search && !e.expect) e.expect = e.search;
@@ -208,18 +211,32 @@ async function processOne(e) {
   const lines = res.lines.map((l) => ({ t: +l.t.toFixed(2), e: +l.e.toFixed(2), w: tokenizeLine(l.text) })).filter((l) => l.w.length);
   const counts = [0, 1, 2, 3, 4].map((lv) => lines.reduce((n, l) => n + l.w.filter((w) => w[3] <= lv && w[1].length >= 3 && !w[5]).length, 0));
   const words = lines.reduce((n, l) => n + l.w.length, 0);
-  const song = { id, yt: id, title, artist, dur: dur || res.dur || Math.ceil(lines[lines.length - 1].e + 5), lrcDur: res.dur || 0, source, offset: e.offset, lines };
+  if (counts[4] < 12) throw new Error(`英語のブランク候補が少なすぎます(${counts[4]}こ)。英語が多い曲を選んでください`);
+  const song = { id, yt: id, diff: calcDiff(lines), title, artist, dur: dur || res.dur || Math.ceil(lines[lines.length - 1].e + 5), lrcDur: res.dur || 0, source, offset: e.offset, lines };
   fs.writeFileSync(out, JSON.stringify(song));
   log(`   ✅ 保存 ${out.replace(ROOT + '/', '')}  総語数${words}  ブランク候補(小5/小6/中1/中2/中3)=${counts.join('/')}`);
 }
 
+// むずかしさ 1〜3: 英語のはやさ(1秒あたりの語数) と、中3でもならわない語の割合
+function calcDiff(lines) {
+  const en = lines.flatMap((l) => l.w.filter((w) => w[1]));
+  if (!lines.length || !en.length) return 2;
+  const span = Math.max(30, lines[lines.length - 1].e - lines[0].t);
+  const wps = en.length / span;
+  const hard = en.filter((w) => w[3] >= 5 && !w[5]).length / en.length;
+  const score = wps / 2.2 + hard * 2;
+  return score < 0.8 ? 1 : score < 1.2 ? 2 : 3;
+}
+
 function rebuildIndex() {
+  const meta = new Map(parseSongsTxt(true).map((e) => [e.id, e]));
   const idx = [];
   for (const f of fs.readdirSync(SONGS)) {
     if (!f.endsWith('.json') || f === 'index.json' || f === 'demo.json') continue;
     const s = JSON.parse(fs.readFileSync(path.join(SONGS, f), 'utf8'));
     const counts = [0, 1, 2, 3, 4].map((lv) => s.lines.reduce((n, l) => n + l.w.filter((w) => w[3] <= lv && w[1].length >= 3 && !w[5]).length, 0));
-    idx.push({ id: s.id, yt: s.yt, title: s.title, artist: s.artist, dur: s.dur, counts, mtime: fs.statSync(path.join(SONGS, f)).mtimeMs });
+    const m = meta.get(s.id) || {};
+    idx.push({ id: s.id, yt: s.yt, title: s.title, artist: s.artist, dur: s.dur, genre: m.genre || '', year: m.year || 0, diff: s.diff || calcDiff(s.lines), counts, mtime: fs.statSync(path.join(SONGS, f)).mtimeMs });
   }
   // songs.txt の並び順に表示
   const order = parseSongsTxt(true).map((e) => e.id).filter(Boolean);
@@ -243,7 +260,7 @@ if (resolved.size) {
   const out = fs.readFileSync(file, 'utf8').split('\n').map((l) => {
     const raw = l.replace(/\s+#.*$/, '').trim();
     const e = entries.find((x) => x.raw === raw && resolved.has(raw));
-    return e && fs.existsSync(path.join(SONGS, resolved.get(raw) + '.json')) ? `https://www.youtube.com/watch?v=${resolved.get(raw)} | ${e.expect}` : l;
+    return e && fs.existsSync(path.join(SONGS, resolved.get(raw) + '.json')) ? [`https://www.youtube.com/watch?v=${resolved.get(raw)}`, e.expect, ...e.extra].join(' | ') : l;
   });
   fs.writeFileSync(file, out.join('\n'));
 }

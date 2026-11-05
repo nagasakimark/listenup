@@ -190,3 +190,13 @@ code { background: rgba(255,255,255,.12); padding: .1em .4em; border-radius: .4e
 .video.gated #yt, .video.gated iframe { pointer-events: auto; }
 .video.gated { outline: .2em solid var(--accent); }
 #s-play.gating .dock .tools, #s-play.gating .dock .answer { opacity: .35; pointer-events: none; }
+
+.filters { display: flex; align-items: center; gap: calc(var(--u) * 1.4); flex-wrap: nowrap; font-size: calc(var(--u) * 1.6); color: var(--dim); }
+.filters label { display: flex; align-items: center; gap: .5em; white-space: nowrap; }
+.filters select { background: var(--card); color: inherit; color: #fff; border: 1px solid var(--line); border-radius: 99px; padding: .35em .8em; font: inherit; font-weight: 700; }
+.filters select option { color: #111; }
+.filters .chip { font-size: 1em; padding: .35em .9em; }
+.filters .small { margin-left: auto; }
+.card-song .tags { position: absolute; left: .5em; top: .5em; display: flex; gap: .3em; }
+.card-song .tags i { font-style: normal; font-size: .72em; font-weight: 800; background: rgba(0,0,0,.65); color: #fff; padding: .15em .6em; border-radius: 99px; }
+.card-song .tags i.d1 { background: #1f9d63; } .card-song .tags i.d2 { background: #d89a1a; } .card-song .tags i.d3 { background: #d4453f; }

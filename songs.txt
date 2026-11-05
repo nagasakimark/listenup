@@ -1,13 +1,38 @@
 # ここに YouTube のリンクを1行ずつ書くと、保存したとき自動で曲が ふえます。
-# 書きかた:   URL | アーティスト - 曲名 (あとの2つは省略OK)   /   offset=秒 (歌詞が早い・おそいとき)
+# 書きかた:   URL | アーティスト - 曲名 | genre=ジャンル | year=年   (あとの3つは省略OK)
+# ジャンルれい: ポップ / ロック / J-POP / K-POP / アニメ・映画 / ダンス   /   offset=秒 (歌詞が早い・おそいとき)
 # URLのかわりに  search: アーティスト - 曲名  と書くと YouTube から さがします。
 # 先頭に # を つけた行は むし されます。
 
-https://www.youtube.com/watch?v=kPa7bsKwL-c | Lady Gaga, Bruno Mars - Die With A Smile
-https://www.youtube.com/watch?v=ekr2nIex040 | ROSÉ, Bruno Mars - APT.
-https://www.youtube.com/watch?v=QDYfEBY9NM4 | The Beatles - Let It Be
-https://www.youtube.com/watch?v=bx1Bh8ZvH84 | Oasis - Wonderwall
-https://www.youtube.com/watch?v=lp-EO5I60KA | Ed Sheeran - Thinking Out Loud
-https://www.youtube.com/watch?v=6M6samPEMpM | Backstreet Boys - Everybody (Backstreet's Back)
-https://www.youtube.com/watch?v=1MPZRcyTrcU | Randy Newman - You've Got a Friend in Me
-https://www.youtube.com/watch?v=gset79KMmt0 | Sia - Snowman
+https://www.youtube.com/watch?v=kPa7bsKwL-c | Lady Gaga, Bruno Mars - Die With A Smile | genre=ポップ | year=2024
+https://www.youtube.com/watch?v=ekr2nIex040 | ROSÉ, Bruno Mars - APT. | genre=K-POP | year=2024
+https://www.youtube.com/watch?v=QDYfEBY9NM4 | The Beatles - Let It Be | genre=ロック | year=1970
+https://www.youtube.com/watch?v=bx1Bh8ZvH84 | Oasis - Wonderwall | genre=ロック | year=1995
+https://www.youtube.com/watch?v=lp-EO5I60KA | Ed Sheeran - Thinking Out Loud | genre=ポップ | year=2014
+https://www.youtube.com/watch?v=6M6samPEMpM | Backstreet Boys - Everybody (Backstreet's Back) | genre=ポップ | year=1997
+https://www.youtube.com/watch?v=1MPZRcyTrcU | Randy Newman - You've Got a Friend in Me | genre=アニメ・映画 | year=1995
+https://www.youtube.com/watch?v=gset79KMmt0 | Sia - Snowman | genre=ポップ | year=2017
+
+# --- 日本の小中学生に人気の曲 (search: は成功すると URL に自動で書きかわります) ---
+search: HUNTR/X - Golden | genre=アニメ・映画 | year=2025
+search: Saja Boys - Your Idol | genre=アニメ・映画 | year=2025
+search: HUNTR/X - How It's Done | genre=アニメ・映画 | year=2025
+search: Idina Menzel - Let It Go | genre=アニメ・映画 | year=2013
+search: Shakira - Try Everything | genre=アニメ・映画 | year=2016
+search: BTS - Dynamite | genre=K-POP | year=2020
+search: NewJeans - Super Shy | genre=K-POP | year=2023
+search: Billie Eilish - BIRDS OF A FEATHER | genre=ポップ | year=2024
+search: Sabrina Carpenter - Espresso | genre=ポップ | year=2024
+search: Ed Sheeran - Shape of You | genre=ポップ | year=2017
+search: The Kid LAROI, Justin Bieber - STAY | genre=ポップ | year=2021
+search: Taylor Swift - Shake It Off | genre=ポップ | year=2014
+search: Pharrell Williams - Happy | genre=ポップ | year=2013
+search: David Guetta, Bebe Rexha - I'm Good (Blue) | genre=ダンス | year=2022
+search: Imagine Dragons - Believer | genre=ロック | year=2017
+search: fun. - We Are Young | genre=ロック | year=2012
+search: Mariah Carey - All I Want for Christmas Is You | genre=ポップ | year=1994
+search: Creepy Nuts - Bling-Bang-Bang-Born | genre=J-POP | year=2024
+search: Official髭男dism - Pretender | genre=J-POP | year=2019
+search: 藤井風 - Shinunoga E-Wa | genre=J-POP | year=2020
+search: King Gnu - Teenager Forever | genre=J-POP | year=2022
+search: YOASOBI - Idol | genre=J-POP | year=2023

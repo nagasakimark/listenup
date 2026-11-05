@@ -1,0 +1,2 @@
+https://www.youtube.com/watch?v=4AqjqOqNrjw | Imagine Dragons - Thunder | genre=ロック | year=2017
+     → 歌詞に ふさわしくない内容: おさけ/くすり/性的/暴力/にくしみ 暴力:gun×1 (先生が OK なら songs.txt の その行に「| allow」を足す)

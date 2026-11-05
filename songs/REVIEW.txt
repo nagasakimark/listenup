@@ -1,7 +1,7 @@
 # 歌詞に気になることばを含む曲 (先生チェック用。自動で作られます)
 
 Lady Gaga, Bruno Mars - Die With A Smile
-   die×3 war×1 fighting×1
+   die×3 fighting×1
 
 The Beatles - Let It Be
    darkness×1
@@ -161,10 +161,6 @@ Coldplay - A Sky Full of Stars
 
 Coldplay - Yellow
    skin×4 bleed×2
-
-Imagine Dragons - Thunder
-   【要注意】おさけ/くすり/性的/暴力/にくしみ 暴力:gun×1
-   
 
 Imagine Dragons - Radioactive
    breaking×2 painted×1 died×1

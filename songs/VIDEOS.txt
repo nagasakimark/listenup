@@ -1,0 +1,75 @@
+# 動画のかくにん結果 (OK=タイトル・長さが合う / FIXED=えらびなおした / BAD=見つからない)
+FIXED  Lady Gaga, Bruno Mars - Die With A Smile  「Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video)」/Lady Gaga/253s → 「Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video)」/Deparea/280s  歌詞280s
+FIXED  The Beatles - Let It Be  「Let It Be (Remastered 2009)」/The Beatles/244s → 「The Beatles - Let it Be (unOfficial Music video)」/{TheNew}/232s  歌詞232s
+FIXED  Oasis - Wonderwall  「Oasis - Wonderwall (Official Video)」/Oasis/278s → 「Wonderwall (Remastered)」/Oasis/259s  歌詞259s
+FIXED  Ed Sheeran - Thinking Out Loud  「Ed Sheeran - Thinking Out Loud (Official Music Video)」/Ed Sheeran/290s → 「Ed Sheeran - Thinking Out Loud (Official Music Video)」/Bad Boy Edd/299s  歌詞297s
+OK     Randy Newman - You've Got a Friend in Me  「Randy Newman - You've Got a Friend in Me (From "Toy Story")」/DisneyMusicVEVO/128s  歌詞124s
+OK     Sia - Snowman  「Sia - Snowman [Official Video]」/Sia/173s  歌詞172s
+FIXED  HUNTR/X - Golden  「“Golden” Official Lyric Video | KPop Demon Hunters | Sony Animation」/Sony Pictures Animation/199s → 「Golden」/HUNTR/X - Topic/195s  歌詞195s
+FIXED  Idina Menzel - Let It Go  「Idina Menzel Performs 'Let It Go' at Disneyland 60th Anniversary」/Sveta Bogdanova/225s → 「Idina Menzel - Let It Go (from Frozen) (Official Video)」/DisneyMusicVEVO/226s  歌詞224s
+FIXED  Shakira - Try Everything  「Shakira - Try Everything (Official Video)」/Shakira/203s → 「Shakira - Try Everything (Audio)」/AlexAraujoVEVO/193s  歌詞195s
+FIXED  BTS - Dynamite  「BTS (방탄소년단) 'Dynamite' Official MV」/HYBE LABELS/224s → 「BTS (방탄소년단) - DYNAMITE (Official Audio)」/Nightly/201s  歌詞199s
+OK     NewJeans - Super Shy  「NewJeans (뉴진스) 'Super Shy' Official MV」/HYBE LABELS/201s  歌詞201s
+OK     Pharrell Williams - Happy  「Pharrell Williams - Happy (Official Video)」/Pharrell Williams/241s  歌詞237s
+OK     Mariah Carey - All I Want for Christmas Is You  「Mariah Carey - All I Want for Christmas Is You (Make My Wish Come True Edition)」/Mariah Carey/243s  歌詞242s
+FIXED  Creepy Nuts - Bling-Bang-Bang-Born  「Bling-Bang-Bang-Born (Official Music Video)」/TheAnimeMen/167s → 「Creepy Nuts「Bling-Bang-Bang-Born」×TV Anime「マッシュル-MASHLE-」　Collaboration Music Video」/Creepy Nuts/173s  歌詞172s
+OK     Kristen Bell, Agatha Lee Monn - Do You Want to Build a Snowman?  「Kristen Bell sings "Do You Want to Build a Snowman" from Frozen | 2015 D23 Expo」/The DIS/204s  歌詞206s
+FIXED  Idina Menzel, AURORA - Into the Unknown  「Idina Menzel, AURORA - Into the Unknown (From "Frozen 2")」/DisneyMusicVEVO/210s → 「Panic! At The Disco - Into the Unknown (From "Frozen 2")」/DisneyMusicVEVO/196s  歌詞195s
+FIXED  Encanto Cast - We Don't Talk About Bruno  「Encanto - Cast - We Don't Talk About Bruno (From "Encanto"/Sing-Along)」/DisneyMusicVEVO/218s → 「We Don't Talk About Bruno (From "Encanto"/Audio Only)」/DisneyMusicVEVO/218s  歌詞218s
+FIXED  Auli'i Cravalho - How Far I'll Go  「Auli'i Cravalho - How Far I'll Go (from Moana/Official Video)」/DisneyMusicVEVO/156s → 「Catherine Laga'aia - How Far I'll Go (From "Moana")」/DisneyMusicVEVO/159s  歌詞163s
+FIXED  Brad Kane, Lea Salonga - A Whole New World  「A Whole New World - Brad Kane and Lea Salonga (Behind the Scenes)」/0phiuchus/153s → 「A Whole New World」/Lea Salonga - Topic/161s  歌詞161s
+OK     Samuel E. Wright - Under the Sea  「Samuel E. Wright - Under the Sea (from The Little Mermaid) (Official Video)」/DisneyMusicVEVO/207s  歌詞205s
+OK     Carmen Twillie, Lebo M. - Circle of Life  「Carmen Twillie, Lebo M. - Circle of Life (From "The Lion King")」/DisneyMusicVEVO/247s  歌詞247s
+FIXED  Elton John - Can You Feel the Love Tonight  「Elton John - Can You Feel the Love Tonight (From "The Lion King"/Official Video)」/DisneyMusicVEVO/247s → 「Elton John- Can You Feel The Love Tonight Music Video(HD/HQ)」/XcmNear/241s  歌詞239s
+FIXED  Judy Kuhn - Colors of the Wind  「Colors of the Wind (live) 1996 Judy Kuhn.」/Moyses P./182s → 「Colors of the Wind - Judy Kuhn」/You'reGonnaLoveTomorrow/216s  歌詞215s
+OK     Mandy Moore, Zachary Levi - I See the Light  「Mandy Moore & Zachary Levi (Ost.Tangled/Rapunzel) - I See The Light」/R. Jojenan/225s  歌詞224s
+OK     The Greatest Showman Cast - A Million Dreams  「The Greatest Showman Cast - A Million Dreams (Official Audio)」/Atlantic Records/270s  歌詞269s
+FIXED  Bruno Mars - Count on Me  「Bruno Mars - Count on Me (Official Lyric Video)」/Bruno Mars/193s → 「Bruno Mars - Count On Me (Official Video)」/someonecomespeakform/194s  歌詞197s
+FIXED  Katy Perry - Roar  「Katy Perry - Roar」/Katy Perry/270s → 「Katy Perry - Roar (Audio)」/Javiel Liow/223s  歌詞223s
+FIXED  Katy Perry - Firework  「Katy Perry - Firework (Official Music Video)」/Katy Perry/234s → 「Katy Perry - Firework (Official Music Video)」/asker5242/228s  歌詞224s
+FIXED  Ed Sheeran - Perfect  「Ed Sheeran - Perfect (Official Music Video)」/Ed Sheeran/282s → 「Ed Sheeran - Perfect Duet (with Beyoncé) [Official Audio]」/Ed Sheeran/259s  歌詞259s
+FIXED  Ed Sheeran - Photograph  「Ed Sheeran - Photograph (Official Music Video)」/Ed Sheeran/275s → 「Ed Sheeran - Photograph • Me Before You」/harisego/260s  歌詞259s
+OK     Taylor Swift - Love Story  「Taylor Swift - Love Story」/Taylor Swift/237s  歌詞241s
+OK     Taylor Swift - You Belong With Me  「Taylor Swift - You Belong With Me」/Taylor Swift/229s  歌詞231s
+OK     Taylor Swift - 22  「Taylor Swift - 22」/Taylor Swift/243s  歌詞243s
+OK     Justin Bieber - Baby  「Justin Bieber - Baby ft. Ludacris」/Justin Bieber/220s  歌詞216s
+FIXED  One Direction - What Makes You Beautiful  「One Direction - What Makes You Beautiful (Official Video)」/One Direction/207s → 「One Direction - What Makes You Beautiful (Audio)」/One Direction/201s  歌詞199s
+FIXED  One Direction - Story of My Life  「One Direction - Story of My Life」/One Direction/248s → 「One Direction - Story of My Life (One Direction: The TV Special)」/One Direction/246s  歌詞243s
+FIXED  Carly Rae Jepsen - Call Me Maybe  「Carly Rae Jepsen - Call Me Maybe」/Carly Rae Jepsen/200s → 「Carly Rae Jepsen "Call Me Maybe" (Official Audio)」/604Records/195s  歌詞193s
+OK     Miley Cyrus - Flowers  「Miley Cyrus - Flowers (Official Video)」/MILEY/202s  歌詞201s
+OK     Tones and I - Dance Monkey  「TONES AND I - DANCE MONKEY (OFFICIAL VIDEO)」/Tones And I/237s  歌詞237s
+OK     Lewis Capaldi - Someone You Loved  「Lewis Capaldi - Someone You Loved」/Lewis Capaldi/186s  歌詞187s
+OK     Adele - Someone Like You  「Adele - Someone Like You (Official Music Video)」/Adele/285s  歌詞285s
+OK     Colbie Caillat - Bubbly  「Colbie Caillat - Bubbly (Official Music Video)」/Colbie Caillat/193s  歌詞196s
+OK     Owl City - Fireflies  「Owl City - Fireflies (Official Music Video)」/Owl City/233s  歌詞231s
+OK     Glass Animals - Heat Waves  「Glass Animals - Heat Waves (Official Video)」/Glass Animals/236s  歌詞239s
+FIXED  Whitney Houston - I Wanna Dance with Somebody  「Whitney Houston - I Wanna Dance With Somebody (Who Loves Me) (Official 4K Video)」/Whitney Houston/315s → 「Whitney Houston - I Wanna Dance With Somebody (Who Loves Me) (WH1TNEY Visualizer)」/Whitney Houston/292s  歌詞293s
+OK     ABBA - Dancing Queen  「ABBA - Dancing Queen (Official Music Video)」/ABBA/233s  歌詞233s
+OK     Carpenters - Top of the World  「The Carpenters - Top Of The World • TopPop」/TopPop/179s  歌詞179s
+OK     Michael Jackson - Heal the World  「Michael Jackson - Heal The World (Official Video)」/Michael Jackson/383s  歌詞384s
+FIXED  Israel Kamakawiwo'ole - Over the Rainbow  「OFFICIAL Somewhere over the Rainbow - Israel "IZ" Kamakawiwoʻole」/Mountain Apple Company Inc/228s → 「Robin Schulz, Alle Farben, Israel Kamakawiwo'ole - Over The Rainbow/Wonderful World (Official Video)」/Robin Schulz/212s  歌詞211s
+FIXED  Louis Armstrong - What a Wonderful World  「Louis Armstrong - What A Wonderful World (At The BBC)」/Louis Armstrong/146s → 「Louis Armstrong - What A Wonderful World (Official Video)」/Louis Armstrong/139s  歌詞137s
+OK     Ben E. King - Stand By Me  「Ben E. King - Stand By Me (Audio)」/Soulful Sounds/178s  歌詞176s
+OK     Bill Withers - Lean On Me  「Lean on Me」/Bill Withers/258s  歌詞257s
+FIXED  John Denver - Take Me Home, Country Roads  「John Denver - Take Me Home, Country Roads (from The Wildlife Concert)」/John Denver/183s → 「John Denver - Take Me Home, Country Roads」/Jolly Jolly/190s  歌詞188s
+OK     The Beatles - Yesterday  「Yesterday (Remastered 2009)」/The Beatles/126s  歌詞125s
+FIXED  The Beatles - Hey Jude  「The Beatles - The Beatles - Hey Jude (Official Music Video) [Remastered 2015]」/The Beatles/490s → 「Hey Jude (Remastered 2015)」/The Beatles/426s  歌詞426s
+FIXED  The Beatles - Yellow Submarine  「The Beatles - Yellow Submarine」/The Beatles/166s → 「Yellow Submarine」/The Beatles/160s  歌詞159s
+OK     The Beatles - Here Comes the Sun  「Here Comes The Sun (Remastered 2009)」/The Beatles/186s  歌詞186s
+FIXED  Queen - We Are the Champions  「Queen - We Are The Champions (Official Video Remastered)」/Queen Official/185s → 「Queen, Anastacia & Cast - We Are The Champions (46664)」/Queen Official/207s  歌詞207s
+FIXED  Coldplay - A Sky Full of Stars  「Coldplay - A Sky Full Of Stars (Official Video)」/Coldplay/254s → 「A Sky Full of Stars」/Coldplay/237s  歌詞236s
+FIXED  Coldplay - Yellow  「Coldplay - Yellow (Official Video)」/Coldplay/273s → 「Coldplay - Yellow」/Somber Sounds/268s  歌詞267s
+FIXED  Imagine Dragons - Thunder  「Imagine Dragons - Thunder」/ImagineDragons/205s → 「Imagine Dragons - Thunder (Audio)」/ImagineDragons/188s  歌詞187s
+OK     Imagine Dragons - Radioactive  「Imagine Dragons - Radioactive」/ImagineDragons/262s  歌詞261s
+OK     Linkin Park - In the End  「In The End [Official HD Music Video] - Linkin Park」/Linkin Park/219s  歌詞219s
+FIXED  Avicii - Wake Me Up  「Avicii - Wake Me Up (Official Video)」/Avicii/273s → 「Avicii - Wake Me Up (Radio Edit)」/Avicii Music World/246s  歌詞246s
+FIXED  Alan Walker - Faded  「Alan Walker - Faded」/Alan Walker/213s → 「Alan Walker - Faded (Restrung)」/Alan Walker/253s  歌詞250s
+FIXED  BTS - Butter  「BTS (방탄소년단) 'Butter' Official MV」/HYBE LABELS/183s → 「BTS (방탄소년단) 'Butter''」/BTS - Topic/165s  歌詞164s
+FIXED  BTS - Permission to Dance  「BTS (방탄소년단) 'Permission to Dance' Official MV」/HYBE LABELS/300s → 「BTS (방탄소년단) 'Permission to Dance' @ ONGAKUNOHI 2021」/BANGTANTV/190s  歌詞188s
+FIXED  FIFTY FIFTY - Cupid  「FIFTY FIFTY (피프티피프티) - 'Cupid'  Official MV」/FIFTY FIFTY Official/203s → 「FIFTY FIFTY (피프티피프티) - 'Cupid [Twin Ver.] (feat. Sabrina Carpenter)' Visualizer」/FIFTY FIFTY Official/174s  歌詞174s
+OK     BLACKPINK, Selena Gomez - Ice Cream  「BLACKPINK - 'Ice Cream (with Selena Gomez)' M/V」/BLACKPINK/183s  歌詞180s
+OK     LE SSERAFIM - Perfect Night  「LE SSERAFIM (르세라핌) 'Perfect Night' OFFICIAL M/V with OVERWATCH 2」/HYBE LABELS and LE SSERAFIM/183s  歌詞182s
+OK     ONE OK ROCK - Wherever You Are  「Wherever you are」/ONE OK ROCK/296s  歌詞297s
+FIXED  ONE OK ROCK - The Beginning  「ONE OK ROCK - The Beginning [Official Music Video]」/ONE OK ROCK/314s → 「Boku no Hero Academia AMV - The Beginning - ONE OK ROCK」/OBF MYHAWK/293s  歌詞293s
+FIXED  XG - Shooting Star  「XG - SHOOTING STAR (Performance Video)」/XG/212s → 「XG - SHOOTING STAR (Official Music Video)」/XG/207s  歌詞204s
+FIXED  XG - Tippy Toes  「XG - Tippy Toes (Official Music Video)」/XG/197s → 「XG - Tippy Toes (Visualizer)」/XG/189s  歌詞188s

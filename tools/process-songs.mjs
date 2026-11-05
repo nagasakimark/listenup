@@ -9,6 +9,7 @@
 //   1. songs/src/<id>.lrc  … 自分で置いた時間つき歌詞(LRC形式)
 //   2. LRCLIB (lrclib.net) … 時間つき歌詞の公開データベース
 //   3. YouTubeの英語字幕   … 公式字幕/自動字幕
+import { scanLines } from './safety.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -53,7 +54,7 @@ function parseSongsTxt(quiet = false) {
     if (!line || line.startsWith('#')) continue;
     const parts = line.split('|').map((s) => s.trim());
     const head = parts[0];
-    const e = { raw: line, offset: 0, expect: null, id: null, search: null, genre: '', year: 0, extra: [] };
+    const e = { raw: line, offset: 0, expect: null, id: null, search: null, genre: '', year: 0, allow: false, extra: [] };
     const idm = head.match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([A-Za-z0-9_-]{11})/) || (/^[A-Za-z0-9_-]{11}$/.test(head) ? [0, head] : null);
     if (idm) e.id = idm[1];
     else if (/^search:/i.test(head)) e.search = head.replace(/^search:/i, '').trim();
@@ -61,6 +62,7 @@ function parseSongsTxt(quiet = false) {
     for (const p of parts.slice(1)) {
       const om = p.match(/^offset\s*=\s*(-?[\d.]+)$/i);
       const gm = p.match(/^genre\s*=\s*(.+)$/i), ym = p.match(/^year\s*=\s*(\d{4})$/i);
+      if (/^allow$/i.test(p)) { e.allow = true; e.extra.push(p); continue; }
       if (om) { e.offset = parseFloat(om[1]); e.extra.push(p); }
       else if (gm) { e.genre = gm[1].trim(); e.extra.push(p); }
       else if (ym) { e.year = +ym[1]; e.extra.push(p); }
@@ -211,6 +213,8 @@ async function processOne(e) {
   const lines = res.lines.map((l) => ({ t: +l.t.toFixed(2), e: +l.e.toFixed(2), w: tokenizeLine(l.text) })).filter((l) => l.w.length);
   const counts = [0, 1, 2, 3, 4].map((lv) => lines.reduce((n, l) => n + l.w.filter((w) => w[3] <= lv && w[1].length >= 3 && !w[5]).length, 0));
   const words = lines.reduce((n, l) => n + l.w.length, 0);
+  const sc = scanLines(lines);
+  if (Object.keys(sc.strong).length && !e.allow) throw new Error('ふさわしくない ことばが 歌詞に あります: ' + Object.entries(sc.strong).map(([k, n]) => `${k}×${n}`).join(' ') + ' (先生が OK なら songs.txt の その行に「| allow」を足す)');
   if (counts[4] < 12) throw new Error(`英語のブランク候補が少なすぎます(${counts[4]}こ)。英語が多い曲を選んでください`);
   const song = { id, yt: id, diff: calcDiff(lines), title, artist, dur: dur || res.dur || Math.ceil(lines[lines.length - 1].e + 5), lrcDur: res.dur || 0, source, offset: e.offset, lines };
   fs.writeFileSync(out, JSON.stringify(song));
@@ -242,6 +246,15 @@ function rebuildIndex() {
   const order = parseSongsTxt(true).map((e) => e.id).filter(Boolean);
   idx.sort((a, b) => (order.indexOf(a.id) + 1 || 999) - (order.indexOf(b.id) + 1 || 999) || a.mtime - b.mtime);
   idx.forEach((x) => delete x.mtime);
+  // 先生のチェック用: 気になることばを含む曲の一覧
+  const rev = [];
+  for (const x of idx) {
+    const sj = JSON.parse(fs.readFileSync(path.join(SONGS, x.id + '.json'), 'utf8'));
+    const sc = scanLines(sj.lines);
+    const f = (o) => Object.entries(o).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k}×${n}`).join(' ');
+    if (Object.keys(sc.strong).length || Object.keys(sc.mild).length) rev.push(`${x.artist} - ${x.title}\n   ${Object.keys(sc.strong).length ? '【要注意】' + f(sc.strong) + '\n   ' : ''}${f(sc.mild)}`);
+  }
+  fs.writeFileSync(path.join(SONGS, 'REVIEW.txt'), '# 歌詞に気になることばを含む曲 (先生チェック用。自動で作られます)\n\n' + rev.join('\n\n') + '\n');
   fs.writeFileSync(path.join(SONGS, 'index.json'), JSON.stringify(idx));
   log(`\n📚 songs/index.json  ${idx.length}曲`);
 }

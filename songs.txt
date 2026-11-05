@@ -33,3 +33,87 @@ https://www.youtube.com/watch?v=Sv6dMFF_yts | fun. - We Are Young | genre=ロッ
 https://www.youtube.com/watch?v=aAkMkVFwAoo | Mariah Carey - All I Want for Christmas Is You | genre=ポップ | year=1994
 https://www.youtube.com/watch?v=5NzfqW_Yt6Y | Creepy Nuts - Bling-Bang-Bang-Born | genre=J-POP | year=2024
 https://www.youtube.com/watch?v=XPUN-w543bc | King Gnu - Teenager Forever | genre=J-POP | year=2022
+
+# --- 追加 (2回め): 学校・テレビ・ネットでなじみのある曲。悪いことばを含む曲は自動でことわられます ---
+search: Kristen Bell, Agatha Lee Monn - Do You Want to Build a Snowman? | genre=アニメ・映画 | year=2013
+search: Idina Menzel, AURORA - Into the Unknown | genre=アニメ・映画 | year=2019
+search: Encanto Cast - We Don't Talk About Bruno | genre=アニメ・映画 | year=2021
+search: Stephanie Beatriz - Surface Pressure | genre=アニメ・映画 | year=2021
+search: Auli'i Cravalho - How Far I'll Go | genre=アニメ・映画 | year=2016
+search: Dwayne Johnson - You're Welcome | genre=アニメ・映画 | year=2016
+search: Brad Kane, Lea Salonga - A Whole New World | genre=アニメ・映画 | year=1992
+search: Samuel E. Wright - Under the Sea | genre=アニメ・映画 | year=1989
+search: Carmen Twillie, Lebo M. - Circle of Life | genre=アニメ・映画 | year=1994
+search: Elton John - Can You Feel the Love Tonight | genre=アニメ・映画 | year=1994
+search: Judy Kuhn - Colors of the Wind | genre=アニメ・映画 | year=1995
+search: Anthony Gonzalez - Remember Me (Coco) | genre=アニメ・映画 | year=2017
+search: Mandy Moore, Zachary Levi - I See the Light | genre=アニメ・映画 | year=2010
+search: Keala Settle - This Is Me | genre=アニメ・映画 | year=2017
+search: The Greatest Showman Cast - A Million Dreams | genre=アニメ・映画 | year=2017
+search: Justin Timberlake - Can't Stop the Feeling! | genre=アニメ・映画 | year=2016
+search: Julie Andrews - Do-Re-Mi | genre=アニメ・映画 | year=1965
+search: Post Malone, Swae Lee - Sunflower | genre=アニメ・映画 | year=2018
+search: Bruno Mars - Count on Me | genre=ポップ | year=2010
+search: Bruno Mars - Just the Way You Are | genre=ポップ | year=2010
+search: Bruno Mars - Treasure | genre=ポップ | year=2013
+search: Katy Perry - Roar | genre=ポップ | year=2013
+search: Katy Perry - Firework | genre=ポップ | year=2010
+search: Ed Sheeran - Perfect | genre=ポップ | year=2017
+search: Ed Sheeran - Photograph | genre=ポップ | year=2014
+search: Taylor Swift - Love Story | genre=ポップ | year=2008
+search: Taylor Swift - You Belong With Me | genre=ポップ | year=2008
+search: Taylor Swift - 22 | genre=ポップ | year=2012
+search: Justin Bieber - Baby | genre=ポップ | year=2010
+search: One Direction - What Makes You Beautiful | genre=ポップ | year=2011
+search: One Direction - Story of My Life | genre=ポップ | year=2013
+search: Carly Rae Jepsen - Call Me Maybe | genre=ポップ | year=2011
+search: Dua Lipa - Levitating | genre=ポップ | year=2020
+search: Harry Styles - As It Was | genre=ポップ | year=2022
+search: Miley Cyrus - Flowers | genre=ポップ | year=2023
+search: Tones and I - Dance Monkey | genre=ポップ | year=2019
+search: Maroon 5 - Memories | genre=ポップ | year=2019
+search: Lewis Capaldi - Someone You Loved | genre=ポップ | year=2018
+search: Adele - Someone Like You | genre=ポップ | year=2011
+search: Charlie Puth, Wiz Khalifa - See You Again | genre=ポップ | year=2015
+search: Train - Hey, Soul Sister | genre=ポップ | year=2009
+search: Jason Mraz - I'm Yours | genre=ポップ | year=2008
+search: Colbie Caillat - Bubbly | genre=ポップ | year=2007
+search: Owl City - Fireflies | genre=ポップ | year=2009
+search: Glass Animals - Heat Waves | genre=ポップ | year=2020
+search: Whitney Houston - I Wanna Dance with Somebody | genre=ポップ | year=1987
+search: ABBA - Dancing Queen | genre=ポップ | year=1976
+search: Carpenters - Top of the World | genre=ポップ | year=1973
+search: Michael Jackson - Heal the World | genre=ポップ | year=1991
+search: Israel Kamakawiwo'ole - Over the Rainbow | genre=ポップ | year=1993
+search: Louis Armstrong - What a Wonderful World | genre=ポップ | year=1967
+search: Ben E. King - Stand By Me | genre=ポップ | year=1961
+search: Bill Withers - Lean On Me | genre=ポップ | year=1972
+search: John Denver - Take Me Home, Country Roads | genre=ポップ | year=1971
+search: The Beatles - Yesterday | genre=ロック | year=1965
+search: The Beatles - Hey Jude | genre=ロック | year=1968
+search: The Beatles - Yellow Submarine | genre=ロック | year=1966
+search: The Beatles - Here Comes the Sun | genre=ロック | year=1969
+search: Queen - We Are the Champions | genre=ロック | year=1977
+search: Queen - We Will Rock You | genre=ロック | year=1977
+search: Coldplay - A Sky Full of Stars | genre=ロック | year=2014
+search: Coldplay - Yellow | genre=ロック | year=2000
+search: OneRepublic - Counting Stars | genre=ロック | year=2013
+search: Imagine Dragons - Thunder | genre=ロック | year=2017
+search: Imagine Dragons - Radioactive | genre=ロック | year=2012
+search: Linkin Park - In the End | genre=ロック | year=2000
+search: Avicii - Wake Me Up | genre=ダンス | year=2013
+search: Alan Walker - Faded | genre=ダンス | year=2015
+search: BTS - Butter | genre=K-POP | year=2021
+search: BTS - Permission to Dance | genre=K-POP | year=2021
+search: FIFTY FIFTY - Cupid | genre=K-POP | year=2023
+search: BLACKPINK, Selena Gomez - Ice Cream | genre=K-POP | year=2020
+search: BLACKPINK - How You Like That | genre=K-POP | year=2020
+search: TWICE - Moonlight Sunrise | genre=K-POP | year=2023
+search: LE SSERAFIM - Perfect Night | genre=K-POP | year=2023
+search: Official髭男dism - Cry Baby | genre=J-POP | year=2021
+search: ONE OK ROCK - Wherever You Are | genre=J-POP | year=2015
+search: ONE OK ROCK - The Beginning | genre=J-POP | year=2015
+search: SEKAI NO OWARI - Dragon Night | genre=J-POP | year=2014
+search: MAN WITH A MISSION - Raise Your Flag | genre=J-POP | year=2018
+search: XG - Shooting Star | genre=J-POP | year=2023
+search: XG - Tippy Toes | genre=J-POP | year=2022

@@ -6,9 +6,6 @@ Lady Gaga, Bruno Mars - Die With A Smile
 The Beatles - Let It Be
    darkness×1
 
-Ed Sheeran - Thinking Out Loud
-   fall×4 kiss×3 touch×1
-
 Randy Newman - You've Got a Friend in Me
    bed×1 die×1
 
@@ -27,14 +24,8 @@ Shakira - Try Everything
 BTS - Dynamite
    tonight×5 break×1
 
-Pharrell Williams - Happy
-   high×3 crazy×1 break×1
-
 Mariah Carey - All I Want for Christmas Is You
    tonight×1
-
-Kristen Bell, Agatha Lee Monn - Do You Want to Build a Snowman?
-   lonely×1
 
 Idina Menzel, AURORA - Into the Unknown
    alone×1
@@ -57,14 +48,8 @@ Elton John - Can You Feel the Love Tonight
 Judy Kuhn - Colors of the Wind
    paint×4 cry×2 dead×1 high×1
 
-Mandy Moore, Zachary Levi - I See the Light
-   crystal×1
-
 The Greatest Showman Cast - A Million Dreams
    crazy×4 lie×3 bed×3 dark×1
-
-Bruno Mars - Count on Me
-   dark×1 fall×1 cry×1
 
 Katy Perry - Roar
    fighter×3 scared×1 breaking×1
@@ -98,9 +83,6 @@ One Direction - Story of My Life
 
 Carly Rae Jepsen - Call Me Maybe
    crazy×5 skin×2 kiss×1 fall×1
-
-Miley Cyrus - Flowers
-   cry×3 fight×2 burn×1 lie×1 paint×1
 
 Tones and I - Dance Monkey
    cry×2 dead×1
@@ -137,9 +119,6 @@ Israel Kamakawiwo'ole - Over the Rainbow
 
 Louis Armstrong - What a Wonderful World
    dark×1 cry×1
-
-Ben E. King - Stand By Me
-   cry×4 fall×2 tear×2 dark×1
 
 Bill Withers - Lean On Me
    pain×1 sorrow×1
@@ -191,9 +170,3 @@ ONE OK ROCK - Wherever You Are
 
 ONE OK ROCK - The Beginning
    crazy×2 fight×2 pain×2
-
-XG - Shooting Star
-   shooting×4 dark×4 dumb×2 insane×1 stupid×1 shots×1 nobody×1 touching×1 shootin×1
-
-XG - Tippy Toes
-   nobody×1

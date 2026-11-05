@@ -1,0 +1,6 @@
+search: Official髭男dism - Pretender | genre=J-POP | year=2019
+     → 英語のブランク候補が少なすぎます(3こ)。英語が多い曲を選んでください
+search: 藤井風 - Shinunoga E-Wa | genre=J-POP | year=2020
+     → 時間つき歌詞が見つかりませんでした (songs/src/dawrQnvwMTY.lrc に自分で置くこともできます)
+search: YOASOBI - Idol | genre=J-POP | year=2023
+     → 英語のブランク候補が少なすぎます(3こ)。英語が多い曲を選んでください

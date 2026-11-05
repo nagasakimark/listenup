@@ -14,25 +14,25 @@ https://www.youtube.com/watch?v=1MPZRcyTrcU | Randy Newman - You've Got a Friend
 https://www.youtube.com/watch?v=gset79KMmt0 | Sia - Snowman | genre=ポップ | year=2017
 
 # --- 日本の小中学生に人気の曲 (search: は成功すると URL に自動で書きかわります) ---
-search: HUNTR/X - Golden | genre=アニメ・映画 | year=2025
-search: Saja Boys - Your Idol | genre=アニメ・映画 | year=2025
-search: HUNTR/X - How It's Done | genre=アニメ・映画 | year=2025
-search: Idina Menzel - Let It Go | genre=アニメ・映画 | year=2013
-search: Shakira - Try Everything | genre=アニメ・映画 | year=2016
-search: BTS - Dynamite | genre=K-POP | year=2020
-search: NewJeans - Super Shy | genre=K-POP | year=2023
-search: Billie Eilish - BIRDS OF A FEATHER | genre=ポップ | year=2024
-search: Sabrina Carpenter - Espresso | genre=ポップ | year=2024
-search: Ed Sheeran - Shape of You | genre=ポップ | year=2017
-search: The Kid LAROI, Justin Bieber - STAY | genre=ポップ | year=2021
-search: Taylor Swift - Shake It Off | genre=ポップ | year=2014
-search: Pharrell Williams - Happy | genre=ポップ | year=2013
-search: David Guetta, Bebe Rexha - I'm Good (Blue) | genre=ダンス | year=2022
-search: Imagine Dragons - Believer | genre=ロック | year=2017
-search: fun. - We Are Young | genre=ロック | year=2012
-search: Mariah Carey - All I Want for Christmas Is You | genre=ポップ | year=1994
-search: Creepy Nuts - Bling-Bang-Bang-Born | genre=J-POP | year=2024
+https://www.youtube.com/watch?v=yebNIHKAC4A | HUNTR/X - Golden | genre=アニメ・映画 | year=2025
+https://www.youtube.com/watch?v=cWppAbqm9I8 | Saja Boys - Your Idol | genre=アニメ・映画 | year=2025
+https://www.youtube.com/watch?v=QGsevnbItdU | HUNTR/X - How It's Done | genre=アニメ・映画 | year=2025
+https://www.youtube.com/watch?v=0QVJZ_LVDIw | Idina Menzel - Let It Go | genre=アニメ・映画 | year=2013
+https://www.youtube.com/watch?v=c6rP-YP4c5I | Shakira - Try Everything | genre=アニメ・映画 | year=2016
+https://www.youtube.com/watch?v=gdZLi9oWNZg | BTS - Dynamite | genre=K-POP | year=2020
+https://www.youtube.com/watch?v=ArmDp-zijuc | NewJeans - Super Shy | genre=K-POP | year=2023
+https://www.youtube.com/watch?v=V9PVRfjEBTI | Billie Eilish - BIRDS OF A FEATHER | genre=ポップ | year=2024
+https://www.youtube.com/watch?v=eVli-tstM5E | Sabrina Carpenter - Espresso | genre=ポップ | year=2024
+https://www.youtube.com/watch?v=JGwWNGJdvx8 | Ed Sheeran - Shape of You | genre=ポップ | year=2017
+https://www.youtube.com/watch?v=kTJczUoc26U | The Kid LAROI, Justin Bieber - STAY | genre=ポップ | year=2021
+https://www.youtube.com/watch?v=nfWlot6h_JM | Taylor Swift - Shake It Off | genre=ポップ | year=2014
+https://www.youtube.com/watch?v=ZbZSe6N_BXs | Pharrell Williams - Happy | genre=ポップ | year=2013
+https://www.youtube.com/watch?v=90RLzVUuXe4 | David Guetta, Bebe Rexha - I'm Good (Blue) | genre=ダンス | year=2022
+https://www.youtube.com/watch?v=7wtfhZwyrcc | Imagine Dragons - Believer | genre=ロック | year=2017
+https://www.youtube.com/watch?v=Sv6dMFF_yts | fun. - We Are Young | genre=ロック | year=2012
+https://www.youtube.com/watch?v=aAkMkVFwAoo | Mariah Carey - All I Want for Christmas Is You | genre=ポップ | year=1994
+https://www.youtube.com/watch?v=5NzfqW_Yt6Y | Creepy Nuts - Bling-Bang-Bang-Born | genre=J-POP | year=2024
 search: Official髭男dism - Pretender | genre=J-POP | year=2019
 search: 藤井風 - Shinunoga E-Wa | genre=J-POP | year=2020
-search: King Gnu - Teenager Forever | genre=J-POP | year=2022
+https://www.youtube.com/watch?v=XPUN-w543bc | King Gnu - Teenager Forever | genre=J-POP | year=2022
 search: YOASOBI - Idol | genre=J-POP | year=2023

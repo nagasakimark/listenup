@@ -1,2 +1,18 @@
+search: Pharrell Williams - Happy | genre=ポップ | year=2013
+     → 曲の長さ(233/230/246秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
+search: Creepy Nuts - Bling-Bang-Bang-Born | genre=J-POP | year=2024
+     → 曲の長さ(168/172/170秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
+search: Kristen Bell, Agatha Lee Monn - Do You Want to Build a Snowman? | genre=アニメ・映画 | year=2013
+     → 曲の長さ(206/208/207/202/209/210/201秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
+search: Mandy Moore, Zachary Levi - I See the Light | genre=アニメ・映画 | year=2010
+     → 曲の長さ(224/359/222/204/241秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
+search: Bruno Mars - Count on Me | genre=ポップ | year=2010
+     → 曲の長さ(197/199/198/229/194秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
+search: Miley Cyrus - Flowers | genre=ポップ | year=2023
+     → 曲の長さ(201/194/198秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
 https://www.youtube.com/watch?v=4AqjqOqNrjw | Imagine Dragons - Thunder | genre=ロック | year=2017
      → 歌詞に ふさわしくない内容: おさけ/くすり/性的/暴力/にくしみ 暴力:gun×1 (先生が OK なら songs.txt の その行に「| allow」を足す)
+search: XG - Shooting Star | genre=J-POP | year=2023
+     → 曲の長さ(204/180/188/203/201/207/195秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
+search: XG - Tippy Toes | genre=J-POP | year=2022
+     → 曲の長さ(188/110/189/197/196/206/187秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください

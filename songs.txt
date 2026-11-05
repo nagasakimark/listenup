@@ -7,7 +7,7 @@
 https://www.youtube.com/watch?v=kPa7bsKwL-c | Lady Gaga, Bruno Mars - Die With A Smile | genre=ポップ | year=2024
 https://www.youtube.com/watch?v=atLK2RIZzWk | The Beatles - Let It Be | genre=ロック | year=1970
 https://www.youtube.com/watch?v=FVdjZYfDuLE | Oasis - Wonderwall | genre=ロック | year=1995
-search: Ed Sheeran - Thinking Out Loud | genre=ポップ | year=2014
+https://www.youtube.com/watch?v=WpyfrixXBqU | Ed Sheeran - Thinking Out Loud | genre=ポップ | year=2014
 https://www.youtube.com/watch?v=1MPZRcyTrcU | Randy Newman - You've Got a Friend in Me | genre=アニメ・映画 | year=1995
 https://www.youtube.com/watch?v=gset79KMmt0 | Sia - Snowman | genre=ポップ | year=2017
 
@@ -58,7 +58,7 @@ https://www.youtube.com/watch?v=dewlH6HSDzk | Carpenters - Top of the World | ge
 https://www.youtube.com/watch?v=BWf-eARnf6U | Michael Jackson - Heal the World | genre=ポップ | year=1991
 https://www.youtube.com/watch?v=QJAL6VpX4dY | Israel Kamakawiwo'ole - Over the Rainbow | genre=ポップ | year=1993
 https://www.youtube.com/watch?v=rBrd_3VMC3c | Louis Armstrong - What a Wonderful World | genre=ポップ | year=1967
-search: Ben E. King - Stand By Me | genre=ポップ | year=1961
+https://www.youtube.com/watch?v=C-BGowk0nBo | Ben E. King - Stand By Me | genre=ポップ | year=1961
 https://www.youtube.com/watch?v=fOZ-MySzAac | Bill Withers - Lean On Me | genre=ポップ | year=1972
 https://www.youtube.com/watch?v=1vrEljMfXYo | John Denver - Take Me Home, Country Roads | genre=ポップ | year=1971
 https://www.youtube.com/watch?v=NrgmdOz227I | The Beatles - Yesterday | genre=ロック | year=1965

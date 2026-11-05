@@ -1,0 +1,142 @@
+search: Stephanie Beatriz - Surface Pressure | genre=アニメ・映画 | year=2021
+     → 時間つき歌詞が見つかりませんでした (songs/src/4UL-nFU2bCc.lrc に自分で置くこともできます)
+search: Anthony Gonzalez - Remember Me (Coco) | genre=アニメ・映画 | year=2017
+     → 時間つき歌詞が見つかりませんでした (songs/src/A0azOIk0Kvg.lrc に自分で置くこともできます)
+search: Keala Settle - This Is Me | genre=アニメ・映画 | year=2017
+     → 動画タイトル「The Greatest Showman Cast - This Is Me (Official Lyric Video)」が指定「Keala Settle - This Is Me」と違うようです。URLを確認してください
+search: The Greatest Showman Cast - A Million Dreams | genre=アニメ・映画 | year=2017
+     → fetch failed
+search: Justin Timberlake - Can't Stop the Feeling! | genre=アニメ・映画 | year=2016
+     → fetch failed
+search: Julie Andrews - Do-Re-Mi | genre=アニメ・映画 | year=1965
+     → fetch failed
+search: Post Malone, Swae Lee - Sunflower | genre=アニメ・映画 | year=2018
+     → fetch failed
+search: Bruno Mars - Count on Me | genre=ポップ | year=2010
+     → fetch failed
+search: Bruno Mars - Just the Way You Are | genre=ポップ | year=2010
+     → fetch failed
+search: Bruno Mars - Treasure | genre=ポップ | year=2013
+     → fetch failed
+search: Katy Perry - Roar | genre=ポップ | year=2013
+     → fetch failed
+search: Katy Perry - Firework | genre=ポップ | year=2010
+     → fetch failed
+search: Ed Sheeran - Perfect | genre=ポップ | year=2017
+     → fetch failed
+search: Ed Sheeran - Photograph | genre=ポップ | year=2014
+     → fetch failed
+search: Taylor Swift - Love Story | genre=ポップ | year=2008
+     → fetch failed
+search: Taylor Swift - You Belong With Me | genre=ポップ | year=2008
+     → fetch failed
+search: Taylor Swift - 22 | genre=ポップ | year=2012
+     → fetch failed
+search: Justin Bieber - Baby | genre=ポップ | year=2010
+     → fetch failed
+search: One Direction - What Makes You Beautiful | genre=ポップ | year=2011
+     → fetch failed
+search: One Direction - Story of My Life | genre=ポップ | year=2013
+     → fetch failed
+search: Carly Rae Jepsen - Call Me Maybe | genre=ポップ | year=2011
+     → fetch failed
+search: Dua Lipa - Levitating | genre=ポップ | year=2020
+     → fetch failed
+search: Harry Styles - As It Was | genre=ポップ | year=2022
+     → fetch failed
+search: Miley Cyrus - Flowers | genre=ポップ | year=2023
+     → fetch failed
+search: Tones and I - Dance Monkey | genre=ポップ | year=2019
+     → fetch failed
+search: Maroon 5 - Memories | genre=ポップ | year=2019
+     → fetch failed
+search: Lewis Capaldi - Someone You Loved | genre=ポップ | year=2018
+     → fetch failed
+search: Adele - Someone Like You | genre=ポップ | year=2011
+     → fetch failed
+search: Charlie Puth, Wiz Khalifa - See You Again | genre=ポップ | year=2015
+     → fetch failed
+search: Train - Hey, Soul Sister | genre=ポップ | year=2009
+     → fetch failed
+search: Jason Mraz - I'm Yours | genre=ポップ | year=2008
+     → fetch failed
+search: Colbie Caillat - Bubbly | genre=ポップ | year=2007
+     → fetch failed
+search: Owl City - Fireflies | genre=ポップ | year=2009
+     → fetch failed
+search: Glass Animals - Heat Waves | genre=ポップ | year=2020
+     → fetch failed
+search: Whitney Houston - I Wanna Dance with Somebody | genre=ポップ | year=1987
+     → fetch failed
+search: ABBA - Dancing Queen | genre=ポップ | year=1976
+     → fetch failed
+search: Carpenters - Top of the World | genre=ポップ | year=1973
+     → fetch failed
+search: Michael Jackson - Heal the World | genre=ポップ | year=1991
+     → fetch failed
+search: Israel Kamakawiwo'ole - Over the Rainbow | genre=ポップ | year=1993
+     → fetch failed
+search: Louis Armstrong - What a Wonderful World | genre=ポップ | year=1967
+     → fetch failed
+search: Ben E. King - Stand By Me | genre=ポップ | year=1961
+     → fetch failed
+search: Bill Withers - Lean On Me | genre=ポップ | year=1972
+     → fetch failed
+search: John Denver - Take Me Home, Country Roads | genre=ポップ | year=1971
+     → fetch failed
+search: The Beatles - Yesterday | genre=ロック | year=1965
+     → fetch failed
+search: The Beatles - Hey Jude | genre=ロック | year=1968
+     → fetch failed
+search: The Beatles - Yellow Submarine | genre=ロック | year=1966
+     → fetch failed
+search: The Beatles - Here Comes the Sun | genre=ロック | year=1969
+     → fetch failed
+search: Queen - We Are the Champions | genre=ロック | year=1977
+     → fetch failed
+search: Queen - We Will Rock You | genre=ロック | year=1977
+     → fetch failed
+search: Coldplay - A Sky Full of Stars | genre=ロック | year=2014
+     → fetch failed
+search: Coldplay - Yellow | genre=ロック | year=2000
+     → fetch failed
+search: OneRepublic - Counting Stars | genre=ロック | year=2013
+     → fetch failed
+search: Imagine Dragons - Thunder | genre=ロック | year=2017
+     → fetch failed
+search: Imagine Dragons - Radioactive | genre=ロック | year=2012
+     → fetch failed
+search: Linkin Park - In the End | genre=ロック | year=2000
+     → fetch failed
+search: Avicii - Wake Me Up | genre=ダンス | year=2013
+     → fetch failed
+search: Alan Walker - Faded | genre=ダンス | year=2015
+     → fetch failed
+search: BTS - Butter | genre=K-POP | year=2021
+     → fetch failed
+search: BTS - Permission to Dance | genre=K-POP | year=2021
+     → fetch failed
+search: FIFTY FIFTY - Cupid | genre=K-POP | year=2023
+     → fetch failed
+search: BLACKPINK, Selena Gomez - Ice Cream | genre=K-POP | year=2020
+     → fetch failed
+search: BLACKPINK - How You Like That | genre=K-POP | year=2020
+     → fetch failed
+search: TWICE - Moonlight Sunrise | genre=K-POP | year=2023
+     → fetch failed
+search: LE SSERAFIM - Perfect Night | genre=K-POP | year=2023
+     → fetch failed
+search: Official髭男dism - Cry Baby | genre=J-POP | year=2021
+     → fetch failed
+search: ONE OK ROCK - Wherever You Are | genre=J-POP | year=2015
+     → fetch failed
+search: ONE OK ROCK - The Beginning | genre=J-POP | year=2015
+     → fetch failed
+search: SEKAI NO OWARI - Dragon Night | genre=J-POP | year=2014
+     → fetch failed
+search: MAN WITH A MISSION - Raise Your Flag | genre=J-POP | year=2018
+     → fetch failed
+search: XG - Shooting Star | genre=J-POP | year=2023
+     → fetch failed
+search: XG - Tippy Toes | genre=J-POP | year=2022
+     → fetch failed

@@ -5,34 +5,21 @@
 # 先頭に # を つけた行は むし されます。
 
 https://www.youtube.com/watch?v=kPa7bsKwL-c | Lady Gaga, Bruno Mars - Die With A Smile | genre=ポップ | year=2024
-https://www.youtube.com/watch?v=ekr2nIex040 | ROSÉ, Bruno Mars - APT. | genre=K-POP | year=2024
 https://www.youtube.com/watch?v=QDYfEBY9NM4 | The Beatles - Let It Be | genre=ロック | year=1970
 https://www.youtube.com/watch?v=bx1Bh8ZvH84 | Oasis - Wonderwall | genre=ロック | year=1995
 https://www.youtube.com/watch?v=lp-EO5I60KA | Ed Sheeran - Thinking Out Loud | genre=ポップ | year=2014
-https://www.youtube.com/watch?v=6M6samPEMpM | Backstreet Boys - Everybody (Backstreet's Back) | genre=ポップ | year=1997
 https://www.youtube.com/watch?v=1MPZRcyTrcU | Randy Newman - You've Got a Friend in Me | genre=アニメ・映画 | year=1995
 https://www.youtube.com/watch?v=gset79KMmt0 | Sia - Snowman | genre=ポップ | year=2017
 
 # --- 日本の小中学生に人気の曲 (search: は成功すると URL に自動で書きかわります) ---
 https://www.youtube.com/watch?v=yebNIHKAC4A | HUNTR/X - Golden | genre=アニメ・映画 | year=2025
-https://www.youtube.com/watch?v=cWppAbqm9I8 | Saja Boys - Your Idol | genre=アニメ・映画 | year=2025
-https://www.youtube.com/watch?v=QGsevnbItdU | HUNTR/X - How It's Done | genre=アニメ・映画 | year=2025
 https://www.youtube.com/watch?v=0QVJZ_LVDIw | Idina Menzel - Let It Go | genre=アニメ・映画 | year=2013
 https://www.youtube.com/watch?v=c6rP-YP4c5I | Shakira - Try Everything | genre=アニメ・映画 | year=2016
 https://www.youtube.com/watch?v=gdZLi9oWNZg | BTS - Dynamite | genre=K-POP | year=2020
 https://www.youtube.com/watch?v=ArmDp-zijuc | NewJeans - Super Shy | genre=K-POP | year=2023
-https://www.youtube.com/watch?v=V9PVRfjEBTI | Billie Eilish - BIRDS OF A FEATHER | genre=ポップ | year=2024
-https://www.youtube.com/watch?v=eVli-tstM5E | Sabrina Carpenter - Espresso | genre=ポップ | year=2024
-https://www.youtube.com/watch?v=JGwWNGJdvx8 | Ed Sheeran - Shape of You | genre=ポップ | year=2017
-https://www.youtube.com/watch?v=kTJczUoc26U | The Kid LAROI, Justin Bieber - STAY | genre=ポップ | year=2021
-https://www.youtube.com/watch?v=nfWlot6h_JM | Taylor Swift - Shake It Off | genre=ポップ | year=2014
 https://www.youtube.com/watch?v=ZbZSe6N_BXs | Pharrell Williams - Happy | genre=ポップ | year=2013
-https://www.youtube.com/watch?v=90RLzVUuXe4 | David Guetta, Bebe Rexha - I'm Good (Blue) | genre=ダンス | year=2022
-https://www.youtube.com/watch?v=7wtfhZwyrcc | Imagine Dragons - Believer | genre=ロック | year=2017
-https://www.youtube.com/watch?v=Sv6dMFF_yts | fun. - We Are Young | genre=ロック | year=2012
 https://www.youtube.com/watch?v=aAkMkVFwAoo | Mariah Carey - All I Want for Christmas Is You | genre=ポップ | year=1994
 https://www.youtube.com/watch?v=5NzfqW_Yt6Y | Creepy Nuts - Bling-Bang-Bang-Born | genre=J-POP | year=2024
-https://www.youtube.com/watch?v=XPUN-w543bc | King Gnu - Teenager Forever | genre=J-POP | year=2022
 
 # --- 追加 (2回め): 学校・テレビ・ネットでなじみのある曲。悪いことばを含む曲は自動でことわられます ---
 https://www.youtube.com/watch?v=R8MUkjn1ol0 | Kristen Bell, Agatha Lee Monn - Do You Want to Build a Snowman? | genre=アニメ・映画 | year=2013
@@ -50,8 +37,6 @@ https://www.youtube.com/watch?v=pSQk-4fddDI | The Greatest Showman Cast - A Mill
 https://www.youtube.com/watch?v=ru0K8uYEZWw | Justin Timberlake - Can't Stop the Feeling! | genre=アニメ・映画 | year=2016
 https://www.youtube.com/watch?v=ApXoWvfEYVU | Post Malone, Swae Lee - Sunflower | genre=アニメ・映画 | year=2018
 https://www.youtube.com/watch?v=6k8cpUkKK4c | Bruno Mars - Count on Me | genre=ポップ | year=2010
-https://www.youtube.com/watch?v=LjhCEhWiKXk | Bruno Mars - Just the Way You Are | genre=ポップ | year=2010
-https://www.youtube.com/watch?v=nPvuNsRccVw | Bruno Mars - Treasure | genre=ポップ | year=2013
 https://www.youtube.com/watch?v=CevxZvSJLk8 | Katy Perry - Roar | genre=ポップ | year=2013
 https://www.youtube.com/watch?v=QGJuMBdaqIw | Katy Perry - Firework | genre=ポップ | year=2010
 https://www.youtube.com/watch?v=2Vv-BfVoq4g | Ed Sheeran - Perfect | genre=ポップ | year=2017
@@ -63,13 +48,10 @@ https://www.youtube.com/watch?v=kffacxfA7G4 | Justin Bieber - Baby | genre=ポ�
 https://www.youtube.com/watch?v=QJO3ROT-A4E | One Direction - What Makes You Beautiful | genre=ポップ | year=2011
 https://www.youtube.com/watch?v=W-TE_Ys4iwM | One Direction - Story of My Life | genre=ポップ | year=2013
 https://www.youtube.com/watch?v=fWNaR-rxAic | Carly Rae Jepsen - Call Me Maybe | genre=ポップ | year=2011
-https://www.youtube.com/watch?v=H5v3kku4y6Q | Harry Styles - As It Was | genre=ポップ | year=2022
 https://www.youtube.com/watch?v=G7KNmW9a75Y | Miley Cyrus - Flowers | genre=ポップ | year=2023
 https://www.youtube.com/watch?v=q0hyYWKXF0Q | Tones and I - Dance Monkey | genre=ポップ | year=2019
-https://www.youtube.com/watch?v=SlPhMPnQ58k | Maroon 5 - Memories | genre=ポップ | year=2019
 https://www.youtube.com/watch?v=zABLecsR5UE | Lewis Capaldi - Someone You Loved | genre=ポップ | year=2018
 https://www.youtube.com/watch?v=hLQl3WQQoQ0 | Adele - Someone Like You | genre=ポップ | year=2011
-https://www.youtube.com/watch?v=kVpv8-5XWOI | Train - Hey, Soul Sister | genre=ポップ | year=2009
 https://www.youtube.com/watch?v=AWGqoCNbsvM | Colbie Caillat - Bubbly | genre=ポップ | year=2007
 https://www.youtube.com/watch?v=psuRGfAaju4 | Owl City - Fireflies | genre=ポップ | year=2009
 https://www.youtube.com/watch?v=mRD0-GxqHVo | Glass Animals - Heat Waves | genre=ポップ | year=2020
@@ -87,10 +69,8 @@ https://www.youtube.com/watch?v=A_MjCqQoLLA | The Beatles - Hey Jude | genre=ロ
 https://www.youtube.com/watch?v=m2uTFF_3MaA | The Beatles - Yellow Submarine | genre=ロック | year=1966
 https://www.youtube.com/watch?v=xUNqsfFUwhY | The Beatles - Here Comes the Sun | genre=ロック | year=1969
 https://www.youtube.com/watch?v=04854XqcfCY | Queen - We Are the Champions | genre=ロック | year=1977
-https://www.youtube.com/watch?v=-tJYN-eG1zk | Queen - We Will Rock You | genre=ロック | year=1977
 https://www.youtube.com/watch?v=VPRjCeoBqrI | Coldplay - A Sky Full of Stars | genre=ロック | year=2014
 https://www.youtube.com/watch?v=yKNxeF4KMsY | Coldplay - Yellow | genre=ロック | year=2000
-https://www.youtube.com/watch?v=hT_nvWreIhg | OneRepublic - Counting Stars | genre=ロック | year=2013
 https://www.youtube.com/watch?v=fKopy74weus | Imagine Dragons - Thunder | genre=ロック | year=2017
 https://www.youtube.com/watch?v=ktvTqknDobU | Imagine Dragons - Radioactive | genre=ロック | year=2012
 https://www.youtube.com/watch?v=eVTXPUF4Oz4 | Linkin Park - In the End | genre=ロック | year=2000
@@ -100,10 +80,8 @@ https://www.youtube.com/watch?v=WMweEpGlu_U | BTS - Butter | genre=K-POP | year=
 https://www.youtube.com/watch?v=CuklIb9d3fI | BTS - Permission to Dance | genre=K-POP | year=2021
 https://www.youtube.com/watch?v=Qc7_zRjH808 | FIFTY FIFTY - Cupid | genre=K-POP | year=2023
 https://www.youtube.com/watch?v=vRXZj0DzXIA | BLACKPINK, Selena Gomez - Ice Cream | genre=K-POP | year=2020
-https://www.youtube.com/watch?v=cKlEE_EYuNM | TWICE - Moonlight Sunrise | genre=K-POP | year=2023
 https://www.youtube.com/watch?v=hLvWy2b857I | LE SSERAFIM - Perfect Night | genre=K-POP | year=2023
 https://www.youtube.com/watch?v=qs4Q4cQxyU4 | ONE OK ROCK - Wherever You Are | genre=J-POP | year=2015
 https://www.youtube.com/watch?v=Hh9yZWeTmVM | ONE OK ROCK - The Beginning | genre=J-POP | year=2015
-https://www.youtube.com/watch?v=G-UN6uRMBRw | MAN WITH A MISSION - Raise Your Flag | genre=J-POP | year=2018
 https://www.youtube.com/watch?v=eSgBNiMBUaQ | XG - Shooting Star | genre=J-POP | year=2023
 https://www.youtube.com/watch?v=7bONJFH9A9A | XG - Tippy Toes | genre=J-POP | year=2022

@@ -9,7 +9,7 @@
 //   1. songs/src/<id>.lrc  … 自分で置いた時間つき歌詞(LRC形式)
 //   2. LRCLIB (lrclib.net) … 時間つき歌詞の公開データベース
 //   3. YouTubeの英語字幕   … 公式字幕/自動字幕
-import { scanLines } from './safety.mjs';
+import { scanLines, rejectReason } from './safety.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -222,7 +222,7 @@ async function processOne(e) {
   const counts = [0, 1, 2, 3, 4].map((lv) => lines.reduce((n, l) => n + l.w.filter((w) => w[3] <= lv && w[1].length >= 3 && !w[5]).length, 0));
   const words = lines.reduce((n, l) => n + l.w.length, 0);
   const sc = scanLines(lines);
-  if (Object.keys(sc.strong).length && !e.allow) throw new Error('ふさわしくない ことばが 歌詞に あります: ' + Object.entries(sc.strong).map(([k, n]) => `${k}×${n}`).join(' ') + ' (先生が OK なら songs.txt の その行に「| allow」を足す)');
+  if ((Object.keys(sc.strong).length || Object.keys(sc.hard).length) && !e.allow) throw new Error('歌詞に ふさわしくない内容: ' + rejectReason(sc) + ' (先生が OK なら songs.txt の その行に「| allow」を足す)');
   if (counts[4] < 12) throw new Error(`英語のブランク候補が少なすぎます(${counts[4]}こ)。英語が多い曲を選んでください`);
   const song = { id, yt: id, diff: calcDiff(lines), title, artist, dur: dur || res.dur || Math.ceil(lines[lines.length - 1].e + 5), lrcDur: res.dur || 0, source, offset: e.offset, lines };
   fs.writeFileSync(out, JSON.stringify(song));
@@ -260,7 +260,8 @@ function rebuildIndex() {
     const sj = JSON.parse(fs.readFileSync(path.join(SONGS, x.id + '.json'), 'utf8'));
     const sc = scanLines(sj.lines);
     const f = (o) => Object.entries(o).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k}×${n}`).join(' ');
-    if (Object.keys(sc.strong).length || Object.keys(sc.mild).length) rev.push(`${x.artist} - ${x.title}\n   ${Object.keys(sc.strong).length ? '【要注意】' + f(sc.strong) + '\n   ' : ''}${f(sc.mild)}`);
+    const bad = rejectReason(sc);
+    if (bad || Object.keys(sc.review).length) rev.push(`${x.artist} - ${x.title}\n   ${bad ? '【要注意】' + bad + '\n   ' : ''}${f(sc.review)}`);
   }
   fs.writeFileSync(path.join(SONGS, 'REVIEW.txt'), '# 歌詞に気になることばを含む曲 (先生チェック用。自動で作られます)\n\n' + rev.join('\n\n') + '\n');
   fs.writeFileSync(path.join(SONGS, 'index.json'), JSON.stringify(idx));

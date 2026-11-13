@@ -3,7 +3,7 @@ search: HUNTR/X - Golden | genre=アニメ・映画 | year=2025
 search: Brad Kane, Lea Salonga - A Whole New World | genre=アニメ・映画 | year=1992
      → 曲の長さ(161/270/162/159秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
 search: Judy Kuhn - Colors of the Wind | genre=アニメ・映画 | year=1995
-     → 曲の長さ(215/230/228/213/212秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
+     → 曲の長さ(230/215/228/213/212秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
 search: Kristen Bell, Santino Fontana - Love Is an Open Door | genre=アニメ・映画 | year=2013
      → 曲の長さ(125/127秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
 search: Josh Gad - In Summer | genre=アニメ・映画 | year=2013
@@ -25,7 +25,7 @@ search: Mandy Moore - When Will My Life Begin | genre=アニメ・映画 | year=
 search: Mandy Moore, Zachary Levi - I See the Light | genre=アニメ・映画 | year=2010
      → 曲の長さ(224/359/222/204/241秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
 search: Phil Harris, Bruce Reitherman - The Bare Necessities | genre=アニメ・映画 | year=1967
-     → 曲の長さ(292/291/288秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
+     → 曲の長さ(291/292/288秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
 search: Scatman Crothers - Everybody Wants to Be a Cat | genre=アニメ・映画 | year=1970
      → 曲の長さ(122秒)と合う公式っぽい動画が見つかりません。URLを直接書いてください
 search: Cliff Edwards - When You Wish Upon a Star | genre=アニメ・映画 | year=1940

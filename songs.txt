@@ -14,7 +14,7 @@ https://www.youtube.com/watch?v=1MPZRcyTrcU | Randy Newman - You've Got a Friend
 # --- 日本の小中学生に人気の曲 (search: は成功すると URL に自動で書きかわります) ---
 search: HUNTR/X - Golden | genre=アニメ・映画 | year=2025
 https://www.youtube.com/watch?v=YVVTZgwYwVo | Idina Menzel - Let It Go | genre=アニメ・映画 | year=2013
-https://www.youtube.com/watch?v=c6rP-YP4c5I | Shakira - Try Everything | genre=アニメ・映画 | year=2016
+# 実写のMV(アニメの映像ではない)ので外した: https://www.youtube.com/watch?v=c6rP-YP4c5I | Shakira - Try Everything | genre=アニメ・映画 | year=2016
 # 今は使わない(アニメ映画いがい): https://www.youtube.com/watch?v=gdZLi9oWNZg | BTS - Dynamite | genre=K-POP | year=2020
 # 今は使わない(アニメ映画いがい): https://www.youtube.com/watch?v=ArmDp-zijuc | NewJeans - Super Shy | genre=K-POP | year=2023
 # 公式で長さの合う動画が見つからず外した: Pharrell Williams - Happy | genre=ポップ | year=2013
@@ -22,13 +22,13 @@ https://www.youtube.com/watch?v=c6rP-YP4c5I | Shakira - Try Everything | genre=�
 # 公式で長さの合う動画が見つからず外した: Creepy Nuts - Bling-Bang-Bang-Born | genre=J-POP | year=2024
 
 # --- 追加 (2回め): 学校・テレビ・ネットでなじみのある曲。悪いことばを含む曲は自動でことわられます ---
-https://www.youtube.com/watch?v=gIOyB9ZXn8s | Idina Menzel, AURORA - Into the Unknown | genre=アニメ・映画 | year=2019
+https://www.youtube.com/watch?v=gIOyB9ZXn8s | Idina Menzel, AURORA - Into the Unknown | genre=アニメ・映画 | year=2019 | offset=-1.2
 https://www.youtube.com/watch?v=bvWRMAU6V-c | Encanto Cast - We Don't Talk About Bruno | genre=アニメ・映画 | year=2021
 https://www.youtube.com/watch?v=cPAbx5kgCJo | Auli'i Cravalho - How Far I'll Go | genre=アニメ・映画 | year=2016
 search: Brad Kane, Lea Salonga - A Whole New World | genre=アニメ・映画 | year=1992
-https://www.youtube.com/watch?v=GC_mV1IpjWA | Samuel E. Wright - Under the Sea | genre=アニメ・映画 | year=1989
+https://www.youtube.com/watch?v=GC_mV1IpjWA | Samuel E. Wright - Under the Sea | genre=アニメ・映画 | year=1989 | offset=6.9
 https://www.youtube.com/watch?v=GibiNy4d4gc | Carmen Twillie, Lebo M. - Circle of Life | genre=アニメ・映画 | year=1994
-https://www.youtube.com/watch?v=KjgWWjkNbhU | Elton John - Can You Feel the Love Tonight | genre=アニメ・映画 | year=1994
+# 実写のMV(アニメの映像ではない)ので外した: https://www.youtube.com/watch?v=KjgWWjkNbhU | Elton John - Can You Feel the Love Tonight | genre=アニメ・映画 | year=1994
 search: Judy Kuhn - Colors of the Wind | genre=アニメ・映画 | year=1995
 # 今は使わない(アニメ映画いがい): https://www.youtube.com/watch?v=pSQk-4fddDI | The Greatest Showman Cast - A Million Dreams | genre=アニメ・映画 | year=2017
 # 公式で長さの合う動画が見つからず外した: Bruno Mars - Count on Me | genre=ポップ | year=2010
@@ -82,7 +82,7 @@ search: Judy Kuhn - Colors of the Wind | genre=アニメ・映画 | year=1995
 # 公式で長さの合う動画が見つからず外した: XG - Tippy Toes | genre=J-POP | year=2022
 
 # --- アニメ映画の歌 (公式の映画ビデオがあるものだけ。search: は成功すると URL に自動で書きかわります) ---
-https://www.youtube.com/watch?v=V-zXT5bIBM0 | Kristen Bell, Agatha Lee Monn - Do You Want to Build a Snowman? | genre=アニメ・映画 | year=2013 | pin
+https://www.youtube.com/watch?v=V-zXT5bIBM0 | Kristen Bell, Agatha Lee Monn - Do You Want to Build a Snowman? | genre=アニメ・映画 | year=2013 | pin | offset=1.8
 # 動画なし(外した): https://www.youtube.com/watch?v=CQgII5kavwY | Kristen Bell, Idina Menzel - For the First Time in Forever | genre=アニメ・映画 | year=2013
 search: Kristen Bell, Santino Fontana - Love Is an Open Door | genre=アニメ・映画 | year=2013
 search: Josh Gad - In Summer | genre=アニメ・映画 | year=2013
@@ -92,7 +92,7 @@ search: Encanto Cast - Waiting on a Miracle | genre=アニメ・映画 | year=20
 search: Nathan Lane, Ernie Sabella, Jason Weaver - Hakuna Matata | genre=アニメ・映画 | year=1994
 # 動画なし(外した): https://www.youtube.com/watch?v=T5lq8ottT7s | Jason Weaver, Rowan Atkinson - I Just Can't Wait to Be King | genre=アニメ・映画 | year=1994
 search: Robin Williams - Friend Like Me | genre=アニメ・映画 | year=1992
-https://www.youtube.com/watch?v=SXKlJuO07eM | Jodi Benson - Part of Your World | genre=アニメ・映画 | year=1989
+https://www.youtube.com/watch?v=SXKlJuO07eM | Jodi Benson - Part of Your World | genre=アニメ・映画 | year=1989 | offset=-4.0
 # 動画なし(外した): https://www.youtube.com/watch?v=T_UTMNqva40 | Jerry Orbach - Be Our Guest | genre=アニメ・映画 | year=1991
 search: Angela Lansbury - Beauty and the Beast | genre=アニメ・映画 | year=1991
 search: Mandy Moore - When Will My Life Begin | genre=アニメ・映画 | year=2010
@@ -102,7 +102,7 @@ search: Scatman Crothers - Everybody Wants to Be a Cat | genre=アニメ・映�
 search: Cliff Edwards - When You Wish Upon a Star | genre=アニメ・映画 | year=1940
 search: Phil Collins - You'll Be in My Heart | genre=アニメ・映画 | year=1999
 search: Roger Bart - Go the Distance | genre=アニメ・映画 | year=1997
-https://www.youtube.com/watch?v=RNprQYHenNI | Christina Aguilera - Reflection | genre=アニメ・映画 | year=1998
+# 実写のMV(アニメの映像ではない)ので外した: https://www.youtube.com/watch?v=RNprQYHenNI | Christina Aguilera - Reflection | genre=アニメ・映画 | year=1998
 search: Billy Crystal, John Goodman - If I Didn't Have You | genre=アニメ・映画 | year=2001
 search: Mark Keali'i Ho'omalu - Hawaiian Roller Coaster Ride | genre=アニメ・映画 | year=2002
 search: Rascal Flatts - Life Is a Highway | genre=アニメ・映画 | year=2006

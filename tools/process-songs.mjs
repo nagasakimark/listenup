@@ -340,7 +340,8 @@ async function processOne(e) {
   if (!res || res.lines.length < 4) throw new Error('時間つき歌詞が見つかりませんでした (songs/src/' + id + '.lrc に自分で置くこともできます)');
   log(`   歌詞: ${source} ${res.note || ''} / ${res.lines.length}行`);
 
-  const lines = res.lines.map((l) => ({ t: +l.t.toFixed(2), e: +l.e.toFixed(2), w: tokenizeLine(l.text) })).filter((l) => l.w.length);
+  // offset をたしたら 0秒より前になる行(動画に入っていない部分)は すてる
+  const lines = res.lines.map((l) => ({ t: +l.t.toFixed(2), e: +l.e.toFixed(2), w: tokenizeLine(l.text) })).filter((l) => l.w.length && l.t + (e.offset || 0) >= 0);
   const counts = [0, 1, 2, 3, 4].map((lv) => lines.reduce((n, l) => n + l.w.filter((w) => w[3] <= lv && w[1].length >= 3 && !w[5]).length, 0));
   const words = lines.reduce((n, l) => n + l.w.length, 0);
   const sc = scanLines(lines);
@@ -367,6 +368,8 @@ function rebuildIndex() {
   const idx = [];
   for (const f of fs.readdirSync(SONGS)) {
     if (!f.endsWith('.json') || f === 'index.json' || f === 'demo.json') continue;
+    // songs.txt で # をつけて外した曲は、データが残っていても 一覧に出さない
+    if (!meta.has(f.replace(/\.json$/, ''))) { log(`   (一覧から外す: ${f} は songs.txt に ありません)`); continue; }
     const s = JSON.parse(fs.readFileSync(path.join(SONGS, f), 'utf8'));
     const counts = [0, 1, 2, 3, 4].map((lv) => s.lines.reduce((n, l) => n + l.w.filter((w) => w[3] <= lv && w[1].length >= 3 && !w[5]).length, 0));
     const m = meta.get(s.id) || {};
